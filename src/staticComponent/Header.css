@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+.main-container {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 30px;
+  /* border: 2px solid; */
+  justify-content: space-between;
+}
+
+.main-logo{
+  font-size: 50px;
+  color: rgb(38, 186, 1);
+  font-family: 'Lobster', cursive;
+  margin: 0 5rem;
+  background: none;
+  border-style: none;
+}
+.main-logo:hover{
+  color: rgb(0, 128, 41);
+  transition: all 0.3s ease-in-out;
+}
+
+.header-menulist {
+    list-style: none;
+    display: flex;
+    margin-left: 100px;
+    margin-top: 30px;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+.header-user {
+    list-style: none;
+    display: flex;
+    margin-left: 40px;
+    margin-top: 10px;
+    font-family: 'Do Hyeon', sans-serif;
+  }
+
+.nav-item{
+  color: black;
+  padding: 0 1rem;
+  text-decoration: none;
+  /* border: 1px solid blueviolet; */
+}
+.nav-item:hover{
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    color: pink;
+}
+
+.line{
+  background-color: rgb(0, 0, 0);
+  width: 80%;
+  height: 7px;
+  margin-top: 20px;
+  margin-left: 10%;
+}
+.media-bar{
+  display: none;
+}
+
+.list-icon, .x-icon{
+  display: none;
+}
+  @media screen and (max-width: 780px) {
+    .none{
+      display: none;
+    }
+    .main-container.active{
+      display: flex;
+      background-color: black;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.5s ease-out;
+    }
+    .main-logo{
+      font-size: 2em;
+      margin-left: 25%;
+      background: none;
+    }
+    .list-icon{
+      display: flex;
+      font-size: 38px;
+      background: none;
+      border-style: none;
+      cursor: pointer;
+      padding: 0;
+      margin-left: 1rem;
+    }
+    .x-icon{
+      display: flex;
+      font-size: 28px;
+      background: none;
+      border-style: none;
+      cursor: pointer;
+      color: white;
+      margin-top: 20px;
+    }
+    .list-icon:hover, .x-icon:hover{
+      color: pink;
+      transition: all 0.3s ease-in-out;
+    }
+    .header-menulist, .header-user {
+      display: none;
+    }
+    .header-menulist.active, .header-user.active{
+      display: block;
+      margin-left: 1%;
+      justify-content: space-between;
+      transition: all 0.3s ease-in-out;
+    }
+    .nav-item{
+      padding: 10px 10px;
+      border-bottom: 2px solid white;
+      text-align: center;
+      color: white;
+    }
+  }
