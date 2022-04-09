@@ -22,6 +22,8 @@ function Main(){
       </div>
       <div className="left">
         <Sliders/>
+      </div>
+      <div>
         <Tab/>
       </div>
       <Footer/>

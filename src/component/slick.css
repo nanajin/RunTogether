@@ -1,14 +1,10 @@
 /* Slider */
 .slick-slider
 {
-    /* background-color: rgb(26, 211, 9); */
     position: relative;
     width: 600px;
     height: 300px;
-    /* width: 40vw;
-    height: 40vh; */
     margin-left: 12%;
-    /* margin-top: 100px; */
     display: block;
     box-sizing: border-box;
 
@@ -44,24 +40,20 @@ img{
 
 @media screen and (max-width:780px) {
   .slick-slider{
-    /* background-color: rgb(26, 211, 9); */
-    position: relative;
-    width: 100px;
-    height: 100px;
-    /* width: 40vw;
-    height: 40vh; */
-    margin-left: 12%;
-    /* margin-top: 100px; */
-    display: block;
-    box-sizing: border-box;
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    display: flex;
   }
   img{
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: auto;
   }
   .challengeText{
-    width: 70vw;
+    width: 70%; 
     font-size: 2em;
+    margin: auto;
+    margin-top: 30px;
   }
 }
 /**/

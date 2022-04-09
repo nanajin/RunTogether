@@ -8,7 +8,6 @@ function Header(){
   const [toggle, setToggle] = useState(false); //미디어 버전
   // const [header, setHeader] = useState(false);
 
-  //헤더는 메인화면에서, 다른 페이지로 가면 내비바로 바꾸기?
   return(
     <>
       <div className={toggle?"main-container active":"main-container"}>

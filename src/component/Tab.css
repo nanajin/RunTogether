@@ -1,6 +1,6 @@
 .nav-link{
   border-style: none;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
   font-size: 1rem; /*18px*/
   background: none;
   color: blueviolet;
@@ -16,6 +16,7 @@
   padding: 10px 20px;
   border-radius: 0.5em;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .nav{
@@ -40,12 +41,14 @@
     width: 77%;
   }
   .nav-link{
-    width: 10vw;
-    border: 1px solid peru;
+    width: auto;
+    border-bottom: 2px solid black;
   }
   .nav{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 100px;
+    margin-left: 5%;
   }
-
 }

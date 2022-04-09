@@ -12,12 +12,13 @@ function Sliders(){
     slidesToShow: 1, //한 화면에 보이는 콘텐츠 수
     slidesToScroll: 1, //한번에 넘어가는 콘텐츠 수
     autoplay: true,
-    autoplaySpeed: 2500, //2초
+    autoplaySpeed: 2500, //2.5초
     pauseOnHover: true,
     className: "center",
     centerMode: true,
     // centerPadding: "60px"
   };
+  
   return(
     <div>
       <p className='challengeText'>Challenge</p>

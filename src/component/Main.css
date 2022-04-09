@@ -10,8 +10,6 @@
   margin:0;
 }
 .main_login{
-  /* display: flex; */
-  /* flex-direction: column; */
   width: 400px;
   height: 220px;
   border: 1px solid black;
@@ -54,7 +52,6 @@ p{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 2px solid red;
   }
   .main_login{
     display: block;
@@ -64,13 +61,11 @@ p{
     background-color: linen;
     border-radius: 2em;
     text-align: center;
-    margin: 20px auto;
-    /* margin-bottom: 20px; */
+    margin: 100px auto;
   }
   .left{
     width:100%;
-    border: 2px solid blue;
     padding: 0;
-    margin-top: 70%;
+    margin-top: 60%;
   }
 }
