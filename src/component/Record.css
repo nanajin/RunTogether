@@ -1,0 +1,71 @@
+h1{
+  color: rgb(222, 28, 170);
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 70px;
+}
+.map{
+  width: 500px;
+  height: 500px;
+  border: 1px solid;
+  margin: auto;
+}
+.recordButton{
+  height: 10vh;
+  width: 500px;
+  display: flex;
+  /* border: 1px solid rebeccapurple; */
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  /* margin-left: 30%; */
+}
+.startButton,.stopButton, .pauseButton, .resetButton,.recordBtn:hover{
+  cursor: pointer;
+}
+.startButton,.stopButton{
+  font-size: 50px;
+  /* color: white;
+  background-color: black; */
+  border-style: none;
+  /* border: 3px solid black; */
+  padding: 7px 5px 0px 5px;
+  background: none;
+}
+.pauseButton{
+  font-size: 50px;
+  border-style: none;
+  padding: 7px 5px 0px 5px;
+  background: none;
+  margin: auto;
+}
+.resetButton,.recordBtn{
+  font-size: 20px;
+  color: rgb(239, 112, 112);
+  text-decoration:underline;
+  /* background-color: black; */
+  /* border-radius: 20px; */
+  border-style: none;
+  background: none;
+  padding: 0px 20px 0px 20px;
+}
+.time{
+  border-bottom: 3px solid rgb(172, 233, 50);
+  width: fit-content;
+  font-size: 30px;
+  text-align: center;
+  margin: auto;
+  padding: 50px 0px 0px 0px;
+  /* margin-left: auto; */
+}
+.record{
+  width: 500px;
+  height: fit-content;
+  margin: auto;
+  margin-bottom: 20px;
+  border: 2px solid rgb(172, 233, 50);
+  white-space: pre-wrap;
+  font-size: 20px;
+  text-align: center;
+}

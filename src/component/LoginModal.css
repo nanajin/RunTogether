@@ -1,0 +1,45 @@
+.login{
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: 80%;
+  width: 30%;
+  min-width: 300px;
+  max-width: 600px;
+  overflow-y: auto;
+  position: fixed;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  z-index: 1011;
+  box-sizing: border-box;
+  border-radius: 1em;
+}
+h3{
+  margin-top: 30%;
+}
+.title{
+  font-size: larger;
+}
+.id{
+  padding: auto;
+  margin-top: 10%;
+  margin-left: 33%;
+  display: flex;
+}
+.pw{
+  margin-top: 5px;
+  margin-left: 33%;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width:780px) {
+  h3{
+    margin-top: 50%;
+  }
+  .id, .pw{
+    margin-left: 20%;
+  }
+}
