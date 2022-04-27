@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './Tab.css';
+import styles from './Tab.module.css';
 
 function Tab(){
   const [active, setActive] = useState(0); //0번째 버튼
@@ -11,19 +11,19 @@ function Tab(){
   
   return(
     <>
-    <ul className="nav">
-      <li className="nav-item">
-        <button className={`${active === 0? 'nav-link-active':'nav-link'}`} onClick={()=>{setActive(0)}}>전체 랭킹</button>
+    <ul className={styles.nav}>
+      <li className={styles.nav_item}>
+        <button className={`${active === 0? styles.nav_link_active:styles.nav_link}`} onClick={()=>{setActive(0)}}>전체 랭킹</button>
 
       </li>
-      <li className="nav-item">
-        <button className={`${active === 1? 'nav-link-active':'nav-link'}`} onClick={()=>{setActive(1)}}>기록 랭킹</button>
+      <li className={styles.nav_item}>
+        <button className={`${active === 1? styles.nav_link_active:styles.nav_link}`} onClick={()=>{setActive(1)}}>기록 랭킹</button>
       </li>
-      <li className="nav-item">
-        <button className={`${active === 2? 'nav-link-active':'nav-link'}`} onClick={()=>{setActive(2)}}>기부 랭킹</button>
+      <li className={styles.nav_item}>
+        <button className={`${active === 2? styles.nav_link_active:styles.nav_link}`} onClick={()=>{setActive(2)}}>기부 랭킹</button>
       </li>
     </ul>
-    <div className="rank-content">
+    <div className={styles.rank_content}>
       {showContent[active]}
     </div>
     </>

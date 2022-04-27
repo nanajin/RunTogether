@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {BsPlayCircleFill,BsFillStopCircleFill,BsPauseCircleFill} from "react-icons/bs"
-import '../component/Record.css'
+import styles from '../component/Record.module.css'
 
 function Record(){
   const [time, setTime] = useState(0); //시간 나타내주기
@@ -36,33 +36,33 @@ function Record(){
   return(
     <>
       <h1>Let's Run Together!</h1>
-      <div className="map">지도</div>
-      <div className="time">
+      <div className={styles.map}>지도</div>
+      <div className={styles.time}>
         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
         <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
         <span>{("0" + (time / 10) % 100).slice(-2)}</span>
       </div>
-      <div className="recordButton">
+      <div className={styles.recordButton}>
         {!onBtn &&(
-          <button className="startButton" onClick={()=>{setOnBtn(true)}}><BsPlayCircleFill/></button>
+          <button className={styles.startButton} onClick={()=>{setOnBtn(true)}}><BsPlayCircleFill/></button>
         )}
         {!onBtn && (
-          <button className="stopButton" onClick={showTime}><BsFillStopCircleFill/></button>
+          <button className={styles.stopButton} onClick={showTime}><BsFillStopCircleFill/></button>
         )}
         {onBtn && (
-          <button className="pauseButton" onClick={()=>{setOnBtn(false)}}><BsPauseCircleFill/></button>   
+          <button className={styles.pauseButton} onClick={()=>{setOnBtn(false)}}><BsPauseCircleFill/></button>   
         )}
         {!onBtn && (
-          <button className="resetButton" onClick={()=>{setTime(0)}}>Reset Time</button>   
+          <button className={styles.resetButton} onClick={()=>{setTime(0)}}>Reset Time</button>   
         )}    
         {/* {!onBtn&&(
         <button className="recordBtn" onClick={showRecord}>Your Record</button>
         )} */}
         {!onBtn && (
-          <button className="recordBtn" onClick={()=>{setRecord([])}}> Reset Record </button>   
+          <button className={styles.recordBtn} onClick={()=>{setRecord([])}}> Reset Record </button>   
         )}   
       </div>
-      <div className="record">
+      <div className={styles.record}>
           {record}
       </div>
     </>

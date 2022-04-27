@@ -34,7 +34,16 @@ h3{
   display: flex;
   align-items: center;
 }
-
+.x{
+  margin-top: auto;
+  display: flex;
+  font-size: 28px;
+  background: none;
+  border-style: none;
+  cursor: pointer;
+  color: white;
+  margin: 20px auto;
+}
 @media screen and (max-width:780px) {
   h3{
     margin-top: 50%;

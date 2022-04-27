@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+.main{
+  /* background-color: lightblue; */
+}
+.runImage{
+  width: 80%;
+  height: 750px;
+  margin-left: 10%;
+  margin-top: 15px;
+  border-radius: 1em;
+  background-image: url(/public/image/run.jpg);
+  background-size: cover;
+  position: relative; /*이미지 위에 겹치게 할 수 있는 position*/
+}
+.introduction{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /*이미지 가운데에 글자 위치*/
+}
+.introduction > p{
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+.introduction > button{
+  background-color: black;
+  color: aliceblue;
+  border: none;
+  border-radius: 1em;
+  padding: 15px;
+  font-size: medium;
+  margin-left: 40%;
+}
+.introduction > button:hover{
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.main_userbox{
+  width: 400px;
+  height: 220px;
+  border: 1px solid black;
+  background-color: linen;
+  border-radius: 2em;
+  text-align: center;
+  margin-right: 12%;
+  margin-top: 7%;
+  float: right;
+  font-family: 'Do Hyeon', sans-serif;
+}
+.afterlogin > img{
+  width: 100px;
+  height: 100px;
+  float: left;
+  border: 1px solid red;
+  margin: 10%;
+}
+.afterlogin > p{
+  font-size: 20px;
+  float: right;
+  margin-top: 17%;
+  margin-right: 15%;
+  border: 1px solid red;
+}
+.m_update_btn, .m_mypage_btn{
+  color: black;
+  background: none;
+  border: none;
+  padding: 10px;
+  margin-top: 50px;
+  margin-right: 10px;
+}
+.m_update_btn:hover, .m_mypage_btn:hover{
+  color: rgb(244, 77, 105);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.m_login_btn{
+  margin-top: 40px;
+  background-color: rgb(62, 203, 24);
+  color: white;
+  /* text-align: center; */
+  border: 1px solid black;
+  border-radius: 2em;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px 60px 10px 60px;
+}
+
+.m_signup_btn{
+  background-color: black;
+  color: white;
+  padding: 10px 30px 10px 30px; /*시계방향*/
+  border-radius: 2em;
+  font-size: 15px;
+  font-family: 'Do Hyeon', sans-serif;
+  cursor: pointer;
+}
+.beforelogin > p{
+  padding-top: 12px;
+  font-size: medium;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+@media screen and (max-width: 780px){
+  .mobile{
+    display: flex;
+    flex-direction: column;
+  }
+  .main_userbox{
+    width: 60vw;
+    height: 30vh;
+    margin: 20%;
+  }
+  .left{
+    display: block;
+    width:100%;
+    margin-top: 200px;
+  }
+}

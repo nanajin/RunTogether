@@ -1,48 +1,36 @@
 import React from 'react';
-import '../staticComponent/Footer.css';
+import styles from '../staticComponent/Footer.module.css';
 import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div className='footer-container'>
-      <section className='footer-subscription'>
-        <p className='footer-subscription-heading'>
+    <div className={styles.footer_container}>
+      <section className={styles.footer_subscription}>
+        <p className={styles.footer_subscription_text}>
           Thanks for your Visiting!
         </p>
-        <p className='footer-subscription-text'>
+        <p className={styles.footer_subscription_text}>
           -Run Together-
         </p>
-        {/* <div className='input-areas'>
-          <form>
-            <input
-              className='footer-input'
-              name='email'
-              type='email'
-              placeholder='Your Email'
-            />
-            <Button buttonStyle='btn--outline'>Subscribe</Button>
-          </form>
-        </div> */}
       </section>
-      <div class='footer-links'>
-        <div className='footer-link-wrapper'>
-          <div class='footer-link-items'>
+      <div className={styles.footer_links}>
+        <div className={styles.footer_link_wrapper}>
+          <div className={styles.footer_link_items}>
             <h2>About Us</h2>
-            <Link to='/'>How it works</Link>
-            <Link to='/'>Testimonials</Link>
-            <Link to='/'>Careers</Link>
-            <Link to='/'>Investors</Link>
-            <Link to='/'>Terms of Service</Link>
+            <Link to='/about'>Introduction</Link>
+            <Link to='/about'>Roles</Link>
+            <Link to='/about'>How it works</Link>
+            {/* <Link to='/'>Terms of Service</Link> ->서비스 약관 */}
           </div>
-          <div class='footer-link-items'>
+          <div className={styles.footer_link_items}>
             <h2>Contact Us</h2>
-            <Link to='/'>Contact</Link>
-            <Link to='/'>Support</Link>
-            <Link to='/'>Destinations</Link>
-            <Link to='/'>Sponsorships</Link>
+            <Link to='/about'>Contact</Link>
+            <Link to='/about'>Support</Link>
+            <Link to='/about'>Destinations</Link>
           </div>
         </div>
-        <div className='footer-link-wrapper'>
+        {/* <div className='footer-link-wrapper'>
+        
           <div class='footer-link-items'>
             <h2>Videos</h2>
             <Link to='/'>Submit Video</Link>
@@ -50,6 +38,7 @@ function Footer() {
             <Link to='/'>Agency</Link>
             <Link to='/'>Influencer</Link>
           </div>
+          
           <div class='footer-link-items'>
             <h2>Social Media</h2>
             <Link to='/'>Instagram</Link>
@@ -57,17 +46,17 @@ function Footer() {
             <Link to='/'>Youtube</Link>
             <Link to='/'>Twitter</Link>
           </div>
-        </div>
+        </div> */}
       </div>
-      <section class='social-media'>
-        <div class='social-media-wrap'>
-          <div class='footer-logo'>
-            <Link to='/' className='social-logo'>
+      <section className={styles.social_media}>
+        <div className={styles.social_media_wrap}>
+          <div className={styles.footer_logo}>
+            <Link to='/' className={styles.social_logo}>
               Run Together
             </Link>
           </div>
-          <small class='website-rights'>Run Together © 2022</small>
-          <div class='social-icons'>
+          <small className={styles.website_rights}>Run Together © 2022</small>
+          {/* <div class='social-icons'>
             <Link
               class='social-icon-link facebook'
               to='/'
@@ -108,7 +97,7 @@ function Footer() {
             >
               <i class='fab fa-linkedin' />
             </Link>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>

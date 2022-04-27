@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+.challenge > h3{
+  font-size: 30px;
+  color: violet;
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+  border-bottom: 7px solid violet;
+}
+.challenge > p{
+  text-align: center;
+  font-family: 'Do Hyeon', sans-serif;
+}

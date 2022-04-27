@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './Follow.css';
+import styles from './Follow.module.css';
 import {BsFillChatSquareDotsFill, BsSearch, BsFillPersonFill} from 'react-icons/bs';
 import LoginModal from "./LoginModal";
 function Follow(props){
@@ -22,23 +22,23 @@ function Follow(props){
   //채팅 친구는 백에 요청해서 팔로우한 친구들로 채울 것
   return(
     <>
-    <div className="follow-box">
+    <div className={styles.follow_box}>
     {/* <div className={`${login === true ? "follow-box": "none"}`}> */}
-      <p className="follow-text"> Chatting with Friends </p>
-      <div className="search">
+      <p className={styles.follow_text}> Chatting with Friends </p>
+      <div className={styles.search}>
         <form>
           <label><BsSearch/></label>
           <input type="search" name="name" placeholder="Search"></input> 
         </form>
       </div>
-      <div className="friend-box">  
-        <button className="user" onClick={()=>{HandleModal(true)}}><BsFillPersonFill/></button>
-        <button className="chat"><BsFillChatSquareDotsFill/></button>
+      <div className={styles.friend_box}>  
+        <button className={styles.user} onClick={()=>{HandleModal(true)}}><BsFillPersonFill/></button>
+        <button className={styles.chat}><BsFillChatSquareDotsFill/></button>
       </div>
       
-      <div className="friend-box">
-        <button className="user" onClick={()=>{HandleModal(true)}}><BsFillPersonFill/></button>
-        <button className="chat"><BsFillChatSquareDotsFill/></button> 
+      <div className={styles.friend_box}>
+        <button className={styles.user} onClick={()=>{HandleModal(true)}}><BsFillPersonFill/></button>
+        <button className={styles.chat}><BsFillChatSquareDotsFill/></button> 
       </div>
       
       <div>

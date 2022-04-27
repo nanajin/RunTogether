@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import '../staticComponent/NavBar.css';
-import '../staticComponent/Header.css';
+import styles from '../staticComponent/Header.module.css';
 import {BsList, BsXLg, BsFillPersonFill} from 'react-icons/bs';
 
 function Header(){
@@ -10,46 +9,45 @@ function Header(){
 
   return(
     <>
-      <div className={toggle?"main-container active":"main-container"}>
+      <div className={toggle? `${styles.main_container} ${styles.active}`: styles.main_container}>
           <Link to='/' onClick={()=>{setToggle(false)}}>
-            <button className="main-logo">Run Together</button>
+            <button className={styles.main_logo}>Run Together</button>
           </Link>
-          <ul className= {toggle ?'header-menulist active':'header-menulist'}>
-              <Link to ='/challenge'>
-                <li className="nav-item">Challenge</li>
-              </Link>
-              <Link to ='/' >
-                <li className="nav-item">Mate</li>
-              </Link>
-              <Link to ='/'>
-                <li className="nav-item">Community</li>
-              </Link>
-              <Link to ='/record'>
-                <li className="nav-item">Record</li>
-              </Link>
+          <ul className= {toggle ?`${styles.header_menulist} ${styles.active}`: styles.header_menulist}>
+              <li className={styles.nav_item}>
+                <Link to = '/challenge'>Challenge</Link>
+              </li>
+              <li className={styles.nav_item}>
+                <Link to = '/'>Mate</Link>
+              </li>
+              <li className={styles.nav_item}>
+                <Link to = '/'>Community</Link>
+              </li>
+              <li className={styles.nav_item}>
+                <Link to = '/record'>Record</Link>
+              </li>
           </ul>
 
-          <ul className= {toggle ?'header-user active':'header-user'}>
-            <Link to ='/login'>
-              <li className="nav-item">Login</li>
-            </Link>
-            <Link to ='/signup'>
-              <li className="nav-item">Sign Up</li>
-            </Link>
-          </ul>
+          {/* <ul className= {toggle ?`${styles.header_user} ${styles.active}`: styles.header_user}>
+            <li className={styles.nav_item}>
+              <Link to = '/login'>Login</Link>
+            </li>
+            <li className={styles.nav_item}>
+              <Link to = '/signup'>Sign Up</Link>
+            </li>
+            
+           
+          </ul> */}
           
-          {/* <button className={toggle?"none":"person-icon"} onClick={()=>{setToggle(true)}}>
-            <BsFillPersonFill/>
-          </button> */}
-          <button className={toggle?"none":"list-icon"} onClick={()=>{setToggle(true)}}>
+          <button className={toggle? styles.none: styles.list_icon} onClick={()=>{setToggle(true)}}>
             <BsList/>
           </button>
-          <button className={toggle?"x-icon":"none"} onClick={()=>{setToggle(false)}}>
+          <button className={toggle? styles.x_icon: styles.none} onClick={()=>{setToggle(false)}}>
             <BsXLg/>
           </button>
       </div>
       
-      <div className={toggle?"none":"line"}></div>
+      {/* <div className={toggle? styles.none: styles.line}></div> */}
     </>
   )
 }

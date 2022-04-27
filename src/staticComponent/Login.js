@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import {Link, Navigate, Redirect, useNavigate} from 'react-router-dom';
 import LoginModal from "../component/LoginModal";
-import Headers from "../staticComponent/Header"
-import Footer from "../staticComponent/Footer";
+import Headers from "./Header"
+import Footer from "./Footer";
 import axios from "axios";
 
 function Login(props){

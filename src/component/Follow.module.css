@@ -1,14 +1,14 @@
 .none{
   display: none;
 }
-.follow-box{
+.follow_box{
   margin-top: 50px;
   border: 2px solid rgb(135, 201, 36);
   border-radius: 1em;
   width: 401px;
   /* width: 26vw; */
 }
-.friend-box{
+.friend_box{
   width: 350px;
   height: 60px;
   margin-top: 5px;
@@ -21,7 +21,7 @@
   align-items: center;
 
 }
-.follow-text{
+.follow_text{
   font-size: 30px;
   text-align: center;
   color: rgb(135, 201, 36);
@@ -56,10 +56,10 @@
 }
 
 @media screen and (max-width: 780px){
-  .follow-box{
+  .follow_box{
     width: 100%;
   }
-  .friend-box{
+  .friend_box{
     width: 100%;
     margin: auto;
   }
