@@ -28,16 +28,14 @@ function Header(){
               </li>
           </ul>
 
-          {/* <ul className= {toggle ?`${styles.header_user} ${styles.active}`: styles.header_user}>
+          <ul className= {toggle ?`${styles.header_user} ${styles.active}`: styles.header_user}>
             <li className={styles.nav_item}>
               <Link to = '/login'>Login</Link>
             </li>
             <li className={styles.nav_item}>
               <Link to = '/signup'>Sign Up</Link>
-            </li>
-            
-           
-          </ul> */}
+            </li>  
+          </ul>
           
           <button className={toggle? styles.none: styles.list_icon} onClick={()=>{setToggle(true)}}>
             <BsList/>

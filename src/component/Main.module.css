@@ -102,7 +102,9 @@
   font-size: medium;
   font-family: 'Do Hyeon', sans-serif;
 }
-
+.tab{
+  margin-left: 20%;
+}
 @media screen and (max-width: 780px){
   .mobile{
     display: flex;

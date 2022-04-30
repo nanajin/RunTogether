@@ -7,6 +7,7 @@ import Header from "../staticComponent/Header";
 import Follow from "./Follow";
 import Tab from "./Tab";
 import LoginModal from "./LoginModal";
+import Cards from "./Cards";
 
 function Main(){
   const isLogin = true;
@@ -17,7 +18,7 @@ function Main(){
   return(
     <>
     <div className={styles.main}>
-    <Header/>
+      <Header/>
       <div className={styles.runImage}>
         <div className={styles.introduction}>
           <p>Run Together With Your Friends</p>
@@ -25,10 +26,11 @@ function Main(){
         </div>
         <div>
         {isModalOn && <LoginModal setIsModalOn={setIsModalOn}/>}
+        </div>
       </div>
-      </div>
+    
 
-    <div className={styles.mobile}>
+    {/* <div className={styles.mobile}>
       <div className={styles.main_userbox}>
         {isLogin?
           <div className={styles.afterlogin}>
@@ -55,15 +57,16 @@ function Main(){
           </div>
         }
         <Follow/>
-      </div>
+      </div> */}
 
-      <div className={styles.left}>
-        <Sliders/>
-      </div>
-      <div>
+      {/* <div className={styles.left}> */}
+        <Cards/>
+      {/* </div> */}
+      <div className={styles.tab}>
         <Tab/>
       </div>
-      <Footer/>
+      <div>
+        <Footer/>
       </div>
       </div>
 

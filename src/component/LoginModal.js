@@ -14,16 +14,30 @@ function LoginModal(props){
   const [pwd, setPwd] = useState("");
   const navigate = useNavigate();
 
-  const onSubmitBtn=()=>{ 
-    axios.post('/api/login',{
-      "email": email,
-      "pwd": pwd
+  const onSubmitBtn=()=>{
+    axios({
+      url: "/api/login",
+      method:"post",
+      // headers:{"Access-Control-Allow-Origin":"*"},
+      data: {
+        "email": email,
+        "pwd": pwd,
+      }
     }).then((res)=>{
       console.log(res);
     }).catch(e=>{
       console.log(e);
-    });
-  };
+    })
+    // axios.post('/api/login',{
+    //   "email": email,
+    //   "pwd": pwd
+    // }).then((res)=>{
+    //   console.log(res);
+    // }).catch(e=>{
+    //   console.log(e);
+    // });
+   }
+
   const modalOff=()=>{
     props.setIsModalOn(false);
   };

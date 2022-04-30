@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from '../src/component/App';
-import ScrollToTop from './component/ScrollToTop';
-// import axios from 'axios';
+import axios from 'axios';
 
-// axios.defaults.baseURL="https://www.~~" // 공유하는 도메인 적기
-// axios.defaults.withCredentials = true;
+// axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
+// axios.defaults.baseURL="http://localhost:8080" // 공유하는 도메인 적기
+axios.defaults.withCredentials = true;
 
 ReactDOM.render(
-  // <BrowserRouter>
       <App />,
-  // </BrowserRouter>,
   document.getElementById('root')
 );

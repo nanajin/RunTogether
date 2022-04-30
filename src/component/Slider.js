@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from 'react-slick';
-import "C:/Users/nmj37/Desktop/js_test/react-project/src/component/slick-theme.css";
-import "C:/Users/nmj37/Desktop/js_test/react-project/src/component/slick.css";
+import "./slick-theme.css";
+import "./slick.css";
 import {BsFillCaretLeftFill, BsFillCaretRightFill} from "react-icons/bs";
 
 function Sliders(){
