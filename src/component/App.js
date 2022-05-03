@@ -2,7 +2,7 @@ import '../component/App.css';
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
 import MainPage from '../page/MainPage';
 import SignUpPage from '../page/SignUpPage';
-import Login from '../staticComponent/Login';
+import Login from '../staticComponent/LoginPage';
 import RecordPage from '../page/RecordPage';
 import ChallengePage from '../page/ChallengePage';
 import axios from 'axios';
@@ -14,8 +14,13 @@ import Main from './Main';
 import Challenge from './Challenge';
 import ScrollToTop from './ScrollToTop';
 import Chat from './Chat/Chat';
+import Register from '../component/Register.tsx';
+import MyPage from '../page/MyPage';
+import PayApprove from './kakao/PayApprove';
+import PayReady from './kakao/PayReady';
 function App(props) {
   const [login, setLogin] = useState(true);
+
 
   return (
     <>
@@ -27,7 +32,10 @@ function App(props) {
         <Route path='/login' element={<Login/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/userupdate' element={<UserUpdate/>}/>
-        <Route path='/mypage' element={<UserUpdate/>}/>
+        <Route path='/mypage' element={<MyPage/>}/>
+        <Route path='/signup' element={<Register/>}/>
+        <Route path='/payapprove' element={<PayApprove/>}/>
+        {/* <Route path='/challenge' element={<PayReady/>}/> */}
 
         {login?
           <Route path='/record' element={<RecordPage/>}/>
