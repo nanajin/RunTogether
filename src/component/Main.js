@@ -22,11 +22,15 @@ function Main(){
       <div className={styles.runImage}>
         <div className={styles.introduction}>
           <p>Run Together With Your Friends</p>
-          <button onClick={()=>{HandleModal(true)}}>Get Started</button>
+          {/* <button onClick={()=>{HandleModal(true)}}>Get Started</button> */}
+          <Link to="/login">
+            <button className={styles.startbtn}>Get Started</button>
+          </Link>
+
         </div>
-        <div>
+        {/* <div>
         {isModalOn && <LoginModal setIsModalOn={setIsModalOn}/>}
-        </div>
+        </div> */}
       </div>
     
 

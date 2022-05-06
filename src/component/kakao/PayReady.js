@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import PayApprove from "./PayApprove";
+import "./Pay.css";
 
 function PayReady(){
   const [state, setState]=useState({
@@ -16,7 +16,6 @@ function PayReady(){
       item_name: "챌린지 기부",
       quantity: 1,
       total_amount: 2200,  //금액
-      // vat_amount: 200,
       tax_free_amount: 0,
       approval_url: "http://localhost:3000/payapprove",
       fail_url: "http://localhost:3000/payapprove",
@@ -36,8 +35,8 @@ const params = state.params;
     const{
       data:{next_redirect_pc_url, tid}
     } = res;
-    console.log(`"next_redirect: "${next_redirect_pc_url}`);
-    console.log(`"tid: "${tid}`);
+    // console.log(`"next_redirect: "${next_redirect_pc_url}`);
+    // console.log(`"tid: "${tid}`);
     // 응답 데이터로 갱신
     setState((prevState)=>({
       ...prevState,
@@ -49,10 +48,12 @@ const params = state.params;
   });
 
   return(
-    <>
-      <p>kakao pay</p>
-      <a href={state.next_redirect_pc_url}>link</a>
-    </>
+    <div className="ready_container">
+      <p>Kakao Pay로 결제</p>
+      <a href={state.next_redirect_pc_url}>
+        <img src="/image/kakaopay.png" alt="없음"></img>
+      </a>
+    </div>
   )
 }
 export default PayReady;

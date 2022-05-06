@@ -1,0 +1,48 @@
+.board_container{
+  background-color: rgb(255, 243, 226);
+  width: 60%;
+  margin: 20px auto;
+}
+.board_container > h1{
+  padding: 10px;
+  border-bottom: 1px solid black;
+  width: fit-content;
+  color: rgb(214, 55, 55);
+  margin-left: 20%;
+}
+.board_container > form{
+  margin-top: 20px;
+}
+.board_title, .board_contents{
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgb(190, 187, 187);
+  width: 60%;
+  font-size: 25px;
+  padding: 15px;
+  margin: 20px 20%;
+}
+.board_contents{
+  border: 1px solid rgb(190, 187, 187);
+  border-radius: 1em;
+  font-size: 16px;
+  height: 500px;
+  resize: none;
+}
+.post_btn{
+  margin-left: 35%;
+}
+.post_btn > button{
+  margin-right: 70px;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 1em;
+}
+input:focus{
+  outline: none;
+}
+button:hover{
+  cursor: pointer;
+}

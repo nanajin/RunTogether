@@ -18,6 +18,9 @@ import Register from '../component/Register.tsx';
 import MyPage from '../page/MyPage';
 import PayApprove from './kakao/PayApprove';
 import PayReady from './kakao/PayReady';
+import ChallengeWrite from './challenge/ChallengeWrite';
+import ChallengeList from './challenge/ChallengeList';
+import ChallengeView from './challenge/ChallengeView';
 function App(props) {
   const [login, setLogin] = useState(true);
 
@@ -35,7 +38,9 @@ function App(props) {
         <Route path='/mypage' element={<MyPage/>}/>
         <Route path='/signup' element={<Register/>}/>
         <Route path='/payapprove' element={<PayApprove/>}/>
-        {/* <Route path='/challenge' element={<PayReady/>}/> */}
+        <Route path='/challengewrite' element={<ChallengeWrite/>}/>
+        <Route path='/challengelist' element={<ChallengeList/>}/>
+        <Route path='/challengeview/:id' element={<ChallengeView/>}/>
 
         {login?
           <Route path='/record' element={<RecordPage/>}/>

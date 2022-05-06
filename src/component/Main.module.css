@@ -23,7 +23,7 @@
   font-weight: bold;
   color: white;
 }
-.introduction > button{
+.startbtn{
   background-color: black;
   color: aliceblue;
   border: none;
@@ -32,7 +32,7 @@
   font-size: medium;
   margin-left: 40%;
 }
-.introduction > button:hover{
+.startbtn:hover{
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }

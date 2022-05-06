@@ -2,7 +2,7 @@ import { useState,useRef, useEffect } from "react";
 import styles from "../component/LoginModal.module.css";
 import {Link, useNavigate} from 'react-router-dom';
 import App from "./App";
-import Login from "../staticComponent/Login";
+import Login from "../staticComponent/LoginPage";
 import axios from "axios";
 import { BsXLg } from 'react-icons/bs';
 import { getUser } from "./apicache/Cachestored";
@@ -16,7 +16,7 @@ function LoginModal(props){
 
   const onSubmitBtn=()=>{
     axios({
-      url: "/api/login",
+      url: "api/login",
       method:"post",
       // headers:{"Access-Control-Allow-Origin":"*"},
       data: {

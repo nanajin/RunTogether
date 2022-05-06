@@ -1,0 +1,20 @@
+.ready_container > p{
+  text-align: center;
+  color: blueviolet;
+  font-size: 30px;
+}
+.ready_container img{
+  width: fit-content;
+  height: fit-content;
+  margin-left: 45%;
+}
+.approve_container > h2{
+  text-align: center;
+  color: blueviolet;
+}
+.approve_container > .back_btn{
+  background-color: black;
+  border-radius: 1em;
+  color: white;
+  font-size: 20px;
+}

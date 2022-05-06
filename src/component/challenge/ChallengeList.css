@@ -1,0 +1,43 @@
+.challengelist > h2{
+  color: pink;
+  text-align: center;
+  margin-top: 30px;
+}
+.table{
+  width: 70%;
+  height: auto;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+} 
+.title{
+  width: 70%;
+  height: 70px;
+}
+tbody td{
+  border-bottom: 1px solid rgb(151, 141, 141);
+  padding: 20px;  
+}
+thead th{
+  border-bottom: 1px solid rgb(151, 141, 141);
+  color: rgb(151, 141, 141);
+}
+.count, .date{
+  border-left: 1px solid rgb(151, 141, 141);
+  padding-left: 45px;
+}
+.pen{
+  background-color: linen;
+  text-decoration: none;
+  border-radius: 0.5em;
+  padding: 10px;
+  margin-left: 75%;
+}
+.title_link{
+  text-decoration: none;
+  color: black;
+  overflow: hidden;
+}
+.title_link:hover{
+  text-decoration:underline;
+}

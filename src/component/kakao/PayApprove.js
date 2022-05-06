@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom';
+import './Pay.css';
+
 function PayApprove(){
     const current_url = window.location.href; //현재주소 
     const url = new URL(current_url);
@@ -41,9 +44,12 @@ function PayApprove(){
         console.log(e);
     })
     return(
-        <>
-        <h2>Result page</h2>
-        </>
+        <div className="approve_container">
+          <h2>기부에 참여해주셔서 감사합니다. </h2>
+          <Link to="/">
+            <button className="back_btn">메인으로 가기</button>
+          </Link>
+        </div>
     )
 }
 export default PayApprove;

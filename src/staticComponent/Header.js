@@ -37,6 +37,7 @@ function Header(){
             </li>  
           </ul>
           
+          
           <button className={toggle? styles.none: styles.list_icon} onClick={()=>{setToggle(true)}}>
             <BsList/>
           </button>
