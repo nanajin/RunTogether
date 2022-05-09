@@ -21,6 +21,9 @@ import PayReady from './kakao/PayReady';
 import ChallengeWrite from './challenge/ChallengeWrite';
 import ChallengeList from './challenge/ChallengeList';
 import ChallengeView from './challenge/ChallengeView';
+import ChallengeManagerPage from './challenge/ChallengeManagerPage';
+import ChallengeUserPage from './challenge/ChallengeUserPage';
+import ChallengeRegister from './challenge/ChallengeRegister';
 function App(props) {
   const [login, setLogin] = useState(true);
 
@@ -39,8 +42,12 @@ function App(props) {
         <Route path='/signup' element={<Register/>}/>
         <Route path='/payapprove' element={<PayApprove/>}/>
         <Route path='/challengewrite' element={<ChallengeWrite/>}/>
-        <Route path='/challengelist' element={<ChallengeList/>}/>
+        <Route path='/challengelist/:id' element={<ChallengeList/>}/>
         <Route path='/challengeview/:id' element={<ChallengeView/>}/>
+        <Route path='/challengemanagerpage' element={<ChallengeManagerPage/>}/>
+        <Route path='/challengeuserpage' element={<ChallengeUserPage/>}/>
+        <Route path='/challengeregister/:id' element={<ChallengeRegister/>}/>
+
 
         {login?
           <Route path='/record' element={<RecordPage/>}/>

@@ -24,7 +24,7 @@ thead th{
 }
 .count, .date{
   border-left: 1px solid rgb(151, 141, 141);
-  padding-left: 45px;
+  text-align: center;
 }
 .pen{
   background-color: linen;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Pay.css";
 
@@ -18,11 +18,12 @@ function PayReady(){
       total_amount: 2200,  //금액
       tax_free_amount: 0,
       approval_url: "http://localhost:3000/payapprove",
-      fail_url: "http://localhost:3000/payapprove",
-      cancel_url: "http://localhost:3000/payapprove",
+      fail_url: "http://localhost:3000/",
+      cancel_url: "http://localhost:3000/",
     }
   })
 const params = state.params;
+useEffect(()=>{
   axios({
     url: "/v1/payment/ready",
     method: "POST",
@@ -35,8 +36,7 @@ const params = state.params;
     const{
       data:{next_redirect_pc_url, tid}
     } = res;
-    // console.log(`"next_redirect: "${next_redirect_pc_url}`);
-    // console.log(`"tid: "${tid}`);
+    
     // 응답 데이터로 갱신
     setState((prevState)=>({
       ...prevState,
@@ -45,8 +45,9 @@ const params = state.params;
    }))
    // local에 tid 저장
    window.localStorage.setItem("tid", tid);
-  });
-
+  },[]);
+})
+  
   return(
     <div className="ready_container">
       <p>Kakao Pay로 결제</p>

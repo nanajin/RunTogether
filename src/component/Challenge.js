@@ -15,7 +15,9 @@ function Challenge(){
         <h3>Challenge</h3>
         <p>{user}님이 참여하고 있는 챌린지</p>
         <p>{user}님이 보유하고 있는 챌린지 금액</p>
-        <Link to ="/challengelist">게시판</Link>
+        <Link to ="/challengeuserpage">유저 게시판</Link>
+        <Link to ="/challengemanagerpage">매니저 게시판</Link>
+
         <div className={styles.myChallenge}>myChallenge</div>
         <div className={styles.challengeContent}>
           <Sliders/>

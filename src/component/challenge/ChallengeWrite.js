@@ -12,9 +12,8 @@ function ChallengeWrite(){
       title: '',
       contents: '',
     }
-  );
+  );  
   const {title, contents} = data;
-
   const onChange = (e)=>{
     // e.preventDefault();
     setData({
@@ -22,18 +21,17 @@ function ChallengeWrite(){
       [e.target.name]: e.target.value,
     })
   };
+
   const onSubmit =()=>{
-    // axios({                    //DB에 올림(json으로..?)
-    //   url: "/api/board",
-    //   method: "POST",
-    //   data: data,
-    // })
+    const formData = new FormData();
+    formData.append('file', file.selectedFile);
     axios({
       url: "/reactBackend/write",
       method: 'POST',
       data: {
         title: data.title,
         contents: data.contents,
+        formData,
       }
     }).then((res)=>{
       alert("글 게시 성공!");
@@ -42,8 +40,9 @@ function ChallengeWrite(){
         console.log(e);
       })
     console.log(data);
-    navigate("/challenge")
+    navigate("/challenge");
   };
+  
   const onReset = ()=>{
     // e.preventDefault();
     setData({
@@ -55,17 +54,22 @@ function ChallengeWrite(){
   const onCancel = ()=>{
     navigate("/challenge")
   };
+
+  const [file, setFile] = useState({selectedFile: null,});
+  const onChangeFile=(e)=>{
+    setFile({selectedFile: e.target.files[0],});
+  }
   return(
     <>
       <Header/>
       <div className="board_container">
         <br></br>
-        <h1>챌린지 제안 게시판</h1>
+        <h1>챌린지 제안 작성</h1>
         <form>
           <input className="board_title" type="text" placeholder="제목" name="title" value={title} onChange={onChange}></input>
           <br></br>
           <textarea className="board_contents" placeholder="내용을 입력하세요." name="contents" value={contents} onChange={onChange}></textarea>
-          {/* <input type="file" required accept="image/jpg, image/jpeg, image/png" ></input> */}
+          <input type="file" name="file" onChange={onChangeFile} ></input>
         </form>
         <div className="post_btn">
           <button className="post_submit_btn" onClick={onSubmit}>글 게시</button>

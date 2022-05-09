@@ -6,13 +6,33 @@ import axios from "axios";
 import {BsPencilFill} from 'react-icons/bs';
 import { Link } from "react-router-dom";
 
-function ChallengeList(){
-
+function ChallengeList(props){
+  const [manager, setManager] = useState(false); //관리자 모드
+  useEffect(()=>{
+    if(props.grade === "manager"){
+      setManager(true);
+    }
+  },[]);
+  
   const [state, setState] =useState({
     boardList: [],
   })
-  const [count, setCount] = useState(0);
 
+  if(manager){
+    axios({
+      method: "GET",
+      url: "/reactBackend/managerlist"
+    }).then((res)=>{
+      const {data} = res;
+      setState({
+        ...state,
+        boardList : data,
+      })
+    }).catch(e=>{
+      console.log(e);
+    });
+  }
+  else{
     axios({
       method: "GET",
       url: "/reactBackend/list"
@@ -25,36 +45,23 @@ function ChallengeList(){
     }).catch(e=>{
       console.log(e);
     });
+  }
 
-useEffect(()=>{
-  axios({
-      method: "POST",
-      url: "/reactBackend/count",
-      data: {
-        // id: el.id,
-        // view_cnt: el.view_cnt,
-        view_cnt: count,
-      }
-    }).then(res=>{
-      console.log(res);
-    }).catch(e=>{
-      console.log(e);
-    });
-  }, count);
-  
   return(
     <>
     <Header/>
     <div className="challengelist">
-      <h2>챌린지 제안 게시판</h2>
-      <Link to="/challengewrite" className="pen">
-        <BsPencilFill/>
-      </Link>
+      <h2>챌린지 {props.title} 게시판</h2>
+
+      {!manager && 
+        <Link to="/challengewrite" className="pen">
+          <BsPencilFill/>
+        </Link> }
       <table className="table">
         <thead>
           <tr>
               <th className="title">제목</th>
-              <th>조회수</th>
+              {!manager && <th>조회수</th>}
               <th>작성일</th>
           </tr>
         </thead>
@@ -65,11 +72,12 @@ useEffect(()=>{
               <>
                 <tr>
                   <td> 
-                    <Link to ={view_url} className="title_link" onClick={()=>{setCount(count+1)}}> 
+                    <Link to ={view_url} state={{manager: manager, id: el.id, title: el.title, contents: el.contents}} className="title_link"> 
                       {el.title} 
                     </Link> 
+                    
                   </td>
-                  <td className="count">{el.view_cnt}</td>
+                  {!manager && <td className="count">{el.view_cnt}</td>}
                   <td className="date">{el.register_date.slice(0,10)}</td>
                 </tr>
               </>
