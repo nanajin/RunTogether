@@ -4,7 +4,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../../staticComponent/Footer";
 import Header from "../../staticComponent/Header";
 import "./ChallengeView.css";
-import ChallengeWrite from "./ChallengeWrite";
 
 function ChallengeView(){
   const location = useLocation();
@@ -14,6 +13,7 @@ function ChallengeView(){
   const [view, setView] = useState({
     title: location.state.title,
     contents: location.state.contents,
+    filename: location.state.filename,
   });
   
   // const p = manager? "manager": "";
@@ -83,6 +83,10 @@ function ChallengeView(){
       <div className="challengeview">
         <div className="view_title">{view.title}</div>
         <div className="view_contents">{view.contents}</div>
+        {view.filename && 
+          <div className="view_img">
+            <img src={require(`../../../backend/uploadImg/${view.filename}`)}></img>
+          </div>}
       </div>
       <Link to = {url}
         state = {{title: view.title, contents: view.contents}}>수정하기</Link>

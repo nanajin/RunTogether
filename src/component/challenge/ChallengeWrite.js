@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../staticComponent/Footer";
 import Header from "../../staticComponent/Header";
@@ -11,6 +11,7 @@ function ChallengeWrite(){
     {
       title: '',
       contents: '',
+      // filename: '',
     }
   );  
   const {title, contents} = data;
@@ -21,17 +22,37 @@ function ChallengeWrite(){
       [e.target.name]: e.target.value,
     })
   };
+  //파일 이름 DB에 저장하기
+  // const [filename, setFileName] = useState('');
+  let filename = '';
+  //이미지 파일 업로드
+  const [file, setFile] = useState("");
+  const onUploadFile=(e)=>{
+    let img = e.target.files[0];
+    console.log(img);
+    setFile(img);
+    console.log( `setFile: ${file}`);
+  }
 
   const onSubmit =()=>{
     const formData = new FormData();
-    formData.append('file', file.selectedFile);
+    formData.append('file', file);
+    // 이미지 업로드
+    axios.post("/reactBackend/image", formData,{
+      headers:{
+        'content-type': 'multipart/form-data',
+      }
+    }).then(res=>{
+      filename = res.data.fileName;
+      console.log(filename);
+      // 글 업로드
     axios({
       url: "/reactBackend/write",
       method: 'POST',
       data: {
         title: data.title,
         contents: data.contents,
-        formData,
+        filename: filename,
       }
     }).then((res)=>{
       alert("글 게시 성공!");
@@ -41,6 +62,8 @@ function ChallengeWrite(){
       })
     console.log(data);
     navigate("/challenge");
+
+    })
   };
   
   const onReset = ()=>{
@@ -50,15 +73,19 @@ function ChallengeWrite(){
       title: "",
       contents: "",
     })
+    setFile('');
   };
   const onCancel = ()=>{
-    navigate("/challenge")
+    let result = window.confirm('작성을 취소하시겠습니까?');
+    if(result){
+      navigate("/challenge");
+    }
+    else{
+
+    }
   };
 
-  const [file, setFile] = useState({selectedFile: null,});
-  const onChangeFile=(e)=>{
-    setFile({selectedFile: e.target.files[0],});
-  }
+
   return(
     <>
       <Header/>
@@ -69,7 +96,7 @@ function ChallengeWrite(){
           <input className="board_title" type="text" placeholder="제목" name="title" value={title} onChange={onChange}></input>
           <br></br>
           <textarea className="board_contents" placeholder="내용을 입력하세요." name="contents" value={contents} onChange={onChange}></textarea>
-          <input type="file" name="file" onChange={onChangeFile} ></input>
+          <input type="file" name="file" onChange={onUploadFile} ></input>
         </form>
         <div className="post_btn">
           <button className="post_submit_btn" onClick={onSubmit}>글 게시</button>

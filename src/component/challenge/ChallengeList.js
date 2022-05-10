@@ -46,7 +46,6 @@ function ChallengeList(props){
       console.log(e);
     });
   }
-
   return(
     <>
     <Header/>
@@ -72,7 +71,8 @@ function ChallengeList(props){
               <>
                 <tr>
                   <td> 
-                    <Link to ={view_url} state={{manager: manager, id: el.id, title: el.title, contents: el.contents}} className="title_link"> 
+                    <Link to ={view_url} state={
+                      {manager: manager, id: el.id, title: el.title, contents: el.contents, filename: el.filename}} className="title_link"> 
                       {el.title} 
                     </Link> 
                     
