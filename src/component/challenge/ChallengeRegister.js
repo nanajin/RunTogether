@@ -7,8 +7,8 @@ import "./ChallengeWrite.css";
 
 function ChallengeRegister(){
   const location = useLocation();
-  // console.log(location);
   const navigate = useNavigate();
+
   const [data, setData] = useState(
     {
       title: location.state.title,
@@ -17,6 +17,7 @@ function ChallengeRegister(){
   );
   const {title, contents} = data;
 
+  const filename = location.state.filename;
   const onChange = (e)=>{
     // e.preventDefault();
     setData({
@@ -24,7 +25,7 @@ function ChallengeRegister(){
       [e.target.name]: e.target.value,
     })
   };
-  
+
   const onManagerSubmit =()=>{
     axios({
       url: "/reactBackend/managerwrite",
@@ -32,6 +33,7 @@ function ChallengeRegister(){
       data: {
         title: data.title,
         contents: data.contents,
+        filename: filename,
       }
     }).then((res)=>{
       alert("챌린지 정식 등록 성공!");
@@ -45,7 +47,13 @@ function ChallengeRegister(){
 
   
   const onCancel = ()=>{
-    navigate("/challenge")
+    let result = window.confirm('작성을 취소하시겠습니까?');
+    if(result){
+      navigate("/challenge");
+    }
+    else{
+  
+    }
   };
   return(
     <>
@@ -57,8 +65,11 @@ function ChallengeRegister(){
           <input className="board_title" placeholder={data.title} type="text" name="title" value={title} onChange={onChange}></input>
           <br></br>
           <textarea className="board_contents" placeholder={data.contents} name="contents" value={contents} onChange={onChange}></textarea>
-          {/* <input type="file" required accept="image/jpg, image/jpeg, image/png" ></input> */}
         </form>
+        {filename && 
+          <div className="view_img">
+            <img src={require(`../../../backend/uploadImg/${filename}`)}></img>
+          </div>}
         <div className="post_btn">
           <button className="post_submit_btn" onClick={onManagerSubmit}>챌린지 등록</button>
           <button className="post_cancel_btn" onClick={onCancel}>작성 취소</button>

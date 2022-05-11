@@ -10,6 +10,8 @@ function ChallengeView(){
   const navigate = useNavigate();
   
   const params = location.state.id;
+  const grade = location.state.grade;
+
   const [view, setView] = useState({
     title: location.state.title,
     contents: location.state.contents,
@@ -55,7 +57,7 @@ function ChallengeView(){
   useEffect(()=>{
       axios({
         method: "POST",
-        url: "/reactBackend/count",
+        url: `/reactBackend/${grade}count`,
         data: {
           id: params,
         }
@@ -65,6 +67,7 @@ function ChallengeView(){
   },[params]);
 
   let url = `/challengeregister/${params}`;
+
   const onRemove=()=>{
     axios({
       url:"/reactBackend/remove",
@@ -89,7 +92,7 @@ function ChallengeView(){
           </div>}
       </div>
       <Link to = {url}
-        state = {{title: view.title, contents: view.contents}}>수정하기</Link>
+        state = {{title: view.title, contents: view.contents, filename: view.filename,}}>수정하기</Link>
       <button onClick={onRemove}>삭제하기</button>
       <Footer/>
     </>

@@ -13,7 +13,6 @@ import UserUpdate from './UserUpdate';
 import Main from './Main';
 import Challenge from './Challenge';
 import ScrollToTop from './ScrollToTop';
-import Chat from './Chat/Chat';
 import Register from '../component/Register.tsx';
 import MyPage from '../page/MyPage';
 import PayApprove from './kakao/PayApprove';
@@ -57,10 +56,7 @@ function App(props) {
           <Route path='/challenge' element={<Challenge/>}/>
           :<Route path='/challenge' element={<Navigate replace to = "/login"/>}/>
         }
-        {login?
-          <Route path='/chat' element={<Chat/>}/>
-          :<Route path='/chat' element={<Navigate replace to = "/login"/>}/>
-        }
+        
       </Routes>  
     </BrowserRouter>
     

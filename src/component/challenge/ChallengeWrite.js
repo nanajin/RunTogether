@@ -11,7 +11,6 @@ function ChallengeWrite(){
     {
       title: '',
       contents: '',
-      // filename: '',
     }
   );  
   const {title, contents} = data;
@@ -22,8 +21,8 @@ function ChallengeWrite(){
       [e.target.name]: e.target.value,
     })
   };
+  
   //파일 이름 DB에 저장하기
-  // const [filename, setFileName] = useState('');
   let filename = '';
   //이미지 파일 업로드
   const [file, setFile] = useState("");

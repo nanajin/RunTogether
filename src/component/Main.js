@@ -63,9 +63,7 @@ function Main(){
         <Follow/>
       </div> */}
 
-      {/* <div className={styles.left}> */}
-        <Cards/>
-      {/* </div> */}
+      <Cards/>
       <div className={styles.tab}>
         <Tab/>
       </div>

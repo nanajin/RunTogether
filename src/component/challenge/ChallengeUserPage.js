@@ -3,7 +3,7 @@ import ChallengeList from "./ChallengeList";
 function ChallengeUserPage(){
   return(
     <>
-      <ChallengeList title="user" grade="user"/>
+      <ChallengeList title="user" grade=""/>
     </>
   )
 }

@@ -5,7 +5,6 @@ const PORT = process.env.port || 8000;
 const multer = require('multer');
 const moment = require('moment');
 
-// const upload = require('./fileupload');
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -13,12 +12,8 @@ app.use(express.static('public'));
 const storage = multer.diskStorage({
   destination: 
   "./uploadImg",
-  // (req, file, cb)=>{
-  //   cb(null, 'uploads');
-  // },
   filename: (req, file, cd)=>{
     cd(null, moment().format('YYYYMMDDHHmmss')+"_"+file.originalname);
-    // cd(null, Date.now() + "_"+ file.originalname);
   }
 });
 
@@ -41,12 +36,6 @@ app.get("/reactBackend/list", (req, res)=>{
 });
 //글 작성
 app.post("/reactBackend/write", (req, res)=>{
-  // upload(req, res, (err)=>{
-  //   if(err instanceof multer.MulterError){
-  //     console.log(err);
-  //   }
-  // })
-  // console.log('파일명: '+req.file.originalname)
   if(req){
     let title = req.body.title;
     let contents = req.body.contents;
@@ -83,8 +72,10 @@ app.post("/reactBackend/managerwrite", (req, res)=>{
   if(req){
     let title = req.body.title;
     let contents = req.body.contents;
-    const sqlQuery = "INSERT INTO managerboard(title, contents, view_cnt) values(?,?,0)";
-    db.query(sqlQuery,[title, contents], (err, result)=>{
+    let filename = req.body.filename;
+    console.log(filename);
+    const sqlQuery = "INSERT INTO managerboard(title, contents, filename, view_cnt) values(?,?,?,0)";
+    db.query(sqlQuery,[title, contents, filename], (err, result)=>{
       console.log(err);
       res.send(result);
     });

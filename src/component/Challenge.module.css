@@ -2,7 +2,7 @@
 .challenge > h3{
   font-size: 30px;
   color: violet;
-  width: 50%;
+  width: 60%;
   text-align: center;
   margin: auto;
   padding: 20px;
@@ -15,3 +15,23 @@
 .challengeContent{
   margin-left: 20%;
 }
+.challenge_cards{
+  padding: 4rem;
+  background:transparent;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+}
+/* .challenge_container{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+} */
