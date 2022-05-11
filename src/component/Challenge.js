@@ -41,12 +41,12 @@ function Challenge(){
         <div className={styles.challenge_cards}>
         {state.boardList.map((el,key)=>{
           // const view_url = "/challengeview/manager/" + el.id;
-
+           
           return(
             <>
                 <div className={styles.challenge_container}>
                   <CardItem
-                    src='/image/challenge.png'
+                    src={el.filename? require(`../../backend/uploadImg/${el.filename}`): "/image/challenge.png"}
                     text= {el.title}
                     label='진행중'
                     // path={view_url}
@@ -69,7 +69,6 @@ function Challenge(){
         <div className={styles.challengeContent}>
           <Sliders/>
         </div>
-        <PayReady/>
       </div>
       <Footer/>
     </>

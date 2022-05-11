@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../../staticComponent/Footer";
 import Header from "../../staticComponent/Header";
+import ChargeMoney from "../kakao/ChargeMoney";
 import "./ChallengeView.css";
 
 function ChallengeView(){
@@ -80,16 +81,25 @@ function ChallengeView(){
       navigate("/challengemanagerpage");
     })
   }
+
+  const [isModalOn, setIsModalOn] = useState(false);
+  const HandleModal = (active)=>{
+    setIsModalOn(active);
+  }
   return(
     <>
       <Header/>
       <div className="challengeview">
         <div className="view_title">{view.title}</div>
-        <div className="view_contents">{view.contents}</div>
         {view.filename && 
           <div className="view_img">
             <img src={require(`../../../backend/uploadImg/${view.filename}`)}></img>
           </div>}
+        <div className="view_contents">{view.contents}</div>
+        <div>
+          <button className="challenge_join" onClick={()=>{HandleModal(true)}}>참여하기</button>
+          {isModalOn && <ChargeMoney setIsModalOn={HandleModal}/>}
+        </div>
       </div>
       <Link to = {url}
         state = {{title: view.title, contents: view.contents, filename: view.filename,}}>수정하기</Link>

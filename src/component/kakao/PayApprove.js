@@ -60,8 +60,13 @@ function PayApprove(){
       {isOpen && 
         <div className="approve_container">
           <h2>기부에 참여해주셔서 감사합니다. </h2>
+          <h2>챌린지도 화이팅해주세요! </h2>
+
           <Link to="/">
             <button className="back_btn">메인으로 가기</button>
+          </Link>
+          <Link to="/challenge">
+            <button className="back_btn">다른 챌린지도 구경하고 싶다면?</button>
           </Link>
         </div>
       }

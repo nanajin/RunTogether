@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Pay.css";
 
-function PayReady(){
+function PayReady(props){
+  const total_amount = props.total_amount;
   const [state, setState]=useState({
     // 응답에서 가져올 값들
     next_redirect_pc_url: "",
@@ -15,7 +16,7 @@ function PayReady(){
       partner_user_id: "partner_user_id",
       item_name: "챌린지 기부",
       quantity: 1,
-      total_amount: 2200,  //금액
+      total_amount: total_amount,  //금액
       tax_free_amount: 0,
       approval_url: "http://localhost:3000/payapprove",
       fail_url: "http://localhost:3000/",
@@ -45,12 +46,11 @@ useEffect(()=>{
    }))
    // local에 tid 저장
    window.localStorage.setItem("tid", tid);
-  },[]);
-})
+  });
+},[total_amount]);
   
   return(
     <div className="ready_container">
-      <p>Kakao Pay로 결제</p>
       <a href={state.next_redirect_pc_url}>
         <img src="/image/kakaopay.png" alt="없음"></img>
       </a>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 function CardItem(props) {
   // const [state, setState] = useState(null);
   let state = {};
@@ -27,7 +26,6 @@ function CardItem(props) {
               className='cards__item__img'
               alt='Image'
               src={props.src}
-              // width="100" height="100"
             />
           </figure>
           <div className='cards__item__info'>
