@@ -20,12 +20,11 @@ h3{
 }
 .title{
   font-size: larger;
+  padding: 20px;
 }
-.id{
+.input{
   padding: auto;
-  margin-top: 10%;
-  margin-left: 33%;
-  display: flex;
+  margin: 10%;
 }
 .pw{
   margin-top: 5px;
@@ -43,6 +42,16 @@ h3{
   cursor: pointer;
   color: white;
   margin: 20px auto;
+}
+.pay_btn{
+  background: none;
+  border-radius: 1rem;
+  color: white;
+  border: 1px solid white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20%;
+  margin-bottom: 10%;
 }
 @media screen and (max-width:780px) {
   h3{

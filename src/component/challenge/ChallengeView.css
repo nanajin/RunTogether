@@ -26,3 +26,25 @@
   margin-left: 15%;
   margin-top: 50px;
 }
+.challenge_join, .challenge_remove, .challenge_rewrite{
+  margin-left: 50%;
+  margin-bottom: 30px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 1em;
+}
+.challenge_join{
+  margin-bottom: 100px;
+}
+.challenge_rewrite, .challenge_remove{
+  font-size: 15px;
+  background-color: rgb(117, 216, 170);
+  border: none;
+}
+.link{
+  text-decoration: none;
+  color: white;
+}

@@ -65,6 +65,7 @@ function PayApprove(){
           <Link to="/">
             <button className="back_btn">메인으로 가기</button>
           </Link>
+          <br></br>
           <Link to="/challenge">
             <button className="back_btn">다른 챌린지도 구경하고 싶다면?</button>
           </Link>

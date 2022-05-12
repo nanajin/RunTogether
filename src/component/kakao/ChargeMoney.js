@@ -10,7 +10,7 @@ function ChargeMoney(props){
 
   const [money, setMoney] = useState(0);
   const navigate = useNavigate();
-
+  const [pay, setPay] = useState(false);
   const modalOff=()=>{
     props.setIsModalOn(false);
   };
@@ -18,7 +18,7 @@ function ChargeMoney(props){
   const handleInputMoney =(e)=>{
     setMoney(e.target.value);
   }
-
+  
   return(
     <>
     <div className={styles.login}>
@@ -26,12 +26,15 @@ function ChargeMoney(props){
       <p className={styles.title}>id: mijin</p>
       <p className={styles.title}>기부할 금액</p>
 
-        <label className={styles.id}>
+        <label className={styles.input}>
           <input type="text" placeholder="0" onChange={handleInputMoney}/>
         </label>
+        <br></br>
+        <button className={styles.pay_btn} onClick={()=>setPay(true)}> 
+          카카오페이로 결제하기
+        </button>
+        {pay? <PayReady total_amount={money}/> : null}
 
-        <h3>카카오페이로 결제하기</h3>
-        <PayReady total_amount={money}/>
         <button onClick={modalOff} className={styles.x}>
           <BsXLg/>
         </button>

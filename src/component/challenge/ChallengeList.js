@@ -52,10 +52,10 @@ function ChallengeList(props){
     <div className="challengelist">
       <h2>챌린지 {props.title} 게시판</h2>
 
-      {props.grade ==="manager" ? 
+      {props.grade ==="manager" ? null :
         <Link to="/challengewrite" className="pen">
           <BsPencilFill/>
-        </Link> : null}
+        </Link>}
       <table className="table">
         <thead>
           <tr>

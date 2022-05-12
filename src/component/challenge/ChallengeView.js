@@ -96,14 +96,20 @@ function ChallengeView(){
             <img src={require(`../../../backend/uploadImg/${view.filename}`)}></img>
           </div>}
         <div className="view_contents">{view.contents}</div>
-        <div>
+      </div>
+      <div>
           <button className="challenge_join" onClick={()=>{HandleModal(true)}}>참여하기</button>
           {isModalOn && <ChargeMoney setIsModalOn={HandleModal}/>}
-        </div>
       </div>
-      <Link to = {url}
-        state = {{title: view.title, contents: view.contents, filename: view.filename,}}>수정하기</Link>
-      <button onClick={onRemove}>삭제하기</button>
+      <div className="manager_admin">
+      <button className="challenge_rewrite">
+        <Link to = {url} className="link"
+          state = {{title: view.title, contents: view.contents, filename: view.filename,}}>
+                   수정하기 
+        </Link> 
+        </button>
+        <button onClick={onRemove} className="challenge_remove">삭제하기</button>
+      </div>
       <Footer/>
     </>
   )

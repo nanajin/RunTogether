@@ -97,7 +97,7 @@
   padding: 20px 30px 30px;
 }
 
-.cards__item__text {
+.cards__item__text, .main_cards__item__text {
   color: #252e48;
   font-size: 18px;
   height: 50px;
@@ -105,6 +105,9 @@
   text-align: center;
   background-color: white;
   overflow: hidden;
+}
+.main_cards__item__text{
+  height: fit-content;
 }
 .card_cnt{
   text-align: center;

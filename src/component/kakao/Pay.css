@@ -6,15 +6,20 @@
 .ready_container img{
   width: fit-content;
   height: fit-content;
-  margin-left: 45%;
+}
+.approve_container{
+  margin: 10%;
 }
 .approve_container > h2{
   text-align: center;
   color: blueviolet;
 }
-.approve_container > .back_btn{
+.approve_container .back_btn{
   background-color: black;
   border-radius: 1em;
   color: white;
   font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-left: 40%;
 }

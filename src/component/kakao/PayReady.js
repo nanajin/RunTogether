@@ -47,12 +47,12 @@ useEffect(()=>{
    // local에 tid 저장
    window.localStorage.setItem("tid", tid);
   });
-},[total_amount]);
+},[state]);
   
   return(
     <div className="ready_container">
       <a href={state.next_redirect_pc_url}>
-        <img src="/image/kakaopay.png" alt="없음"></img>
+        <img className="kakaopay_logo" src="/image/kakaopay.png" alt="없음"></img>
       </a>
     </div>
   )

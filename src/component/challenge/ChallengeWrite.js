@@ -95,7 +95,7 @@ function ChallengeWrite(){
           <input className="board_title" type="text" placeholder="제목" name="title" value={title} onChange={onChange}></input>
           <br></br>
           <textarea className="board_contents" placeholder="내용을 입력하세요." name="contents" value={contents} onChange={onChange}></textarea>
-          <input type="file" name="file" onChange={onUploadFile} ></input>
+          <input type="file" name="file" onChange={onUploadFile} className="board_file"></input>
         </form>
         <div className="post_btn">
           <button className="post_submit_btn" onClick={onSubmit}>글 게시</button>
