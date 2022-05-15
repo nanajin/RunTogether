@@ -1,0 +1,78 @@
+.none{
+  display: none;
+}
+.mate > h3{
+  font-size: 50px;
+  color: rgb(5, 152, 24);
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.friend{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 38%;
+}
+
+.friend_box{
+  width: 40%;
+  height: 100px;
+  margin-top: 20px;
+  border: 2px solid black;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  align-items: center;
+  box-shadow: 5px 5px 5px rgb(206, 206, 242);
+}
+.friend_box >img{
+  width: 70px;
+  height: 70px;
+  margin-left: 40px;
+}
+.friend_box >p{
+  margin-left: 40px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.search{
+  width: 300px;
+  height: 50px;
+  margin: auto;
+}
+.user{
+  height: 50px;
+  font-size: 40px;
+  border-radius: 5em;
+  border-style: none;
+  float: right;
+  background: transparent;
+  cursor: pointer;
+}
+.chat{
+  height: 50px;
+  border-radius: 5em;
+  border-style: none;
+  float: right;
+  margin-right: 10px;
+  background: transparent;
+  font-size: 40px;
+  cursor: pointer;
+}
+.user:hover, .chat:hover{
+  color: rgb(135, 201, 36);
+  transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 780px){
+  .follow_box{
+    width: 100%;
+  }
+  .friend_box{
+    width: 70%;
+
+  }
+}

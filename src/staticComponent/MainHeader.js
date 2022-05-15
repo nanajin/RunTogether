@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import styles from '../staticComponent/Header.module.css';
+import styles from './MainHeader.module.css';
 import {BsList, BsXLg, BsFillPersonFill} from 'react-icons/bs';
 
-function Header(props){
+function MainHeader(){
   const [toggle, setToggle] = useState(false); //미디어 버전
-  const [headerLine, setHeaderLine] = useState(true);
 
-  useEffect(()=>{
-    if(props.line === "false"){
-      setHeaderLine(false);
-    }
-  },props);
- 
   return(
     <>
+      <ul className= {toggle ?`${styles.header_user} ${styles.active}`: styles.header_user}>
+            <li className={styles.nav_item}>
+              <Link to = '/login'>Log In</Link>
+            </li>
+            <li className={styles.nav_item}>
+              <Link to = '/signup'>Sign Up</Link>
+            </li>  
+      </ul>
       <div className={toggle? `${styles.main_container} ${styles.active}`: styles.main_container}>
-          <Link to='/' onClick={()=>{setToggle(false)}}>
-            <button className={styles.main_logo}>Run Together</button>
-          </Link>
+          
+          <div className={styles.main_logo}>Run Together</div>
+          <div>
           <ul className= {toggle ?`${styles.header_menulist} ${styles.active}`: styles.header_menulist}>
               <li className={styles.nav_item}>
                 <Link to = '/challenge'>Challenge</Link>
@@ -34,15 +35,7 @@ function Header(props){
               </li>
           </ul>
 
-          <ul className= {toggle ?`${styles.header_user} ${styles.active}`: styles.header_user}>
-            <li className={styles.nav_item}>
-              <Link to = '/login'>Login</Link>
-            </li>
-            <li className={styles.nav_item}>
-              <Link to = '/signup'>Sign Up</Link>
-            </li>  
-          </ul>
-        
+          </div>
           <button className={toggle? styles.none: styles.list_icon} onClick={()=>{setToggle(true)}}>
             <BsList/>
           </button>
@@ -50,8 +43,7 @@ function Header(props){
             <BsXLg/>
           </button>
       </div>
-      {headerLine ? <div className={styles.line}></div>: null}
     </>
   )
 }
-export default Header;
+export default MainHeader;

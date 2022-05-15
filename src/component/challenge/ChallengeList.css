@@ -1,13 +1,16 @@
-.challengelist > h2{
-  color: pink;
+.challengelist > h3{
+  font-size: 35px;
+  color: rgb(5, 152, 24);
   text-align: center;
+  margin: auto;
   margin-top: 30px;
+  padding: 20px;
 }
 .table{
   width: 70%;
   height: auto;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 30px;
 } 
 .title{
@@ -33,6 +36,7 @@ thead th{
   padding: 10px;
   margin-left: 75%;
 }
+
 .title_link{
   text-decoration: none;
   color: black;
@@ -50,4 +54,10 @@ thead th{
 .img_list{
   display: block;
   margin-top: 0;
+}
+
+@media screen and (max-width: 768px){
+  .table{
+    /* width: 100%; */
+  }
 }

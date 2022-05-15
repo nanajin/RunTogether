@@ -32,8 +32,7 @@
   width: 300px;
   height: 400px;
   border-radius: 10px;
-  background-color: #22d76d;
-
+  background-color: #53bb64;
 }
 
 .cards__item__link {
@@ -77,8 +76,8 @@
 .cards__item__img {
   position: absolute;
   top: 10%;
-  right: 0;
-  bottom: 0;
+  /* right: 0; */
+  /* bottom: 0; */
   left: 12%;
   display: block;
   width: 200px;
@@ -127,6 +126,18 @@
 
 @media only screen and (max-width: 1024px) {
   .cards__item {
+    width: 30vw;
+    height: 30vh;
     margin-bottom: 2rem;
+  }
+  .cards__item__img {
+    width: 20vw;
+    height: 20vh;
+  }
+  .cards__item__pic-wrap {
+    padding-top: 50%;
+  }
+  .cards__item__info{
+    padding: 0 10px;
   }
 }

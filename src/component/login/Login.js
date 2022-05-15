@@ -1,21 +1,18 @@
+import axios from 'axios'
 import React ,{useState, useEffect}from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-import styles from './Login.module.css'
-
-interface longinData{
-    email:string,
-    pw:string,
-}
+import styles from '../Login.module.css'
 
 function Login() {
 
     const navigate = useNavigate()
-    const [loginData, setLoginData] = useState<longinData>({
+    const [loginData, setLoginData] = useState({
         email:'',
         pw:'',
     })
     const {email, pw} = loginData
-    const onSubmit = function(e:React.FormEvent){
+
+    const onSubmit = (e)=>{
         e.preventDefault();
 
         if(!email || !pw ){
@@ -24,34 +21,33 @@ function Login() {
         const userData = {email:email, pwd:pw}
 
         
-        fetch('/api/login',{
-            //폼 데이터 fetch 
-            method:'POST',
-                headers:{
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(userData),
-        }).then((response) => {
-            if(response.ok){
-              let commits = response.accessToken;
-              console.log(commits)
-                // navigate('/');
-                // alert("환영합니다");
-                // if(response.ACCESS_TOKEN){
-                //   localStorage.setItem('login-token', response.ACCESS_TOKEN);
-                // }
-            }
-            else{
-                alert(`오류 발생 Status : ${response.status}`)
-            }
+        axios({
+          url:"/api/login",
+          method:"POST",
+          data: userData,
+        }).then(res=>{
+          const {accessToken} = res.data;
+          axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+          console.log(accessToken);
+          navigate('/');
+          // alert("환영합니다");  
+        }).catch(e=>{
+          console.log(e);
         })
-        
     }
-    const onChange = function(e:React.ChangeEvent<HTMLInputElement>){
+    const onChange = (e)=>{
         setLoginData(prevState=>({
             ...prevState,
             [e.target.name]:e.target.value,
         }))
+    }
+    const onLogout =()=>{
+      axios({
+        url:"/api/logout",
+        method:"POST",
+      }).then(res=>{
+        console.log(res);
+      })
     }
   return (
       <>
@@ -73,8 +69,9 @@ function Login() {
                 <button className={styles.btn}>Sign Up</button>
                 </Link>
             </div>
-            
         </form>
+        {/* <button className={styles.btn} onClick={onLogout}>Logout</button> */}
+
       </div>
       </div>
 </>

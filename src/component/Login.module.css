@@ -7,8 +7,9 @@
     position: relative;
     /* bottom: 40px; */
     margin-top: 15%;
-    color: rgb(38, 235, 124);
+    color: rgb(43, 209, 115);
     font-size: 30px;
+    font-weight: bold;
 }
 .container{
     width: 300px;
@@ -16,7 +17,7 @@
     background-color: black;
     border-radius: 20px;
     position: absolute;
-    top: 20%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%,-50%);
     margin-top: 20%;
@@ -39,21 +40,24 @@
     font-size: 1.1rem;
 }
 .btn{
-  border: none;
-  border-radius: 1em;
+  border: 1px solid white;
+  border-radius: 0.5em;
   font-size: 1rem;
-  /* color: black; */
-  background-color: white;
+  font-weight: 500;
+  background: none;
+  color: white;
   padding: 10px;
   margin: 10px;
 }
 .btn:hover{
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: black;
+    background-color: white;
 }
 
-/* @media screen and (width: 780px) {
+@media screen and (max-width: 780px) {
   .container{
-      position: ;
-      margin-top: 50%;
+     top: 30%;
     }
-  }  흠 어쩌지...*/
+}

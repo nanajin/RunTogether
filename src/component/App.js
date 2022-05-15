@@ -1,5 +1,5 @@
 import '../component/App.css';
-import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Navigate, Route, Routes, useLocation} from 'react-router-dom';
 import MainPage from '../page/MainPage';
 import SignUpPage from '../page/SignUpPage';
 import Login from '../staticComponent/LoginPage';
@@ -23,14 +23,20 @@ import ChallengeView from './challenge/ChallengeView';
 import ChallengeManagerPage from './challenge/ChallengeManagerPage';
 import ChallengeUserPage from './challenge/ChallengeUserPage';
 import ChallengeRegister from './challenge/ChallengeRegister';
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
+import RunningMate from './RunningMate';
+import MateView from './MateView';
+/* eslint no-restricted-globals: ["off"] */
 function App(props) {
   const [login, setLogin] = useState(true);
-
+  // const location = useLocation();
 
   return (
     <>
     <BrowserRouter>
       <ScrollToTop/>
+          <TransitionGroup className="transition-group">
+            <CSSTransition key={location.pathname} timeout={300} className="page">
       <Routes>
         <Route path='/' exact element={<Main/>}/>
         <Route path='/signup' element={<SignUpPage/>}/>
@@ -46,7 +52,8 @@ function App(props) {
         <Route path='/challengemanagerpage' element={<ChallengeManagerPage/>}/>
         <Route path='/challengeuserpage' element={<ChallengeUserPage/>}/>
         <Route path='/challengeregister/:id' element={<ChallengeRegister/>}/>
-
+        <Route path='/mate' element={<RunningMate/>}/>
+        <Route path='/mateview' element={<MateView/>}/>
 
         {login?
           <Route path='/record' element={<RecordPage/>}/>
@@ -58,6 +65,8 @@ function App(props) {
         }
         
       </Routes>  
+      </CSSTransition>
+      </TransitionGroup>      
     </BrowserRouter>
     
     </>

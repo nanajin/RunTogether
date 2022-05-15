@@ -4,7 +4,7 @@ import LoginModal from "../component/LoginModal";
 import Headers from "./Header"
 import Footer from "./Footer";
 import axios from "axios";
-import Login from "../component/Login.tsx"
+import Login from "../component/login/Login.js";
 function LoginPage(props){
   const [isModalOn, setIsModalOn] = useState(false);
   const HandleModal = (active)=>{
