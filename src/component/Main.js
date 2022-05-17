@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
 import styles from '../component/Main.module.css';
 import Sliders from "../component/Slider";
@@ -6,34 +6,34 @@ import Footer from "../staticComponent/Footer";
 import Header from "../staticComponent/Header";
 import RunningMate from "./RunningMate";
 import Tab from "./Tab";
-import LoginModal from "./LoginModal";
 import Cards from "./Cards";
 import axios from "axios";
 import MainHeader from "../staticComponent/MainHeader";
 import Fade from 'react-reveal/Fade';
 
 function Main(){
-  const isLogin = true;
-  const onLogout =()=>{
+  const [isLogin, setIsLogin] = useState(false);
+  useEffect(()=>{
     axios({
-      url:"/api/logout",
-      method:"POST",
+      url: "/api/",
+      method: "GET"
     }).then(res=>{
-      console.log(res);
+      setIsLogin(true);
     })
-  }
+  },[]);
   return(
     <>
     <div className={styles.main}>
-      {/* <Header line="false"/> */}
       <MainHeader/>
       <div className={styles.runImage}>
         <div className={styles.introduction}>
-          <p>Run Together With Your Friends</p>
-          <button onClick={onLogout}>Logout</button>
-          <Link to="/login">
+          {isLogin? 
+          <Link to="/record">
             <button className={styles.startbtn}>Get Started</button>  {/*로그인 전엔 /login으로 이동, 후엔 /record로 이동*/}
-          </Link>
+          </Link>:
+          <Link to="/login">
+            <button className={styles.startbtn}>Get Started</button>  
+          </Link>}
 
         </div>
       </div>

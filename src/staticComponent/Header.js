@@ -2,11 +2,30 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import styles from '../staticComponent/Header.module.css';
 import {BsList, BsXLg, BsFillPersonFill} from 'react-icons/bs';
-
+import axios from "axios";
 function Header(props){
   const [toggle, setToggle] = useState(false); //미디어 버전
   const [headerLine, setHeaderLine] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+  useEffect(()=>{
+    axios({
+      url: "/api/",
+      method: "GET"
+    }).then(res=>{
+      setIsLogin(true);
+    })
+  },[]);
 
+  const onLogout =()=>{
+    axios({
+      url:"/api/logout",
+      method:"POST",
+      
+    }).then(res=>{
+      console.log(res);
+    })
+  }
+  
   useEffect(()=>{
     if(props.line === "false"){
       setHeaderLine(false);
@@ -33,7 +52,15 @@ function Header(props){
                 <Link to = '/record'>Record</Link>
               </li>
           </ul>
-
+        {isLogin?
+          <ul className= {toggle ?`${styles.header_user} ${styles.active}`: styles.header_user}>
+            <li className={styles.nav_item}>
+              <Link to = '/mypage'>Mypage</Link>
+            </li>
+            <li className={styles.nav_item}>
+              <button onClick={onLogout} className={styles.logout_btn}> Logout </button>
+            </li>  
+          </ul>:
           <ul className= {toggle ?`${styles.header_user} ${styles.active}`: styles.header_user}>
             <li className={styles.nav_item}>
               <Link to = '/login'>Login</Link>
@@ -41,7 +68,7 @@ function Header(props){
             <li className={styles.nav_item}>
               <Link to = '/signup'>Sign Up</Link>
             </li>  
-          </ul>
+          </ul>}
         
           <button className={toggle? styles.none: styles.list_icon} onClick={()=>{setToggle(true)}}>
             <BsList/>

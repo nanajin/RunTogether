@@ -1,10 +1,11 @@
 import axios from 'axios'
 import React ,{useState, useEffect}from 'react'
 import {Link, useNavigate} from 'react-router-dom'
+import MainHeader from '../../staticComponent/MainHeader'
 import styles from '../Login.module.css'
 
 function Login() {
-
+    // const [login, setLogin] = useState(false);
     const navigate = useNavigate()
     const [loginData, setLoginData] = useState({
         email:'',
@@ -26,10 +27,8 @@ function Login() {
           method:"POST",
           data: userData,
         }).then(res=>{
-          const {accessToken} = res.data;
-          axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-          console.log(accessToken);
           navigate('/');
+          // setLogin(true);
           // alert("환영합니다");  
         }).catch(e=>{
           console.log(e);
@@ -47,10 +46,14 @@ function Login() {
         method:"POST",
       }).then(res=>{
         console.log(res);
+        // setLogin(false);
       })
     }
   return (
       <>
+      
+      <h3 className={styles.login_title}>Login</h3>
+
       <div className={styles.bg}>
       <div className={styles.container}>
         <form className={styles.form} onSubmit={onSubmit}>

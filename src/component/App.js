@@ -13,7 +13,7 @@ import UserUpdate from './UserUpdate';
 import Main from './Main';
 import Challenge from './Challenge';
 import ScrollToTop from './ScrollToTop';
-import Register from '../component/Register.tsx';
+import Register from '../component/Register';
 import MyPage from '../page/MyPage';
 import PayApprove from './kakao/PayApprove';
 import PayReady from './kakao/PayReady';
@@ -26,6 +26,7 @@ import ChallengeRegister from './challenge/ChallengeRegister';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import RunningMate from './RunningMate';
 import MateView from './MateView';
+import LoginWarning from './LoginWarning';
 /* eslint no-restricted-globals: ["off"] */
 function App(props) {
   const [login, setLogin] = useState(true);
@@ -54,6 +55,7 @@ function App(props) {
         <Route path='/challengeregister/:id' element={<ChallengeRegister/>}/>
         <Route path='/mate' element={<RunningMate/>}/>
         <Route path='/mateview' element={<MateView/>}/>
+        <Route path='/loginwarning' element={<LoginWarning/>}/>
 
         {login?
           <Route path='/record' element={<RecordPage/>}/>

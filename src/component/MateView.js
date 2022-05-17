@@ -2,12 +2,15 @@ import React from "react";
 import Footer from "../staticComponent/Footer";
 import Header from "../staticComponent/Header";
 import "./MateView.css";
-
+import axios from "axios";
+import Loading from "./Loading";
 function MateView(){
+  
   return(
     <>
     <Header/>
     <div className="mateview">
+      <Loading/>
       <h3>~~님의 런닝 기록</h3>
       <div className="details">
         <div className="mate_records">

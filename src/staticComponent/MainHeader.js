@@ -2,12 +2,34 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import styles from './MainHeader.module.css';
 import {BsList, BsXLg, BsFillPersonFill} from 'react-icons/bs';
-
+import axios from "axios";
 function MainHeader(){
   const [toggle, setToggle] = useState(false); //미디어 버전
+  const [login, setLogin] = useState(false);
+  const [user, setUser] = useState("");
+  useEffect(()=>{
+    axios({
+      url: "/api/",
+      method: "GET"
+    }).then(res=>{
+      console.log(res.data);
+      setLogin(true);
+      setUser(res.data);
+    })
+  },[]);
 
+  const onLogout =()=>{
+    axios({
+      url:"/api/logout",
+      method:"POST",
+      
+    }).then(res=>{
+      console.log(res);
+    })
+  }
   return(
     <>
+    {!login?
       <ul className= {toggle ?`${styles.header_user} ${styles.active}`: styles.header_user}>
             <li className={styles.nav_item}>
               <Link to = '/login'>Log In</Link>
@@ -15,7 +37,20 @@ function MainHeader(){
             <li className={styles.nav_item}>
               <Link to = '/signup'>Sign Up</Link>
             </li>  
-      </ul>
+      </ul> :
+
+      <ul className= {toggle ?`${styles.header_user} ${styles.active}`: styles.header_user}>
+        <li className={styles.nav_item}>
+          <p><span>{user}</span>님 환영합니다</p>
+        </li>
+        <li className={styles.nav_item}>
+          <Link to = '/mypage'>Mypage</Link>
+        </li>
+        <li className={styles.nav_item}>
+          <button onClick={onLogout} className={styles.logout_btn}> Logout </button>
+        </li>  
+      </ul>}
+
       <div className={toggle? `${styles.main_container} ${styles.active}`: styles.main_container}>
           
           <div className={styles.main_logo}>Run Together</div>

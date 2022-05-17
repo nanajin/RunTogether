@@ -8,9 +8,20 @@ import CardItem from "./CardItem";
 import './Cards.css';
 import axios from "axios";
 import Fade from 'react-reveal/Fade';
+import LoginWarning from "./LoginWarning";
 
 function Challenge(){
-  const [user, setUser] = useState("mijin"); //서버 데이터 가져오기
+  const [user, setUser] = useState(""); //서버 데이터 가져오기
+  const [isLogin, setIsLogin] = useState(false);
+  useEffect(()=>{
+    axios({
+      url: "/api/",
+      method: "GET"
+    }).then(res=>{
+      setIsLogin(true);
+      setUser(res.data);
+    })
+  },[]);
   const grade = "manager";
   const [state, setState] =useState({
     boardList: [],
@@ -30,6 +41,7 @@ function Challenge(){
   return(
     <>
       <Header/>
+      {isLogin?
       <div className={styles.challenge}>
         <h3>Challenge</h3>
         {/* <p>{user}님이 보유하고 있는 챌린지 금액</p> */}
@@ -73,7 +85,9 @@ function Challenge(){
         {/* <div className={styles.challengeContent}>
           <Sliders/>
         </div> */}
-      </div>
+      </div>: 
+      <LoginWarning/>
+      }
       <Footer/>
     </>
   )

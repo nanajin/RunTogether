@@ -2,7 +2,7 @@ import React from "react";
 import SignUp from '../component/SignUp';
 import Header from "../staticComponent/Header";
 import Footer from "../staticComponent/Footer";
-import Register from '../component/Register.tsx';
+import Register from '../component/Register';
 
 function SignUpPage(){
   return(

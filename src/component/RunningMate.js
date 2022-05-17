@@ -4,23 +4,33 @@ import {BsFillChatSquareDotsFill, BsSearch, BsFillPersonFill} from 'react-icons/
 import Header from "../staticComponent/Header";
 import Footer from "../staticComponent/Footer";
 import { Link } from "react-router-dom";
+import LoginWarning from "./LoginWarning";
+import axios from "axios";
+import Loading from "./Loading";
+
 function RunningMate(){
+  const [isLogin, setIsLogin] = useState(false);
+  const [loading, setLoading] = useState(true);
+  useEffect(()=>{
+    setLoading(false);
+  });
+
+  useEffect(()=>{
+    axios({
+      url: "/api/",
+      method: "GET"
+    }).then(res=>{
+      setIsLogin(true);
+    })
+  },[loading]);
   
-  // const memorizedLogin = useCallback(setLogin(props), [login]);
-  // let login = false;
-  
-  // const prevlogin = useRef(false);
-  // useEffect(()=>{
-  //     if(props){
-  //       prevlogin.current = login;
-  //       setLogin(prevlogin);
-  //     }
-  //     console.log(login);
-  //   },[login]);
   //채팅 친구는 백에 요청해서 팔로우한 친구들로 채울 것
+  console.log(loading);
   return(
     <>
       <Header/>
+      {!loading && isLogin && 
+      // {!loading && isLogin?
       <div className={styles.mate}>
         <h3>Running Mate</h3>
         <div className={styles.friend}>
@@ -42,8 +52,9 @@ function RunningMate(){
             <p>최근 러닝 기록</p>
           </div>
         </div>
-      </div>
-      
+      </div>}
+      {loading && <Loading/>}
+      {!loading && !isLogin && <LoginWarning/>}
       <Footer/>
     </>
   )

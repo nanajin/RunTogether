@@ -3,12 +3,11 @@
   /* background-color: lightblue; */
 }
 .runImage{
-  width: 100%;
+  width: 70%;
   height: 500px;
-  /* margin-left: 10%; */
+  margin-left: 15%;
   margin-top: 15px;
-  /* border-radius: 1em; */
-  background-image: url(/public/image/running_back.png);
+  background-image: url(/public/image/run_back.png);
   background-size: cover;
   position: relative; /*이미지 위에 겹치게 할 수 있는 position*/
 }
@@ -25,17 +24,25 @@
 }
 .startbtn{
   background: none;
+  width: 120px;
   border: 2px solid black;
-  color: aliceblue;
   border-radius: 1em;
   padding: 15px;
-  font-size: medium;
-  margin-left: 40%;
+  font-size: 17px;
+  /* margin-left: 40%; */
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(200%, 150%);
+  font-family: 'Do Hyeon', sans-serif;
+
 }
 .startbtn:hover{
   transition: all 0.3s ease-in-out;
-  background-color: black;
+  background-color: rgb(35, 172, 20);
+  color: white;
   cursor: pointer;
+  border: 2px solid rgb(35, 172, 20);
 }
 .main_userbox{
   width: 400px;

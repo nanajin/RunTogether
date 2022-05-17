@@ -23,3 +23,6 @@
   margin-bottom: 30px;
   margin-left: 40%;
 }
+.approve_container .back_btn:hover{
+  cursor: pointer;
+}
