@@ -27,6 +27,7 @@ import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import RunningMate from './RunningMate';
 import MateView from './MateView';
 import LoginWarning from './LoginWarning';
+import ErrorPage from '../page/ErrorPage';
 /* eslint no-restricted-globals: ["off"] */
 function App(props) {
   const [login, setLogin] = useState(true);
@@ -56,6 +57,8 @@ function App(props) {
         <Route path='/mate' element={<RunningMate/>}/>
         <Route path='/mateview' element={<MateView/>}/>
         <Route path='/loginwarning' element={<LoginWarning/>}/>
+        <Route path='/errorpage' element={<ErrorPage/>}/>
+
 
         {login?
           <Route path='/record' element={<RecordPage/>}/>

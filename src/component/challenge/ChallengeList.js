@@ -4,13 +4,13 @@ import Header from "../../staticComponent/Header";
 import Footer from "../../staticComponent/Footer";
 import axios from "axios";
 import {BsPencilFill} from 'react-icons/bs';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function ChallengeList(props){
   const [state, setState] =useState({
     boardList: [],
   })
-
+  const navigate = useNavigate();
     axios({
       method: "GET",
       url: `/reactBackend/${props.grade}list`
@@ -22,6 +22,7 @@ function ChallengeList(props){
       })
     }).catch(e=>{
       console.log(e);
+      navigate('/errorpage', {state: {error: e}})
     });
   
   return(

@@ -12,16 +12,16 @@ import LoginWarning from "./LoginWarning";
 
 function Challenge(){
   const [user, setUser] = useState(""); //서버 데이터 가져오기
-  const [isLogin, setIsLogin] = useState(false);
-  useEffect(()=>{
-    axios({
-      url: "/api/",
-      method: "GET"
-    }).then(res=>{
-      setIsLogin(true);
-      setUser(res.data);
-    })
-  },[]);
+  const [isLogin, setIsLogin] = useState(true);
+  // useEffect(()=>{
+  //   axios({
+  //     url: "/api/",
+  //     method: "GET"
+  //   }).then(res=>{
+  //     setIsLogin(true);
+  //     setUser(res.data);
+  //   })
+  // },[]);
   const grade = "manager";
   const [state, setState] =useState({
     boardList: [],
@@ -38,6 +38,14 @@ function Challenge(){
       })
     })
   },[]);
+  useEffect(()=>{
+    axios({
+      method: "GET",
+      url:"/board/list",
+    }).then(res=>{
+      console.log(res.data);
+    })
+  },[]);
   return(
     <>
       <Header/>
@@ -46,6 +54,7 @@ function Challenge(){
         <h3>Challenge</h3>
         {/* <p>{user}님이 보유하고 있는 챌린지 금액</p> */}
         <div className={styles.board}>
+          <Link to="/challengewrite">글쓰기</Link>
           <Link to ="/challengeuserpage" className={styles.board_entry}>챌린지 제안 게시판</Link>
           <Link to ="/challengemanagerpage" className={styles.board_entry}>매니저 게시판</Link>
         </div>

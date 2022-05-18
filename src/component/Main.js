@@ -25,58 +25,23 @@ function Main(){
     <>
     <div className={styles.main}>
       <MainHeader/>
-      <div className={styles.runImage}>
-        <div className={styles.introduction}>
-          {isLogin? 
+      <div className={styles.main_img}>
+        <img src="image/run_back.png" className={styles.runImage}></img>
+        {isLogin? 
           <Link to="/record">
             <button className={styles.startbtn}>Get Started</button>  {/*로그인 전엔 /login으로 이동, 후엔 /record로 이동*/}
           </Link>:
           <Link to="/login">
             <button className={styles.startbtn}>Get Started</button>  
-          </Link>}
-
-        </div>
+          </Link>}    
       </div>
-    
-
-    {/* <div className={styles.mobile}>
-      <div className={styles.main_userbox}>
-        {isLogin?
-          <div className={styles.afterlogin}>
-              <img src="C:\Users\nmj37\Desktop\js_test\react-project\public\image\background_run.png"/>
-              <p>~님 환영합니다!</p>
-             
-                <Link to = '/userupdate'>
-                  <button className={styles.m_update_btn}>회원정보 수정</button>
-                </Link>
-                <Link to = '/mypage'>
-                  <button className={styles.m_mypage_btn}>마이페이지</button>
-                </Link>
-             
-          </div>
-          
-          :<div className={styles.beforelogin}>
-            <Link to = '/login'>
-              <button className={styles.m_login_btn}>로그인(Login)</button>
-            </Link>
-            <p>아직 회원이 아니십니까?</p>
-            <Link to = '/signup'>
-              <button className={styles.m_signup_btn}>회원가입(Sign Up)</button>
-          </Link>
-          </div>
-        }
-        <Follow/>
-      </div> */}
-    <Fade bottom>
-      <Cards/>
-    
+      <Fade bottom>
+        <Cards/>
       <div className={styles.tab}>
         <Tab/>
       </div>
       </Fade>
-      <div>
-        <Footer/>
-      </div>
+      <Footer/>
       </div>
 
     </>

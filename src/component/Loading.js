@@ -1,5 +1,5 @@
 import React from "react";
-import FadeLoader from "react-spinners/FadeLoader";
+// import FadeLoader from "react-spinners/FadeLoader";
 
 function Loading(){
     return(

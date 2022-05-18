@@ -29,6 +29,9 @@ function MainHeader(){
   }
   return(
     <>
+    <li className={styles.nav_item}>
+          <button onClick={onLogout} className={styles.logout_btn}> Logout </button>
+        </li> 
     {!login?
       <ul className= {toggle ?`${styles.header_user} ${styles.active}`: styles.header_user}>
             <li className={styles.nav_item}>
