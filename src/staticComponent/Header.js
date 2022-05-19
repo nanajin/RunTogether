@@ -3,18 +3,13 @@ import { Link } from 'react-router-dom';
 import styles from '../staticComponent/Header.module.css';
 import {BsList, BsXLg, BsFillPersonFill} from 'react-icons/bs';
 import axios from "axios";
+import { useRecoilState } from "recoil";
+import loginState from "./state";
+
 function Header(props){
   const [toggle, setToggle] = useState(false); //미디어 버전
   const [headerLine, setHeaderLine] = useState(true);
-  const [isLogin, setIsLogin] = useState(false);
-  useEffect(()=>{
-    axios({
-      url: "/api/",
-      method: "GET"
-    }).then(res=>{
-      setIsLogin(true);
-    })
-  },[]);
+  const [login, setLogin] = useRecoilState(loginState);
 
   const onLogout =()=>{
     axios({
@@ -23,6 +18,7 @@ function Header(props){
       
     }).then(res=>{
       console.log(res);
+      setLogin(false);
     })
   }
   
@@ -52,7 +48,7 @@ function Header(props){
                 <Link to = '/record'>Record</Link>
               </li>
           </ul>
-        {isLogin?
+        {login?
           <ul className= {toggle ?`${styles.header_user} ${styles.active}`: styles.header_user}>
             <li className={styles.nav_item}>
               <Link to = '/mypage'>Mypage</Link>

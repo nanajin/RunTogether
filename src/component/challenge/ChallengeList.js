@@ -5,36 +5,47 @@ import Footer from "../../staticComponent/Footer";
 import axios from "axios";
 import {BsPencilFill} from 'react-icons/bs';
 import { Link, useNavigate } from "react-router-dom";
+import {useRecoilState} from 'recoil';
+import loginState from "../../staticComponent/state";
+import LoginWarning from "../LoginWarning";
+import ErrorPage from "../../page/ErrorPage";
 
 function ChallengeList(props){
+  const [login, setLogin] = useRecoilState(loginState);
+
   const [state, setState] =useState({
     boardList: [],
   })
+  
   const navigate = useNavigate();
+
+  useEffect(()=>{
     axios({
       method: "GET",
-      url: `/reactBackend/${props.grade}list`
-    }).then((res)=>{
-      const {data} = res;
+      url: `/${props.api}/list`
+    }).then(res=>{
       setState({
         ...state,
-        boardList : data,
+        boardList: res.data.data,
       })
     }).catch(e=>{
-      console.log(e);
-      navigate('/errorpage', {state: {error: e}})
-    });
-  
+      <ErrorPage/>
+    })
+  },[]);
+
   return(
     <>
     <Header/>
     <div className="challengelist">
-      <h3>챌린지 제안 게시판</h3>
+      {props.api === 'board'?
+      <h3>챌린지 제안 게시판</h3>:
+      <h3>챌린지 등록 게시판</h3>}
 
-      {props.grade ==="manager" ? null :
+      {props.api ==="board" && login &&
         <Link to="/challengewrite" className="pen">
           <BsPencilFill/>
         </Link>}
+
       <table className="table">
         <thead>
           <tr>
@@ -45,18 +56,19 @@ function ChallengeList(props){
         </thead>
         <tbody>
           {state.boardList.map((el,key)=>{
-            const view_url = `/challengeview/${props.grade}` + el.id;
+            const id = (props.api === "board" ? el.boardId: el.challengeId);
+            const view_url = `/challengeview/${props.api}` + id;
             return(
               <>
                 <tr>
                   <td> 
                     <Link to ={view_url} state={
-                      {grade: props.grade, id: el.id, title: el.title, contents: el.contents, filename: el.filename}} className="title_link"> 
+                      {id: id, api: props.api}} className="title_link"> 
                       {el.title} 
                     </Link> 
                   </td>
-                  <td className="count">{el.view_cnt}</td>
-                  <td className="date">{el.register_date.slice(0,10)}</td>
+                  <td className="count">{el.views}</td>
+                  <td className="date">{el.registerDate.slice(0,10)}</td>
                 </tr>
               </>
             )

@@ -1,0 +1,8 @@
+import React from "react";
+import { atom } from "recoil";
+
+const loginState = atom({
+    key: 'loginState',
+    default: false,
+});
+export default loginState;

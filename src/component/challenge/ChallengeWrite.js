@@ -1,20 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ErrorPage from "../../page/ErrorPage";
 import Footer from "../../staticComponent/Footer";
 import Header from "../../staticComponent/Header";
 import "./ChallengeWrite.css";
 
 function ChallengeWrite(){
-  useEffect(()=>{
-    axios({
-      url: "/api/",
-      method: "GET"
-    }).then(res=>{
-      console.log(res);
-    })
-  },[]);
-
   const navigate = useNavigate();
   const [data, setData] = useState(
     {
@@ -37,13 +29,8 @@ function ChallengeWrite(){
     const file = e.target.files[0];
     setImageUrl(file);
   }
+
   const onSubmit =()=>{
-    axios({
-      url: "/api/",
-      method: "GET"
-    }).then(res=>{
-      console.log(res);
-    })
     const blob = new Blob([JSON.stringify(data)], {type: 'application/json'});
     const formData = new FormData();
     formData.append('file', imgUrl);
@@ -58,15 +45,13 @@ function ChallengeWrite(){
       // },
       data: formData,
     }).then((res)=>{
-      // alert("글 게시 성공!");
+      alert("글 게시 성공!");
       console.log(res.data);
 
     }).catch(e=>{
-        console.log(e);
-      })
-    console.log(data);
-    // navigate("/challenge");
-    // })
+      <ErrorPage/>
+    })
+    navigate("/challenge");
   };
   
   const onReset = ()=>{

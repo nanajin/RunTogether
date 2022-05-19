@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {BsPlayCircleFill,BsFillStopCircleFill,BsPauseCircleFill} from "react-icons/bs"
 import styles from '../component/Record.module.css'
+import { useRecoilState } from "recoil";
+import loginState from "../staticComponent/state";
+import LoginWarning from "./LoginWarning";
 
 function Record(){
+  const [login, setLogin] = useRecoilState(loginState);
   const [time, setTime] = useState(0); //시간 나타내주기
   const [onBtn, setOnBtn] = useState(false); //시작 버튼
   const [record, setRecord] = useState([]);
@@ -35,6 +39,8 @@ function Record(){
   }
   return(
     <>
+    {login?
+    <>
       <h1>Let's Run Together!</h1>
       <div className={styles.map}>지도</div>
       <div className={styles.time}>
@@ -65,6 +71,7 @@ function Record(){
       <div className={styles.record}>
           {record}
       </div>
+    </>: <LoginWarning/>}
     </>
   )
 }

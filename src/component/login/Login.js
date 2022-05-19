@@ -1,11 +1,13 @@
 import axios from 'axios'
 import React ,{useState, useEffect}from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-import MainHeader from '../../staticComponent/MainHeader'
+import { atom, useRecoilState } from 'recoil'
 import styles from '../Login.module.css'
+import loginState from '../../staticComponent/state'
+import ErrorPage from '../../page/ErrorPage'
 
 function Login() {
-    // const [login, setLogin] = useState(false);
+    const [login, setLogin] = useRecoilState(loginState);
     const navigate = useNavigate()
     const [loginData, setLoginData] = useState({
         email:'',
@@ -20,18 +22,17 @@ function Login() {
             return alert("Please add all fields")
         }
         const userData = {email:email, pwd:pw}
-
         
         axios({
           url:"/api/login",
           method:"POST",
           data: userData,
         }).then(res=>{
+          setLogin(true);
+          alert("환영합니다"); 
           navigate('/');
-          // setLogin(true);
-          // alert("환영합니다");  
         }).catch(e=>{
-          console.log(e);
+          <ErrorPage/>
         })
     }
     const onChange = (e)=>{

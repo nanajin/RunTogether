@@ -10,24 +10,19 @@ import Cards from "./Cards";
 import axios from "axios";
 import MainHeader from "../staticComponent/MainHeader";
 import Fade from 'react-reveal/Fade';
+import {useRecoilState} from 'recoil';
+import loginState from "../staticComponent/state";
 
 function Main(){
-  const [isLogin, setIsLogin] = useState(false);
-  useEffect(()=>{
-    axios({
-      url: "/api/",
-      method: "GET"
-    }).then(res=>{
-      setIsLogin(true);
-    })
-  },[]);
+  const [login, setLogin] = useRecoilState(loginState);
+  
   return(
     <>
     <div className={styles.main}>
       <MainHeader/>
       <div className={styles.main_img}>
         <img src="image/run_back.png" className={styles.runImage}></img>
-        {isLogin? 
+        {login? 
           <Link to="/record">
             <button className={styles.startbtn}>Get Started</button>  {/*로그인 전엔 /login으로 이동, 후엔 /record로 이동*/}
           </Link>:

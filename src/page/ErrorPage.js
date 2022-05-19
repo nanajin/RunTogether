@@ -1,12 +1,12 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import './ErrorPage.css';
 function ErrorPage(){
-  const navigateState = useNavigate().state;
-  const location = useLocation();
-  console.log(`에러페이지: ${location.state.error}`);
   return(
     <div className="errorpage">
-      <div>{location.state.error}</div>
+      <h2>!오류가 발생했습니다!</h2>
+      <h2>!다시 시도해주세요!</h2>
+      <Link to ='/'>홈으로 가기</Link>
     </div>
   )
 }

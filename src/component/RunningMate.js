@@ -7,29 +7,23 @@ import { Link } from "react-router-dom";
 import LoginWarning from "./LoginWarning";
 import axios from "axios";
 import Loading from "./Loading";
+import { useRecoilState } from "recoil";
+import loginState from "../staticComponent/state";
 
 function RunningMate(){
-  const [isLogin, setIsLogin] = useState(false);
+  const [login, setLogin] = useRecoilState(loginState);
   const [loading, setLoading] = useState(true);
   useEffect(()=>{
     setLoading(false);
   });
 
-  useEffect(()=>{
-    axios({
-      url: "/api/",
-      method: "GET"
-    }).then(res=>{
-      setIsLogin(true);
-    })
-  },[loading]);
   
   //채팅 친구는 백에 요청해서 팔로우한 친구들로 채울 것
   console.log(loading);
   return(
     <>
       <Header/>
-      {!loading && isLogin && 
+      {!loading && login && 
       // {!loading && isLogin?
       <div className={styles.mate}>
         <h3>Running Mate</h3>
@@ -54,7 +48,7 @@ function RunningMate(){
         </div>
       </div>}
       {loading && <Loading/>}
-      {!loading && !isLogin && <LoginWarning/>}
+      {!loading && !login && <LoginWarning/>}
       <Footer/>
     </>
   )

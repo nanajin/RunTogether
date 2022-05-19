@@ -1,0 +1,20 @@
+.errorpage{
+    text-align: center;
+    margin-bottom: 100px;
+}
+.errorpage >h2{
+    color: rgb(5, 152, 24);
+    font-size: 40px;
+    margin-top: 150px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.errorpage > a{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+.errorpage > a:hover{
+    color: rgb(201, 29, 72);
+    transition: all 0.3s ease-in-out;
+}

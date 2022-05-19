@@ -63,6 +63,17 @@
 .none{
   display: none;
 }
+.logout_btn{
+  background: none;
+  border: none;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 15px;
+}
+.logout_btn:hover{
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  color: red;
+}
   @media screen and (max-width: 780px) { /*max-width : 300px  max-height : 500px*/
     .none{
       display: none;

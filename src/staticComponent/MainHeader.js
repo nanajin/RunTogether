@@ -3,21 +3,14 @@ import { Link } from 'react-router-dom';
 import styles from './MainHeader.module.css';
 import {BsList, BsXLg, BsFillPersonFill} from 'react-icons/bs';
 import axios from "axios";
+import {atom, useRecoilState} from 'recoil';
+import loginState from "./state";
+
 function MainHeader(){
   const [toggle, setToggle] = useState(false); //미디어 버전
-  const [login, setLogin] = useState(false);
-  const [user, setUser] = useState("");
-  useEffect(()=>{
-    axios({
-      url: "/api/",
-      method: "GET"
-    }).then(res=>{
-      console.log(res.data);
-      setLogin(true);
-      setUser(res.data);
-    })
-  },[]);
-
+  const [login, setLogin] = useRecoilState(loginState);
+  const [user, setUser] = useState("나");
+  
   const onLogout =()=>{
     axios({
       url:"/api/logout",
@@ -25,13 +18,12 @@ function MainHeader(){
       
     }).then(res=>{
       console.log(res);
+      setLogin(false);
+      alert('로그아웃 되었습니다');
     })
   }
   return(
     <>
-    <li className={styles.nav_item}>
-          <button onClick={onLogout} className={styles.logout_btn}> Logout </button>
-        </li> 
     {!login?
       <ul className= {toggle ?`${styles.header_user} ${styles.active}`: styles.header_user}>
             <li className={styles.nav_item}>

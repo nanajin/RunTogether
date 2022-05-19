@@ -20,7 +20,7 @@ function CardItem(props) {
         {props.state &&
         <Link className='cards__item__link' to={view_url}
           state={
-            {grade: "manager", id: state.id, title: state.title, contents: state.contents, filename: state.filename}}>
+            {api: "challenge", id: state.id}}>
           <figure className='cards__item__pic-wrap' data-category={props.label}>
             <img
               className='cards__item__img'

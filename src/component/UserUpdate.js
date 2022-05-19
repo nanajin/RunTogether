@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './UserUpdate.css';
+import { useRecoilState } from 'recoil';
+import loginState from '../staticComponent/state';
 
 function UserUpdate(){
+  const [login, setLogin] = useRecoilState(loginState);
   const [nickname, setNickname] = useState="";
   const [id, setId] = useState="";
   const [pw, setPw] = useState="";
@@ -11,7 +14,8 @@ function UserUpdate(){
   return(
     <>
       <p>회원정보 수정 페이지 입니다</p>
-
+      {login?
+      <>
       <h1>회원정보 조회/수정</h1>
       <div className='updateSection'>
         <label>
@@ -51,7 +55,8 @@ function UserUpdate(){
 
       <input type="submit" value='수정하기'></input>  {/*누르면 alert 뜨기*/}
       <input type="submit" value='이전으로 돌아가기'></input>
-
+      </>: 
+      <p>로그인 후 이용하실 수 있습니다</p>}
     </>
   )
 }
