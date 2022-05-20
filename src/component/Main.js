@@ -11,7 +11,7 @@ import axios from "axios";
 import MainHeader from "../staticComponent/MainHeader";
 import Fade from 'react-reveal/Fade';
 import {useRecoilState} from 'recoil';
-import loginState from "../staticComponent/state";
+import {loginState} from "../staticComponent/state";
 
 function Main(){
   const [login, setLogin] = useRecoilState(loginState);

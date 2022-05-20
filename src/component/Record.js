@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {BsPlayCircleFill,BsFillStopCircleFill,BsPauseCircleFill} from "react-icons/bs"
 import styles from '../component/Record.module.css'
 import { useRecoilState } from "recoil";
-import loginState from "../staticComponent/state";
+import {loginState} from "../staticComponent/state";
 import LoginWarning from "./LoginWarning";
 
 function Record(){

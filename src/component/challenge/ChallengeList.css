@@ -55,7 +55,32 @@ thead th{
   display: block;
   margin-top: 0;
 }
-
+.empty_list{
+  text-align: center;
+  margin-bottom: 100px;
+}
+.empty_list >h2{
+  color: rgb(26, 96, 35);
+  font-size: 40px;
+  margin-top: 150px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+.empty_list > a{
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+.empty_list > a:hover{
+  color: rgb(201, 29, 72);
+  transition: all 0.3s ease-in-out;
+}
+.empty_list > p{
+  color: rgb(5, 152, 24);
+  margin-top: 100px;
+  font-weight: bold;
+  font-size: 15px;
+}
 @media screen and (max-width: 768px){
   .table{
     /* width: 100%; */

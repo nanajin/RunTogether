@@ -8,7 +8,7 @@ import LoginWarning from "./LoginWarning";
 import axios from "axios";
 import Loading from "./Loading";
 import { useRecoilState } from "recoil";
-import loginState from "../staticComponent/state";
+import {loginState} from "../staticComponent/state";
 
 function RunningMate(){
   const [login, setLogin] = useRecoilState(loginState);

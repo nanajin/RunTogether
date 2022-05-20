@@ -7,7 +7,6 @@ import RecordPage from '../page/RecordPage';
 import ChallengePage from '../page/ChallengePage';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import LoginModal from './LoginModal';
 import About from './About';
 import UserUpdate from './UserUpdate';
 import Main from './Main';
@@ -28,11 +27,10 @@ import RunningMate from './RunningMate';
 import MateView from './MateView';
 import LoginWarning from './LoginWarning';
 import ErrorPage from '../page/ErrorPage';
-/* eslint no-restricted-globals: ["off"] */
-function App(props) {
-  const [login, setLogin] = useState(true);
-  // const location = useLocation();
+import ChallengeAdminWrite from './challenge/ChallengeAdminWrite';
 
+/* eslint no-restricted-globals: ["off"] */
+function App() {
   return (
     <>
     <BrowserRouter>
@@ -58,17 +56,11 @@ function App(props) {
         <Route path='/mateview' element={<MateView/>}/>
         <Route path='/loginwarning' element={<LoginWarning/>}/>
         <Route path='/errorpage' element={<ErrorPage/>}/>
+        <Route path='/record' element={<RecordPage/>}/>
+          {/* :<Route path='/record' element={<Navigate replace to = "/login"/>}/> */}
+        <Route path='/challenge' element={<Challenge/>}/>
+        <Route path='/challengeadminwrite' element={<ChallengeAdminWrite/>}/>
 
-
-        {login?
-          <Route path='/record' element={<RecordPage/>}/>
-          :<Route path='/record' element={<Navigate replace to = "/login"/>}/>
-        }
-        {login?
-          <Route path='/challenge' element={<Challenge/>}/>
-          :<Route path='/challenge' element={<Navigate replace to = "/login"/>}/>
-        }
-        
       </Routes>  
       </CSSTransition>
       </TransitionGroup>      

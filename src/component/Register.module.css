@@ -16,7 +16,7 @@
   background-color: black;
   border-radius: 20px;
   position: absolute;
-  top: 15%;
+  top: 17%;
   left: 50%;
   transform: translate(-50%,-50%);
   margin-top: 20%;
@@ -26,17 +26,18 @@
 }
 .form{
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 58%;
+    left: 40%;
     transform: translate(-50%,-50%);
 }
-.form > h2{
+.container > h2{
   color: rgb(38, 235, 124);
   margin-top: 10%;
   font-size: 30px;
+  text-align: center;
 }
 .box{
-  width: 200px;
+  width: 100px;
   height: 30px;
   margin: 10px;
   font-size: 1.1rem;
@@ -44,19 +45,36 @@
 .radio{
     margin-bottom: 10px;
     margin-top: 20px;
+    margin-left: 30%;
     color: white;
 }
-.btn{
+.name_btn, .email_btn{
   border: 1px solid white;
   border-radius: 0.5em;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
   color: white;
   padding: 10px;
-  margin: 10px;
+  /* margin: 20px; */
+  margin-top: 20px;
+  margin-left: 65%;
   background: none;
 }
-.btn:hover{
+.name_btn{
+  margin-top: 17%;
+}
+.register_btn{
+  border: 1px solid white;
+  border-radius: 0.5em;
+  font-size: 17px;
+  font-weight: 500;
+  color: white;
+  padding: 10px;
+  margin-top: 75%;
+  background: none;
+
+}
+.name_btn:hover, .email_btn:hover, .register_btn:hover{
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   color: black;

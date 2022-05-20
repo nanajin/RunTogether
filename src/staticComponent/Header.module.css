@@ -20,6 +20,7 @@
 .main_logo:hover{
   color: rgb(0, 128, 41);
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .header_menulist {

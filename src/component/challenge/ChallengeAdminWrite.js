@@ -9,7 +9,7 @@ import { useRecoilState } from "recoil";
 import {loginState} from "../../staticComponent/state";
 import LoginWarning from "../LoginWarning";
 
-function ChallengeWrite(){
+function ChallengeAdminWrite(){
   const [login, setLogin] = useRecoilState(loginState);
   const navigate = useNavigate();
   const [data, setData] = useState(
@@ -42,18 +42,15 @@ function ChallengeWrite(){
 
       // 글 업로드
     axios({
-      url: "/board/write",
+      url: "/challenge/admin/write",
       method: 'POST',
-      // headers:{
-      //   'Content-type': 'multipart/form-data',
-      // },
       data: formData,
     }).then((res)=>{
-      alert("글 게시 성공!");
-      navigate("/challenge");
+      alert(res.data);
     }).catch(e=>{
       <ErrorPage/>
     })
+    navigate("/challenge");
   };
   
   const onReset = ()=>{
@@ -77,17 +74,16 @@ function ChallengeWrite(){
       {login?
       <div className="board_container">
         <br></br>
-        <h1>챌린지 제안 작성</h1>
+        <h1>챌린지 정식 등록 작성</h1>
         <form >
           <input className="board_title" type="text" placeholder="제목" name="title" value={title} onChange={onChange}></input>
           <br></br>
           <textarea className="board_contents" placeholder="내용을 입력하세요." name="contents" value={contents} onChange={onChange}></textarea>
           <input type="file" name="file" className="board_file" onChange={handleImage}></input>
-          {/* <input type="submit" className="post_submit_btn" value="글 게시"></input> */}
         </form>
         
         <div className="post_btn">
-          <button className="post_submit_btn" onClick={onSubmit}>글 게시</button>
+          <button className="post_submit_btn" onClick={onSubmit}>등록</button>
           <button className="post_reset_btn" onClick={onReset}>초기화</button>
           <button className="post_cancel_btn" onClick={onCancel}>작성 취소</button>
         </div>
@@ -97,4 +93,4 @@ function ChallengeWrite(){
     </>
   )
 }
-export default ChallengeWrite;
+export default ChallengeAdminWrite;

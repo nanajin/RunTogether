@@ -3,11 +3,12 @@ import React ,{useState, useEffect}from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import { atom, useRecoilState } from 'recoil'
 import styles from '../Login.module.css'
-import loginState from '../../staticComponent/state'
+import {loginState, userState} from '../../staticComponent/state'
 import ErrorPage from '../../page/ErrorPage'
 
 function Login() {
     const [login, setLogin] = useRecoilState(loginState);
+    const [user, setUser] = useRecoilState(userState);
     const navigate = useNavigate()
     const [loginData, setLoginData] = useState({
         email:'',
@@ -29,7 +30,8 @@ function Login() {
           data: userData,
         }).then(res=>{
           setLogin(true);
-          alert("환영합니다"); 
+          alert("환영합니다");
+          axios.get('/api/').then(res=>{setUser(res.data)}); 
           navigate('/');
         }).catch(e=>{
           <ErrorPage/>
@@ -41,15 +43,7 @@ function Login() {
             [e.target.name]:e.target.value,
         }))
     }
-    const onLogout =()=>{
-      axios({
-        url:"/api/logout",
-        method:"POST",
-      }).then(res=>{
-        console.log(res);
-        // setLogin(false);
-      })
-    }
+   
   return (
       <>
       
@@ -74,7 +68,6 @@ function Login() {
                 </Link>
             </div>
         </form>
-        {/* <button className={styles.btn} onClick={onLogout}>Logout</button> */}
 
       </div>
       </div>

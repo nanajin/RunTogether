@@ -4,21 +4,23 @@ import styles from '../staticComponent/Header.module.css';
 import {BsList, BsXLg, BsFillPersonFill} from 'react-icons/bs';
 import axios from "axios";
 import { useRecoilState } from "recoil";
-import loginState from "./state";
+import {loginState,userState} from "./state";
 
 function Header(props){
   const [toggle, setToggle] = useState(false); //미디어 버전
   const [headerLine, setHeaderLine] = useState(true);
   const [login, setLogin] = useRecoilState(loginState);
-
+  const [user, setUser] = useRecoilState(userState);
+  
   const onLogout =()=>{
     axios({
       url:"/api/logout",
       method:"POST",
       
     }).then(res=>{
-      console.log(res);
+      alert('로그아웃 되었습니다');
       setLogin(false);
+      setUser('');
     })
   }
   
@@ -42,10 +44,10 @@ function Header(props){
                 <Link to = '/mate'>Mate</Link>
               </li>
               <li className={styles.nav_item}>
-                <Link to = '/'>Community</Link>
+                <Link to = '/record'>Record</Link>
               </li>
               <li className={styles.nav_item}>
-                <Link to = '/record'>Record</Link>
+                <Link to = '/about'>About</Link>
               </li>
           </ul>
         {login?

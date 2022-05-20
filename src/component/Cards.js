@@ -12,27 +12,32 @@ function Cards() {
               text='Challenge Together'
               label='Challenge'
               path='/challenge'
+              state = 'main_card'
             />
             <CardItem
               src='/image/mate.png'
               text='Make friends to running'
               label='Mate'
-              path='/'
+              path='/mate'
+              state = 'main_card'
             />
           </ul>
           <ul className='cards__items'>
-            <CardItem
-              src='/image/community.png'
-              text='Communication with others'
-              label='Community'
-              path='/'
-            />
             <CardItem
               src='/image/stopwatch.png'
               text='Show your capacity and Record yours'
               label='Record'
               path='/record'
+              state = 'main_card'
             />
+            <CardItem
+              src='/image/about.png'
+              text='About us'
+              label='About'
+              path='/about'
+              state = 'main_card'
+            />
+            
             {/* <CardItem
               src='images/img-8.jpg'
               text='Ride through the Sahara Desert on a guided camel tour'

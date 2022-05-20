@@ -4,12 +4,12 @@ import styles from './MainHeader.module.css';
 import {BsList, BsXLg, BsFillPersonFill} from 'react-icons/bs';
 import axios from "axios";
 import {atom, useRecoilState} from 'recoil';
-import loginState from "./state";
+import {loginState, userState} from "./state";
 
 function MainHeader(){
   const [toggle, setToggle] = useState(false); //미디어 버전
   const [login, setLogin] = useRecoilState(loginState);
-  const [user, setUser] = useState("나");
+  const [user, setUser] = useRecoilState(userState);
   
   const onLogout =()=>{
     axios({
@@ -17,9 +17,9 @@ function MainHeader(){
       method:"POST",
       
     }).then(res=>{
-      console.log(res);
-      setLogin(false);
       alert('로그아웃 되었습니다');
+      setLogin(false);
+      setUser('');
     })
   }
   return(
@@ -58,10 +58,10 @@ function MainHeader(){
                 <Link to = '/mate'>Mate</Link>
               </li>
               <li className={styles.nav_item}>
-                <Link to = '/'>Community</Link>
+                <Link to = '/record'>Record</Link>
               </li>
               <li className={styles.nav_item}>
-                <Link to = '/record'>Record</Link>
+                <Link to = '/about'>About</Link>
               </li>
           </ul>
 

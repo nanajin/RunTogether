@@ -112,6 +112,14 @@
   text-align: center;
   color: white;
 }
+
+.empty_list > h2{
+  color: rgb(26, 96, 35);
+  font-size: 40px;
+  margin-top: 150px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
 @media only screen and (min-width: 1200px) {
   .content__blog__container {
     width: 84%;

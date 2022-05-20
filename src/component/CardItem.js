@@ -1,26 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 function CardItem(props) {
-  // const [state, setState] = useState(null);
-  let state = {};
   let view_url = "";
-  // const [manager, setManager] = useState(false);
-  if(props.state){
-    state = props.state;
-    // setState(props.state);
-    view_url = "/challengeview/" + state.id;
-    // setManager(true);
-  }
-  // else{
-  //   console.log(props.path);
-  // }
+    view_url = "/challengeview/" + props.id;
   return (
     <>
       <li className='cards__item'>
-        {props.state &&
+        {props.state === 'challenge_card' && props.id && 
         <Link className='cards__item__link' to={view_url}
           state={
-            {api: "challenge", id: state.id}}>
+            {api: "challenge", id: props.id}}>
           <figure className='cards__item__pic-wrap' data-category={props.label}>
             <img
               className='cards__item__img'
@@ -28,27 +17,32 @@ function CardItem(props) {
               src={props.src}
             />
           </figure>
+
           <div className='cards__item__info'>
             <h5 className='cards__item__text'>{props.text}</h5>
-            <h5 className='card_cnt'>조회수 {state.count}</h5>
-
+            <h5 className='card_cnt'>조회수 {props.count}</h5>
           </div>
-        </Link>
-        }
-        {!props.state && <Link className='cards__item__link' to={props.path}>
-          <figure className='cards__item__pic-wrap' data-category={props.label}>
-            <img
-              className='cards__item__img'
-              alt='Image'
-              src={props.src}
-              // width="100" height="100"
-            />
-          </figure>
-          <div className='cards__item__info'>
-            <h5 className='main_cards__item__text'>{props.text}</h5>
-          </div>
-        </Link>
-}
+        </Link>}
+        {props.state === 'challenge_card' && !props.id &&
+        <div className="empty_list">
+          <h2>!아직 챌린지가 생성되지 않았습니다!</h2>
+        </div>}
+        
+        {props.state === 'main_card' && 
+          <Link className='cards__item__link' to={props.path}>
+            <figure className='cards__item__pic-wrap' data-category={props.label}>
+              <img
+                className='cards__item__img'
+                alt='Image'
+                src={props.src}
+                // width="100" height="100"
+              />
+            </figure>
+            <div className='cards__item__info'>
+              <h5 className='main_cards__item__text'>{props.text}</h5>
+            </div>
+          </Link>
+        }       
       </li>
     </>
   );

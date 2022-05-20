@@ -6,13 +6,13 @@ import Header from "../../staticComponent/Header";
 import ChargeMoney from "../kakao/ChargeMoney";
 import "./ChallengeView.css";
 import { useRecoilState } from "recoil";
-import loginState from "../../staticComponent/state";
+import {loginState, userState} from "../../staticComponent/state";
 import LoginWarning from "../LoginWarning";
 import ErrorPage from "../../page/ErrorPage";
 
 function ChallengeView(){
   const [login, setLogin] = useRecoilState(loginState);
-
+  const [user, setUser] = useRecoilState(userState);
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -35,12 +35,39 @@ function ChallengeView(){
           title: res.data.data.title,
           contents: res.data.data.contents,
           filename: res.data.data.imageFileName,
-        })
+        });
+        console.log(res.data.data.imageFileName)
       }).catch(e=>{
         <ErrorPage/>
       })
   },[]);
 
+  // useEffect(()=>{
+  //   axios.get('/board/image', 
+  //         {params: {
+  //           name: view.filename,
+  //       }}).then(res=>{
+  //         console.log(res.data);
+  //       })
+  // },[view.filename]);
+  // const viewImage = ()=>{
+  //     axios.get('/board/image', 
+  //         {params: {
+  //           name: view.filename,
+  //       }}).then(res=>{
+  //         console.log(res.data);
+  //       })
+  // }
+  const onApprove=()=>{
+    axios({
+      method: 'POST',
+      url: `/board/admin/approve/${id}`,
+      params: {state: '진행중'}
+    }).then(res=>{
+      alert(res.data.message);
+      navigate('/challenge');
+    })
+  }
   let url = `/challengeregister/${id}`;
 
   // const onRemove=()=>{
@@ -67,7 +94,7 @@ function ChallengeView(){
         <div className="view_title">{view.title}</div>
         {view.filename && 
           <div className="view_img">
-            <img src={`http://localhost:8080/${view.filename}`}></img>
+            {/* <img src={`http://localhost:8080/${view.filename}`}></img> */}
           </div>}
         <div className="view_contents">{view.contents}</div>
       </div>
@@ -78,12 +105,10 @@ function ChallengeView(){
             {isModalOn && <ChargeMoney setIsModalOn={HandleModal}/>}
         </div>
         <div className="manager_admin">
-        <button className="challenge_rewrite">
-          <Link to = {url} className="link"
-            state = {{id: id, title: view.title, contents: view.contents, filename: view.filename}}>
-                    챌린지 등록하러 가기 
-          </Link> 
-          </button>
+          {user === '관리자' &&
+          <button className="challenge_rewrite" onClick={onApprove}>
+            챌린지 승인
+          </button>}
           {/* <button onClick={onRemove} className="challenge_remove">삭제하기</button> */}
         </div> 
       </> : 

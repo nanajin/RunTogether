@@ -6,13 +6,13 @@ import axios from "axios";
 import {BsPencilFill} from 'react-icons/bs';
 import { Link, useNavigate } from "react-router-dom";
 import {useRecoilState} from 'recoil';
-import loginState from "../../staticComponent/state";
+import {loginState, userState} from "../../staticComponent/state";
 import LoginWarning from "../LoginWarning";
 import ErrorPage from "../../page/ErrorPage";
 
 function ChallengeList(props){
   const [login, setLogin] = useRecoilState(loginState);
-
+  const [user, setUser] = useRecoilState(userState);
   const [state, setState] =useState({
     boardList: [],
   })
@@ -45,9 +45,9 @@ function ChallengeList(props){
         <Link to="/challengewrite" className="pen">
           <BsPencilFill/>
         </Link>}
-
+      {state.boardList.length > 0 ? 
       <table className="table">
-        <thead>
+        <thead> 
           <tr>
               <th className="title">제목</th>
               <th>조회수</th>
@@ -74,7 +74,18 @@ function ChallengeList(props){
             )
           })}
         </tbody>
-        </table>
+        </table>:
+        <div className="empty_list">
+          <h2>!아직 챌린지가 생성되지 않았습니다!</h2>
+          <p>챌린지 제안을 하고싶다면?</p>
+          {user==='관리자'?
+          <Link to='/challengeadminwrite'>글 작성</Link>:
+          <Link to='/challengewrite'>글 작성</Link>}
+          <br></br>
+          <br></br>
+          <Link to='/'>홈으로 이동</Link>
+        </div>}
+          
       
     </div>
     <Footer/>

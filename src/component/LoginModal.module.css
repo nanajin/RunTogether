@@ -53,6 +53,9 @@ h3{
   margin-top: 20%;
   margin-bottom: 10%;
 }
+.pay_btn:hover{
+  cursor: pointer;
+}
 @media screen and (max-width:780px) {
   h3{
     margin-top: 50%;
