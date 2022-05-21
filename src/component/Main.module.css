@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+.runImage{
+  width: 80%;
+  height: 100%;
+  margin-left: 12%;
+  margin-top: 15px;
+  position: relative; /*이미지 위에 겹치게 할 수 있는 position*/
+}
+.startbtn{
+  background: none;
+  width: 120px;
+  border: 2px solid black;
+  border-radius: 1em;
+  padding: 15px;
+  font-size: 17px;
+  position: absolute;
+  top: 19%;
+  left: 65%;
+  /* transform: translate(-50%, -50%); */
+  font-family: 'Do Hyeon', sans-serif;
+}
+.startbtn:hover{
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(35, 172, 20);
+  color: white;
+  cursor: pointer;
+  border: 2px solid rgb(35, 172, 20);
+}
+.tab{
+  margin-left: 20%;
+}
+
+@media screen and (max-width: 780px){
+  
+}

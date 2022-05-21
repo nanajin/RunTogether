@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import "./ChallengeList.css";
 import Header from "../../staticComponent/Header";
@@ -94,5 +93,3 @@ function ChallengeList(props){
   )
 }
 export default ChallengeList;
-=======
->>>>>>> a2a5f3024405cf66c487412da1bf182cd0caa6b3
