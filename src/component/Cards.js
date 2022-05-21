@@ -37,13 +37,7 @@ function Cards() {
               path='/about'
               state = 'main_card'
             />
-            
-            {/* <CardItem
-              src='images/img-8.jpg'
-              text='Ride through the Sahara Desert on a guided camel tour'
-              label='5'
-              path='/sign-up'
-            /> */}
+          
           </ul>
         </div>
       </div>
