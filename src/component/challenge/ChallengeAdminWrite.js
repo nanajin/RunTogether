@@ -38,7 +38,7 @@ function ChallengeAdminWrite(){
     const blob = new Blob([JSON.stringify(data)], {type: 'application/json'});
     const formData = new FormData();
     formData.append('file', imgUrl);
-    formData.append('boardDto', blob);
+    formData.append('challengeDto', blob);
 
       // 글 업로드
     axios({
@@ -46,11 +46,11 @@ function ChallengeAdminWrite(){
       method: 'POST',
       data: formData,
     }).then((res)=>{
-      alert(res.data);
+      alert(res.data.message);
+      navigate("/challenge");
     }).catch(e=>{
       <ErrorPage/>
     })
-    navigate("/challenge");
   };
   
   const onReset = ()=>{

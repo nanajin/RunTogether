@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './MainHeader.module.css';
 import {BsList, BsXLg, BsFillPersonFill} from 'react-icons/bs';
 import axios from "axios";
-import {atom, useRecoilState} from 'recoil';
+import {useRecoilState} from 'recoil';
 import {loginState, userState} from "./state";
 
 function MainHeader(){
@@ -22,6 +22,7 @@ function MainHeader(){
       setUser('');
     })
   }
+  
   return(
     <>
     {!login?

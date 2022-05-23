@@ -1,8 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 function CardItem(props) {
   let view_url = "";
     view_url = "/challengeview/" + props.id;
+  const [img, setImg] = useState('');
+  useEffect(()=>{
+    if(props.state === 'challenge_card'){
+    axios({
+      url: `/challenge/image/${props.id}`,
+      method: 'GET',
+      responseType: 'blob',
+    }).then(res=>{
+      console.log(res);
+      const myFile = new File([res.data], 'imgName');
+      const reader = new FileReader();
+      reader.onload= ev=>{
+        const previewImg = String(ev.target?.result)
+        setImg(previewImg);
+      }
+      reader.readAsDataURL(myFile);
+    })}
+  },[]);
   return (
     <>
       <li className='cards__item'>
@@ -14,7 +34,7 @@ function CardItem(props) {
             <img
               className='cards__item__img'
               alt='Image'
-              src={props.src}
+              src={`${img}`}
             />
           </figure>
 

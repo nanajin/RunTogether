@@ -44,9 +44,6 @@ function ChallengeWrite(){
     axios({
       url: "/board/write",
       method: 'POST',
-      // headers:{
-      //   'Content-type': 'multipart/form-data',
-      // },
       data: formData,
     }).then((res)=>{
       alert("글 게시 성공!");
@@ -83,7 +80,6 @@ function ChallengeWrite(){
           <br></br>
           <textarea className="board_contents" placeholder="내용을 입력하세요." name="contents" value={contents} onChange={onChange}></textarea>
           <input type="file" name="file" className="board_file" onChange={handleImage}></input>
-          {/* <input type="submit" className="post_submit_btn" value="글 게시"></input> */}
         </form>
         
         <div className="post_btn">

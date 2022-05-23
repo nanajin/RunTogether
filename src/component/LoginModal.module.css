@@ -1,4 +1,4 @@
-.login{
+.login, .chargemoney{
   background-color: black;
   color: white;
   text-align: center;
@@ -18,13 +18,18 @@
 h3{
   margin-top: 30%;
 }
+.chargemoney > h3{
+  margin-top: 30%;
+}
+
 .title{
   font-size: larger;
-  padding: 20px;
+  padding: 10px;
 }
 .input{
   padding: auto;
   margin: 10%;
+  margin-top: 30px;
 }
 .pw{
   margin-top: 5px;
@@ -43,6 +48,10 @@ h3{
   color: white;
   margin: 20px auto;
 }
+.x:hover{
+  color: pink;
+  transition: all 0.3s ease-in;
+}
 .pay_btn{
   background: none;
   border-radius: 1rem;
@@ -55,6 +64,8 @@ h3{
 }
 .pay_btn:hover{
   cursor: pointer;
+  color: yellow;
+  transition: all 0.3s ease-in;
 }
 @media screen and (max-width:780px) {
   h3{

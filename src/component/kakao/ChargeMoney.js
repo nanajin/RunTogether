@@ -4,10 +4,12 @@ import {Link, useNavigate} from 'react-router-dom';
 import axios from "axios";
 import { BsXLg } from 'react-icons/bs';
 import PayReady from "./PayReady";
+import { useRecoilState } from "recoil";
+import { userState } from "../../staticComponent/state";
 
 //모달 페이지
 function ChargeMoney(props){
-
+  const [user, setUser] = useRecoilState(userState);
   const [money, setMoney] = useState(0);
   const navigate = useNavigate();
   const [pay, setPay] = useState(false);
@@ -21,9 +23,9 @@ function ChargeMoney(props){
   
   return(
     <>
-    <div className={styles.login}>
+    <div className={styles.chargemoney}>
       <h3>Challenge for Run Together!</h3>
-      <p className={styles.title}>id: mijin</p>
+      <p className={styles.title}>{user}님</p>
       <p className={styles.title}>기부할 금액</p>
 
         <label className={styles.input}>

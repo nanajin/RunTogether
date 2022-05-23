@@ -28,6 +28,7 @@ import MateView from './MateView';
 import LoginWarning from './LoginWarning';
 import ErrorPage from '../page/ErrorPage';
 import ChallengeAdminWrite from './challenge/ChallengeAdminWrite';
+import Loading from './Loading';
 
 /* eslint no-restricted-globals: ["off"] */
 function App() {
@@ -60,6 +61,7 @@ function App() {
           {/* :<Route path='/record' element={<Navigate replace to = "/login"/>}/> */}
         <Route path='/challenge' element={<Challenge/>}/>
         <Route path='/challengeadminwrite' element={<ChallengeAdminWrite/>}/>
+        <Route path='/loading' element={<Loading/>}/>
 
       </Routes>  
       </CSSTransition>

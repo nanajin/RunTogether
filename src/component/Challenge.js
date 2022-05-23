@@ -43,7 +43,7 @@ function Challenge(){
           <br></br>
           <br></br>
           {user === '관리자'?
-            <Link to ="/challengemanagerpage" className={styles.board_entry}>매니저 게시판</Link>: null}
+            <Link to ="/challengemanagerpage" className={styles.board_entry}>관리자 게시판</Link>: null}
         </div>
         {login && user !== '관리자' && 
         <p>{user}님이 참여하고 있는 챌린지</p>}
@@ -59,7 +59,7 @@ function Challenge(){
                 <div className={styles.challenge_container}>
                   <Fade bottom>
                   <CardItem
-                    src={el.imageFileName? (`http://localhost:8080/${el.imageFileName}`): "/image/challenge.png"}
+                    // src={el.imageFileName? (`http://localhost:8080/${el.imageFileName}`): "/image/challenge.png"}
                     text= {el.title}
                     label='진행중'
                     // path={view_url}

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React ,{useState, useEffect}from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-import { atom, useRecoilState } from 'recoil'
+import { useRecoilState } from 'recoil'
 import styles from '../Login.module.css'
 import {loginState, userState} from '../../staticComponent/state'
 import ErrorPage from '../../page/ErrorPage'
@@ -15,6 +15,12 @@ function Login() {
         pw:'',
     })
     const {email, pw} = loginData
+
+    // // 로딩 모달 불러오기
+    // const [isModalOn, setIsModalOn] = useState(false);
+    // const HandleModal = (active)=>{
+    //   setIsModalOn(active);
+    // }
 
     const onSubmit = (e)=>{
         e.preventDefault();
@@ -31,8 +37,15 @@ function Login() {
         }).then(res=>{
           setLogin(true);
           alert("환영합니다");
-          axios.get('/api/').then(res=>{setUser(res.data)}); 
-          navigate('/');
+          axios.get('/api/').then(res=>{
+            setUser(res.data);
+          }); 
+          if(user !== ''){
+            navigate('/');
+          }
+          else{
+            navigate('/loading');
+          }
         }).catch(e=>{
           <ErrorPage/>
         })

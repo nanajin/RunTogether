@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import Footer from "../staticComponent/Footer";
+import Header from "../staticComponent/Header";
+import './MyPage.css';
+import {userState} from '../staticComponent/state';
+import { useRecoilState } from "recoil";
+import LoginWarning from "../component/LoginWarning";
 
 function MyPage(){
+  const [user, setUser] = useRecoilState(userState);
   return(
     <>
-      <h1>MyPage</h1>
+    <Header/>
+    {user ?
+    <div className="mypage">
+      <h3>MyPage</h3>
       <p>프로필</p>
-      {/* <h2>모든 지역에서의 런닝</h2> */}
+      <p>환영합니다 {user}님</p>
       <p>최근 런닝 기록</p>
       <p>탭 클릭하면 맵 라인과 기록 뜸</p>
-      회원정보 수정
-      {/* <h2>~지역에서의 런닝</h2> */}
-      {/* <p>최근 런닝 기록</p> */}
-
+      <p>회원정보 수정은 시간있으면 하자...</p>
+    </div>: <LoginWarning/>}
+    <Footer/>
     </>
   )
 }

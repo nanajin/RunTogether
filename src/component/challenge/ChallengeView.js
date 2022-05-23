@@ -36,28 +36,11 @@ function ChallengeView(){
           contents: res.data.data.contents,
           filename: res.data.data.imageFileName,
         });
-        console.log(res.data.data.imageFileName)
       }).catch(e=>{
         <ErrorPage/>
       })
   },[]);
 
-  // useEffect(()=>{
-  //   axios.get('/board/image', 
-  //         {params: {
-  //           name: view.filename,
-  //       }}).then(res=>{
-  //         console.log(res.data);
-  //       })
-  // },[view.filename]);
-  // const viewImage = ()=>{
-  //     axios.get('/board/image', 
-  //         {params: {
-  //           name: view.filename,
-  //       }}).then(res=>{
-  //         console.log(res.data);
-  //       })
-  // }
   const onApprove=()=>{
     axios({
       method: 'POST',
@@ -66,23 +49,41 @@ function ChallengeView(){
     }).then(res=>{
       alert(res.data.message);
       navigate('/challenge');
+    }).catch(e=>{
+      alert('문제가 발생했습니다. 다시 시도해주세요')
     })
   }
   let url = `/challengeregister/${id}`;
 
-  // const onRemove=()=>{
-  //   axios({
-  //     url:"/reactBackend/remove",
-  //     method:"POST",
-  //     data: {
-  //       id: params,
-  //     }
-  //   }).then(res=>{
-  //     alert("삭제되었습니다.");
-  //     navigate("/challengemanagerpage");
-  //   })
-  // }
+  const onRemove=()=>{
+    axios({
+      url: `/${api}/admin/delete/${id}`,
+      method:"DELETE",
+    }).then(res=>{
+      alert("삭제되었습니다.");
+      navigate("/challenge");
+    }).catch(e=>{
+      alert('문제가 발생했습니다. 다시 시도해주세요')
+    })
+  }
 
+  const [img, setImg] = useState('');
+  useEffect(()=>{
+    axios({
+      url: `/${api}/image/${id}`,
+      method: 'GET',
+      responseType: 'blob',
+    }).then(res=>{
+      console.log(res);
+      const myFile = new File([res.data], 'imgName');
+      const reader = new FileReader();
+      reader.onload= ev=>{
+        const previewImg = String(ev.target?.result)
+        setImg(previewImg);
+      }
+      reader.readAsDataURL(myFile);
+    })
+  },[]);
   const [isModalOn, setIsModalOn] = useState(false);
   const HandleModal = (active)=>{
     setIsModalOn(active);
@@ -94,7 +95,7 @@ function ChallengeView(){
         <div className="view_title">{view.title}</div>
         {view.filename && 
           <div className="view_img">
-            {/* <img src={`http://localhost:8080/${view.filename}`}></img> */}
+            <img src={`${img}`} alt="챌린지 이미지"></img>
           </div>}
         <div className="view_contents">{view.contents}</div>
       </div>
@@ -106,10 +107,13 @@ function ChallengeView(){
         </div>
         <div className="manager_admin">
           {user === '관리자' &&
-          <button className="challenge_rewrite" onClick={onApprove}>
-            챌린지 승인
-          </button>}
-          {/* <button onClick={onRemove} className="challenge_remove">삭제하기</button> */}
+          <>
+            {api === 'board'&&
+            <button className="challenge_rewrite" onClick={onApprove}>
+              챌린지 승인
+            </button>}
+            <button onClick={onRemove} className="challenge_remove">삭제하기</button>
+          </>}
         </div> 
       </> : 
       <LoginWarning/>}

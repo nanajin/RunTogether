@@ -41,8 +41,11 @@ function ChallengeList(props){
       <h3>챌린지 제안 게시판</h3>:
       <h3>챌린지 등록 게시판</h3>}
 
-      {props.api ==="board" && login &&
+      {props.api ==="board" && login ?
         <Link to="/challengewrite" className="pen">
+          <BsPencilFill/>
+        </Link>:
+        <Link to="/challengeadminwrite" className="pen">
           <BsPencilFill/>
         </Link>}
       {state.boardList.length > 0 ? 
