@@ -83,7 +83,7 @@ function ChallengeView(){
       }
       reader.readAsDataURL(myFile);
     })
-  },[]);
+  },[img]);
   const [isModalOn, setIsModalOn] = useState(false);
   const HandleModal = (active)=>{
     setIsModalOn(active);

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap'); */
 .main_container {
   display: flex;
   align-items: center;
@@ -90,10 +90,10 @@
       transition: all 0.5s ease-out;
     }
     .main_logo{
-      font-size: 2em;
-      margin-left: 25%;
-      background: none;
-      margin-top: 20px;
+      font-size: 2.5em;
+      /* margin-left: 25%; */
+      /* background: none; */
+      /* margin-top: 20px; */
     }
     .list_icon, .x_icon{
       display: flex;
@@ -110,7 +110,7 @@
       margin: 20px 0;
     }
     .list_icon:hover, .x_icon:hover{
-      color: pink;
+      color: rgb(244, 111, 133);
       transition: all 0.3s ease-in-out;
     }
     .header_menulist, .header_user {
@@ -119,13 +119,13 @@
     .header_menulist.active, .header_user.active{
       display: block;
       margin-left: 1%;
-      margin-right: 8%;
+      margin-right: 10%;
       justify-content: space-between;
       transition: all 0.3s ease-in-out;
     }
     .nav_item{
       padding: 10px 10px;
-      border-bottom: 2px solid greenyellow;
+      border-bottom: 2px solid rgb(35, 172, 20);
       text-align: center;
       color: white;
     }

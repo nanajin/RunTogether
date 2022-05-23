@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function CardItem(props) {
-  let view_url = "";
-    view_url = "/challengeview/" + props.id;
+  const view_url = "/challengeview/" + props.id;
   const [img, setImg] = useState('');
   useEffect(()=>{
     if(props.state === 'challenge_card'){

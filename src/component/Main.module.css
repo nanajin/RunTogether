@@ -6,6 +6,11 @@
   margin-top: 15px;
   position: relative; /*이미지 위에 겹치게 할 수 있는 position*/
 }
+.welcome{
+  text-align: center;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 20px;
+}
 .startbtn{
   background: none;
   width: 120px;
@@ -14,9 +19,8 @@
   padding: 15px;
   font-size: 17px;
   position: absolute;
-  top: 19%;
+  top: 23%;
   left: 65%;
-  /* transform: translate(-50%, -50%); */
   font-family: 'Do Hyeon', sans-serif;
 }
 .startbtn:hover{
@@ -31,5 +35,9 @@
 }
 
 @media screen and (max-width: 780px){
-  
+  .startbtn{
+    position: initial;
+    margin-left: 35%;
+  }
+
 }

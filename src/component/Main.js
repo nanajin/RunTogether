@@ -11,30 +11,36 @@ import axios from "axios";
 import MainHeader from "../staticComponent/MainHeader";
 import Fade from 'react-reveal/Fade';
 import {useRecoilState} from 'recoil';
-import {loginState} from "../staticComponent/state";
-
+import {loginState, userState} from "../staticComponent/state";
+import {useMediaQuery} from 'react-responsive'
 function Main(){
   const [login, setLogin] = useRecoilState(loginState);
-  
+  const [user, setUser] = useRecoilState(userState);
+  const isMobile = useMediaQuery({
+    query: "(max-width: 780px)"
+  });
   return(
     <>
     <div className={styles.main}>
-      <MainHeader/>
+      {isMobile ? <Header/> : <MainHeader/>}
       <div className={styles.main_img}>
         <img src="image/run_back.png" className={styles.runImage}></img>
         {login? 
+          <>
+          {isMobile && <p className={styles.welcome}>{user}님 환영합니다</p>}
           <Link to="/record">
             <button className={styles.startbtn}>Get Started</button>  {/*로그인 전엔 /login으로 이동, 후엔 /record로 이동*/}
-          </Link>:
+          </Link>
+          </>:
           <Link to="/login">
             <button className={styles.startbtn}>Get Started</button>  
           </Link>}    
       </div>
       <Fade bottom>
         <Cards/>
-      <div className={styles.tab}>
+      {/* <div className={styles.tab}>
         <Tab/>
-      </div>
+      </div> */}
       </Fade>
       <Footer/>
       </div>
