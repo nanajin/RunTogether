@@ -25,21 +25,21 @@ function ChallengeView(){
     filename: '',
   });
   
-  useEffect(()=>{
-      axios({
-        method: "GET",
-        url: `/${api}/${id}`,
-      }).then(res=>{
-        setView({
-          ...view,
-          title: res.data.data.title,
-          contents: res.data.data.contents,
-          filename: res.data.data.imageFileName,
-        });
-      }).catch(e=>{
-        <ErrorPage/>
-      })
-  },[]);
+  // useEffect(()=>{
+  //     axios({
+  //       method: "GET",
+  //       url: `/${api}/${id}`,
+  //     }).then(res=>{
+  //       setView({
+  //         ...view,
+  //         title: res.data.data.title,
+  //         contents: res.data.data.contents,
+  //         filename: res.data.data.imageFileName,
+  //       });
+  //     }).catch(e=>{
+  //       <ErrorPage/>
+  //     })
+  // },[]);
 
   const onApprove=()=>{
     axios({
@@ -70,6 +70,19 @@ function ChallengeView(){
   const [img, setImg] = useState('');
   useEffect(()=>{
     axios({
+      method: "GET",
+      url: `/${api}/${id}`,
+    }).then(res=>{
+      setView({
+        ...view,
+        title: res.data.data.title,
+        contents: res.data.data.contents,
+        filename: res.data.data.imageFileName,
+      });
+    }).catch(e=>{
+      <ErrorPage/>
+    })
+    axios({
       url: `/${api}/image/${id}`,
       method: 'GET',
       responseType: 'blob',
@@ -83,7 +96,7 @@ function ChallengeView(){
       }
       reader.readAsDataURL(myFile);
     })
-  },[img]);
+  },[]);
   const [isModalOn, setIsModalOn] = useState(false);
   const HandleModal = (active)=>{
     setIsModalOn(active);

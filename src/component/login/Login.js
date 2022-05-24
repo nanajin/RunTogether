@@ -16,12 +16,6 @@ function Login() {
     })
     const {email, pw} = loginData
 
-    // // 로딩 모달 불러오기
-    // const [isModalOn, setIsModalOn] = useState(false);
-    // const HandleModal = (active)=>{
-    //   setIsModalOn(active);
-    // }
-
     const onSubmit = (e)=>{
         e.preventDefault();
 
@@ -35,10 +29,15 @@ function Login() {
           method:"POST",
           data: userData,
         }).then(res=>{
-          setLogin(true);
+          localStorage.setItem("login", true);
+          setLogin(localStorage.getItem("login"));
+
+          // setLogin(true);
           alert("환영합니다");
           axios.get('/api/').then(res=>{
-            setUser(res.data);
+            // setUser(res.data);
+            localStorage.setItem("nickname", res.data);
+            setUser(localStorage.getItem("nickname"));
           }); 
           if(user !== ''){
             navigate('/');
@@ -49,6 +48,7 @@ function Login() {
         }).catch(e=>{
           <ErrorPage/>
         })
+        // setUser(localStorage.getItem("nickname"));
     }
     const onChange = (e)=>{
         setLoginData(prevState=>({
@@ -56,7 +56,7 @@ function Login() {
             [e.target.name]:e.target.value,
         }))
     }
-   
+    
   return (
       <>
       

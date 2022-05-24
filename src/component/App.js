@@ -29,6 +29,7 @@ import LoginWarning from './LoginWarning';
 import ErrorPage from '../page/ErrorPage';
 import ChallengeAdminWrite from './challenge/ChallengeAdminWrite';
 import Loading from './Loading';
+import Run from './record/Run';
 
 /* eslint no-restricted-globals: ["off"] */
 function App() {
@@ -62,6 +63,7 @@ function App() {
         <Route path='/challenge' element={<Challenge/>}/>
         <Route path='/challengeadminwrite' element={<ChallengeAdminWrite/>}/>
         <Route path='/loading' element={<Loading/>}/>
+        <Route path='/run' element={<Run/>}/>
 
       </Routes>  
       </CSSTransition>

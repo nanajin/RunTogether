@@ -12,16 +12,21 @@ function Header(props){
   const [login, setLogin] = useRecoilState(loginState);
   const [user, setUser] = useRecoilState(userState);
   
-  const onLogout =()=>{
-    axios({
-      url:"/api/logout",
-      method:"POST",
-      
-    }).then(res=>{
-      alert('로그아웃 되었습니다');
-      setLogin(false);
-      setUser('');
-    })
+  const onLogout = async ()=>{
+    if(window.confirm('로그아웃 하시겠습니까?')){
+      await axios({
+        url:"/api/logout",
+        method:"POST",       
+      }).then(res=>{
+        alert('로그아웃 되었습니다');
+        localStorage.clear();
+        setLogin(false);
+        setUser('');
+      })
+    }
+    else{
+      return(0);
+    }
   }
   
   useEffect(()=>{

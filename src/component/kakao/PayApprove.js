@@ -56,12 +56,19 @@ function PayApprove(){
     
     return(
       <>
-      {!isOpen && <div>다시 결제해주시길 바랍니다.</div>}
+      {!isOpen && 
+        <div className="approve_error">
+          <h3>다시 결제해주시길 바랍니다.</h3>
+          <Link to="/challenge">
+            <button className="back_btn">돌아가기</button>
+          </Link>
+        </div>
+      }
       {isOpen && 
         <div className="approve_container">
-          <h2>기부에 참여해주셔서 감사합니다. </h2>
-          <h2>챌린지도 화이팅해주세요! </h2>
-
+          <h3>기부에 참여해주셔서 감사합니다. </h3>
+          <h3>챌린지도 화이팅해주세요! </h3>
+          <div className="approve_btn">
           <Link to="/">
             <button className="back_btn">메인으로 가기</button>
           </Link>
@@ -69,6 +76,7 @@ function PayApprove(){
           <Link to="/challenge">
             <button className="back_btn">다른 챌린지도 구경하고 싶다면?</button>
           </Link>
+          </div>
         </div>
       }
       </>

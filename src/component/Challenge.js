@@ -16,6 +16,9 @@ function Challenge(){
   const [login, setLogin] = useRecoilState(loginState);
   const [user, setUser] = useRecoilState(userState); //서버 데이터 가져오기
   
+  useEffect(()=>{
+    console.log(login);
+  })
   const [state, setState] =useState({
     boardList: [],
   })

@@ -8,21 +8,34 @@
   height: fit-content;
 }
 .approve_container{
-  margin: 10%;
+  margin-top: 15%;
 }
-.approve_container > h2{
-  text-align: center;
-  color: blueviolet;
+.approve_container > h3, .approve_error > h3{
+    font-size: 50px;
+    color: rgb(5, 152, 24);
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    font-family: 'Do Hyeon', sans-serif;
 }
-.approve_container .back_btn{
-  background-color: black;
+a{
+  text-decoration: none;
+}
+.approve_container .back_btn, .approve_error .back_btn{
+  display: block;
+  margin: auto;
+  padding: 10px;
+  background: none;
   border-radius: 1em;
-  color: white;
+  border: 2px solid rgb(5, 152, 24);
+  color: rgb(5, 152, 24);
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 30px;
-  margin-left: 40%;
 }
-.approve_container .back_btn:hover{
+.approve_container .back_btn:hover, .approve_error .back_btn:hover{
   cursor: pointer;
+  transition: all 0.3s ease-in;
+  background-color: rgb(7, 122, 23);
+  color: white;
 }
