@@ -1,12 +1,5 @@
 import { atom } from 'recoil'
-
-// interface runState {
-//     dis: number,
-//     speed: number,
-//     time: number,
-// }
-
-export const runState = atom<runState>({
+export const runState = atom({
     key: 'runState',
     default: {
         dis: 0,

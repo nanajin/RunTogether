@@ -114,10 +114,11 @@ function ChallengeView(){
       </div>
       {login?
       <>
+        {api === 'challenge'&&
         <div>
             <button className="challenge_join" onClick={()=>{HandleModal(true)}}>참여하기</button>
             {isModalOn && <ChargeMoney setIsModalOn={HandleModal}/>}
-        </div>
+        </div>}
         <div className="manager_admin">
           {user === '관리자' &&
           <>

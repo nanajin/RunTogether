@@ -30,6 +30,8 @@ import ErrorPage from '../page/ErrorPage';
 import ChallengeAdminWrite from './challenge/ChallengeAdminWrite';
 import Loading from './Loading';
 import Run from './record/Run';
+import Chat from './chat/Chat';
+import JoinRoom from './chat/JoinRoom';
 
 /* eslint no-restricted-globals: ["off"] */
 function App() {
@@ -63,7 +65,8 @@ function App() {
         <Route path='/challenge' element={<Challenge/>}/>
         <Route path='/challengeadminwrite' element={<ChallengeAdminWrite/>}/>
         <Route path='/loading' element={<Loading/>}/>
-        <Route path='/run' element={<Run/>}/>
+        <Route path='/chat' element={<Chat/>}/>
+        <Route path='/joinroom' element={<JoinRoom/>}/>
 
       </Routes>  
       </CSSTransition>

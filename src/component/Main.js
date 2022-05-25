@@ -13,12 +13,14 @@ import Fade from 'react-reveal/Fade';
 import {useRecoilState} from 'recoil';
 import {loginState, userState} from "../staticComponent/state";
 import {useMediaQuery} from 'react-responsive'
+import Chat from "./chat/Chat";
 function Main(){
   const [login, setLogin] = useRecoilState(loginState);
   const [user, setUser] = useRecoilState(userState);
   const isMobile = useMediaQuery({
     query: "(max-width: 780px)"
   });
+  
   return(
     <>
     <div className={styles.main}>
@@ -42,6 +44,7 @@ function Main(){
         <Tab/>
       </div> */}
       </Fade>
+      
       <Footer/>
       </div>
 

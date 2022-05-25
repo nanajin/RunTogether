@@ -13,18 +13,17 @@
 .friend{
   margin-top: 30px;
   margin-bottom: 30px;
-  margin-left: 38%;
+  margin-left: 33%;
 }
 
 .friend_box{
-  width: 40%;
+  width: 50%;
   height: 100px;
   margin-top: 20px;
   border: 2px solid black;
   border-radius: 1em;
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
   align-items: center;
   box-shadow: 5px 5px 5px rgb(206, 206, 242);
 }
@@ -37,6 +36,17 @@
   margin-left: 40px;
   font-weight: bold;
   text-decoration: none;
+}
+.chat_btn{
+  background: none;
+  font-size: 40px;
+  border: none;
+  margin-left: 70px;
+}
+.chat_btn:hover{
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  color: green;
 }
 .search{
   width: 300px;

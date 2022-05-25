@@ -19,7 +19,7 @@ function Header(props){
         method:"POST",       
       }).then(res=>{
         alert('로그아웃 되었습니다');
-        localStorage.clear();
+        // localStorage.clear();
         setLogin(false);
         setUser('');
       })

@@ -6,15 +6,21 @@ import { BsStopCircle } from "react-icons/bs";
 import { clearWatch, getPosition, getWatchPosition } from "./getPosition";
 import { getDistance } from "./getDistance";
 import Running10m from "./Running10m";
+import { useRecoilState } from "recoil";
+import {userState, loginState} from '../../staticComponent/state';
+import LoginWarning from '../LoginWarning';
+import axios from "axios";
 
 function Run() {
-  const [controler, setControler] = useState(false);
+  const [user, setUser] = useRecoilState(userState);
+  const [login, setLogin] = useRecoilState(loginState);
+  const [controller, setController] = useState(false);
   const [time, setTime] = useState(0);
   const [dist, setDist] = useState(0);
   const [speed, setSpeed] = useState(0);
   const [position, setPosition] = useState({
-    latitude: 35.1768,
-    longitude: 126.9098,
+    latitude: 35.17688579,//인문대3호관
+    longitude: 126.90480417,
   });
   const [posArray, setPosArray] = useState([]);
   const [running10mData, setRunning10mData] = useState([]);
@@ -32,7 +38,7 @@ function Run() {
     getCurrentPosition();
   }, []);
   useEffect(() => {
-    if (controler) {
+    if (controller) {
       if (dist !== 0) {
         setSpeed(Math.round(((dist * 1000) / time) * 100) / 100);
       }
@@ -57,10 +63,10 @@ function Run() {
   }, [time]);
 
   useEffect(() => {
-    if (controler) {
+    if (controller) {
       setPosArray((prev) => [...prev, position]);
       console.log("posarray");
-      console.log(posArray);
+      console.log(posArray); //선 그리는데 필요함
       const posLen = posArray.length;
       if (posLen > 1) {
         setDist(
@@ -71,32 +77,36 @@ function Run() {
     }
   }, [position]);
   useEffect(() => {
-    if (controler) {
+    if (controller) {
       let tr = setInterval(() => {
         setTime((time) => time + 1);
       }, 1000);
+      // let tr = setInterval(() => {
+      //     setTime((time) => time + 10);
+      //   }, 10);
       return () => {
         setPosition({
-          latitude: 35.1768,
-          longitude: 126.9098,
+          latitude: 35.17834096, //35.1768
+          longitude: 126.90929059, //126.9098
         });
         setTime(0);
         setDist(0);
         setSpeed(0);
         clearInterval(tr);
         setPosArray([]);
+        console.log('리턴 값');
       };
     }
-  }, [controler]);
+  }, [controller]);
 
   const getStart = (e) => {
-    setControler(true);
-    setPosition({ latitude: 35.5, longitude: 127.1 });
+    setController(true);
+    setPosition({ latitude: 35.17834096, longitude: 126.90929059 }); //35.5, 127.1
     console.log("before watchposition");
     console.log(position);
     geoRecord.current = navigator.geolocation.watchPosition((success) => {
       console.log("watchposition");
-      console.log(new Date());
+      // console.log(new Date());
       const { latitude, longitude } = success.coords;
       setPosition({ latitude, longitude });
       console.log(position);
@@ -104,13 +114,31 @@ function Run() {
   };
   const getPause = function () {};
   const getStop = function () {
-    setControler(false);
+    setController(false);
     clearInterval(timeRecord.current);
     navigator.geolocation.clearWatch(geoRecord.current);
+    axios({
+      method: 'POST',
+      url: '/running/complete',
+      data: {
+        time: time,
+        distance: dist,
+        speed: speed,
+      }
+    }).then(res=>{
+      alert(res.data.message);
+    })
   };
+
+  let hour = Math.floor((time / 3600));
+  let minute = Math.floor((time - (hour * 3600))/60);
   return (
     <>
+    {login?
+      <>
       <div className={styles.center}>
+        <h3>Record Running</h3>
+        <p><span>{user}</span>님의 기록</p>
         <table className={styles.runState}>
           <thead>
             <tr>
@@ -124,6 +152,12 @@ function Run() {
               <td>{dist}km</td>
               <td>{speed}m/s</td>
               <td>{time}초</td>
+              <td>
+                <span>{("0" + Math.floor((time / 3600)))}:</span>
+                <span>{("0" + Math.floor((time - (hour * 3600))/60))}:</span>
+                <span>{("0" + time - (hour *3600)-(minute*60))}</span>
+
+              </td>
             </tr>
           </tbody>
         </table>
@@ -131,20 +165,22 @@ function Run() {
       <Map
         latitude={position.latitude}
         longitude={position.longitude}
-        record={controler}
+        record={controller}
         positionArray={posArray}
       />
-      <div className={styles.controler}>
-        {!controler ? (
-          <AiFillPlayCircle size="2.5rem" onClick={getStart} />
+      <div className={styles.controller}>
+        {!controller ? (
+          <AiFillPlayCircle size="2.5rem" cursor='pointer' onClick={getStart} />
         ) : (
           <>
-            <AiFillPauseCircle size="2.5rem" onClick={getPause} />
-            <BsStopCircle size="2.5rem" onClick={getStop} />
+            <AiFillPauseCircle size="2.5rem" cursor='pointer' onClick={getPause} />
+            <BsStopCircle size="2.5rem" cursor='pointer' onClick={getStop} />
           </>
         )}
       </div>
       <Running10m speed10mArray={running10mData.map((item) => item.speed)} />
+    </>
+    : <LoginWarning/>}
     </>
   );
 }

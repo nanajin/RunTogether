@@ -1,5 +1,6 @@
 import React from "react";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
+import styles from './Run.module.css';
 
 function Running10m({ speed10mArray }) {
   /* const running10mData = [
@@ -13,12 +14,17 @@ function Running10m({ speed10mArray }) {
     amt: 2400,
   }));
   return (
-    <LineChart width={600} height={300} data={running10mData}>
-      <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-      <CartesianGrid stroke="#ccc" />
-      <XAxis dataKey="name" />
-      <YAxis />
-    </LineChart>
+    <div className={styles.running10m}>
+      <h3>Analysis Running Data</h3>
+      <div className={styles.linechart}>
+      <LineChart width={600} height={300} data={running10mData}>
+        <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+        <CartesianGrid stroke="#ccc" />
+        <XAxis dataKey="name" />
+        <YAxis />
+      </LineChart>
+      </div>
+    </div>
   );
 }
 

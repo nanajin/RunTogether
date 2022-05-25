@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from './RunningMate.module.css';
-import {BsFillChatSquareDotsFill, BsSearch, BsFillPersonFill} from 'react-icons/bs';
+import {BsFillChatDotsFill, BsSearch, BsFillPersonFill} from 'react-icons/bs';
 import Header from "../staticComponent/Header";
 import Footer from "../staticComponent/Footer";
 import { Link } from "react-router-dom";
@@ -9,7 +9,6 @@ import axios from "axios";
 import Loading from "./Loading";
 import { useRecoilState } from "recoil";
 import {loginState} from "../staticComponent/state";
-
 function RunningMate(){
   const [login, setLogin] = useRecoilState(loginState);
   const [loading, setLoading] = useState(true);
@@ -28,13 +27,18 @@ function RunningMate(){
       <div className={styles.mate}>
         <h3>Running Mate</h3>
         <div className={styles.friend}>
-          <Link to ="/mateview">
+          {/* <Link to ="/mateview"> */}
             <div className={styles.friend_box}>
               <img src="image/profile.png" alt="프로필"></img>
               <p>MJ Na</p>
               <p>최근 러닝 기록</p>
+                <Link to={`/chat?name=gg&room=room`}>
+                  <button className={styles.chat_btn}>
+                    <BsFillChatDotsFill/>
+                  </button>
+                </Link>
             </div>
-          </Link>
+          {/* </Link> */}
           <div className={styles.friend_box}>
           <img src="image/profile.png" alt="프로필"></img>
             <p>YJ J</p>

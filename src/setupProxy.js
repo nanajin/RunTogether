@@ -2,7 +2,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
   app.use(
-    ['/api', '/board', '/challenge'],
+    ['/api', '/board', '/challenge', '/running'],
     createProxyMiddleware({
       target: 'http://localhost:8080',
       changeOrigin: true,
@@ -29,11 +29,11 @@ module.exports = function(app) {
       changeOrigin: true,
     })
   );
-  app.use(
-    '/reactBackend',
-    createProxyMiddleware({
-      target: 'http://localhost:8000',
-      changeOrigin: true,
-    })
-  );
+  // app.use(
+  //   '/reactBackend',
+  //   createProxyMiddleware({
+  //     target: 'http://localhost:8000',
+  //     changeOrigin: true,
+  //   })
+  // );
 }

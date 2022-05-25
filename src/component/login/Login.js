@@ -29,15 +29,14 @@ function Login() {
           method:"POST",
           data: userData,
         }).then(res=>{
-          localStorage.setItem("login", true);
-          setLogin(localStorage.getItem("login"));
-
-          // setLogin(true);
+          // localStorage.setItem("login", true);
+          // setLogin(localStorage.getItem("login"));
+          setLogin(true);
           alert("환영합니다");
           axios.get('/api/').then(res=>{
-            // setUser(res.data);
-            localStorage.setItem("nickname", res.data);
-            setUser(localStorage.getItem("nickname"));
+            setUser(res.data);
+            // localStorage.setItem("nickname", res.data);
+            // setUser(localStorage.getItem("nickname"));
           }); 
           if(user !== ''){
             navigate('/');

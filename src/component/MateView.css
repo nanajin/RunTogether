@@ -1,6 +1,3 @@
-.mateview{
-
-}
 .mateview >h3{
   font-size: 40px;
   color: rgb(5, 152, 24);
@@ -11,22 +8,26 @@
   border-bottom: 2px solid rgb(219, 216, 216);
   width: 50%;
 }
+span{
+  color: rgb(64, 171, 218);
+}
 .details{
   display: flex;
-  flex-direction: row;
-  margin-left: 15%;
+  margin-left: 26%;
 }
 .mate_records{
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: 50px 200px;
-  /* border: 1px solid black; */
-  padding: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 50px 20px;
 }
 .mate_records > p{
+  display: flex;
+  flex-direction: column;
   font-weight: bold;
   font-size: 20px;
+  padding: 10px;
+
 }
 .map{
   width: 500px;
