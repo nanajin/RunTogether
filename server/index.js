@@ -14,7 +14,8 @@ const router = require("./router");
 const app = express();
 const server = http.createServer(app);
 // const io = socket(server);
-var io = require('socket.io')(server, {cors: {origin: 'http://localhost:3000',  methods: ["GET", "POST"]}});
+var io = require('socket.io')(server, {cors: 
+  {origin: '*',  methods: ["GET", "POST"]}});
 
 
 
@@ -34,7 +35,7 @@ io.on("connection", (socket) => {
     // 관리자(서버)에서 소켓으로 보내는 이벤트
     socket.emit("message", {
       user: "admin",
-      text: `${user.name}, welcome to the room ${user.room}`,
+      text: `${user.name}, welcome!`,
     });
     // 같은 방에 있는 유저에게 보내는 서버측 전달
     socket.broadcast

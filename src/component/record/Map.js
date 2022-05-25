@@ -7,8 +7,8 @@ function Map(props) {
       }) */
 
   useEffect(function () {
-    const lat = props.latitude;
-    const lon = props.longitude;
+    const lat = props.latitude || 35.123456;
+    const lon = props.longitude || 126.564;
     const isRecord = props.record;
     const positionArray = props.positionArray || [];
 

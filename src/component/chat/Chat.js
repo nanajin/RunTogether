@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useReducer } from "react";
+import { Link, useLocation } from "react-router-dom";
 import queryString from "query-string";
 import io from "socket.io-client";
 import "./Chat.css";
@@ -9,23 +10,25 @@ import RoomInfo from "./RoomInfo";
 import Input from "./Input";
 
 // Material-ui
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
+import { useRecoilState } from "recoil";
+import { userState } from "../../staticComponent/state";
 
 let socket;
 
-const Chat = ({ location }) => {
-  const [name, setName] = useState("mijin");
-  const [room, setRoom] = useState("sc");
+const Chat = () => {
+  // const { paramName, paramRoom } = window.location.search;
+  // const [name, setName] = useState('');
+  // const [room, setRoom] = useState('');
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
-
   const [users, setUsers] = useState("");
+  const [name, setName] = useRecoilState(userState);
 
+  const location = useLocation();
+  const room = location.state.room;
   const ENDPOINT = "http://localhost:5000";
+  // console.log(name, room); // lama peru
 
   useEffect(() => {
     // query-string middleware의 사용
@@ -33,13 +36,13 @@ const Chat = ({ location }) => {
     // console.log(location.search); // ?name=lama&room=peru
     // console.log(data); // 객체 : {name: "lama", room: "peru"}
     // 다시 정리
-    console.log(location);
     // const { name, room } = queryString.parse(location.search);
+    // const { name, room } = window.location.search;
 
     socket = io(ENDPOINT); // 소켓 연결
 
-    setName(name);
-    setRoom(room);
+    // setName(name);
+    // setRoom(room);
 
     console.log(name, room); // lama peru
 
@@ -81,28 +84,12 @@ const Chat = ({ location }) => {
   console.log(message, messages);
   console.log(users, "users");
 
-  // return <h1>Chat</h1>;
-  // 1.roominfo
-  // 2.messages
-  // 3.input
   return (
       <div className="chatContainer">
-        {/* <div className="appbar">
-          <AppBar color="primary">
-            <Toolbar className="toolBar">
-              <Typography variant="h4" color="inherit" noWrap>
-                Chat
-              </Typography>
-              <Button color="inherit" href="/">
-                close
-              </Button>
-            </Toolbar>
-          </AppBar>
-        </div> */}
         <h3>Chat</h3>
         <div className="chatScreen">
           <Paper elevation={5} className="chatScreenPaper">
-            <RoomInfo room={name} />
+            <RoomInfo room={room} />
             <Messages messages={messages} name={name} />
             <Input
               message={message}

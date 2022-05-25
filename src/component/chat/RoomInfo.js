@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./RoomInfo.css";
 import {BsXLg} from 'react-icons/bs';
-import Button from "@material-ui/core/Button";
 
 function RoomInfo({ room }) {
   return (
@@ -16,15 +15,6 @@ function RoomInfo({ room }) {
               <BsXLg/> 
             </button>
           </Link>
-        {/* <Button
-          className="infoButton"
-          // variant="contained"
-          variant="raised"
-          href="/mate"
-          color="inherit"
-        >
-          close
-        </Button> */}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./JoinRoom.css";
+import queryString from "query-string";
 
 // Material-UI 적용하기
 import Avatar from "@material-ui/core/Avatar";
@@ -17,76 +18,29 @@ import Grid from "@material-ui/core/Grid";
 // import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { useRecoilState } from "recoil";
+import { userState } from "../../staticComponent/state";
 
 const JoinRoom = () => {
-  const [name, setName] = useState("");
-  const [room, setRoom] = useState("");
+  const [user, setUser] = useRecoilState(userState);
+  const location = useLocation();
+  const room = location.state.room;
 
+  // const { paramName} = window.location.search;
+  const current_url = window.location.href; //현재주소 
+  const url = new URL(current_url);
+  const urlParams = url.searchParams;
+  console.log(`"url:  ${urlParams}`);
+  // const {paramsName, paramsRoom} = queryString.parse(current_url);
+  // const [name, setName] = useState("");
+  // const [room, setRoom] = useState("");
+  // console.log(paramsName);
+  console.log(user, room);
+  // console.log(searchParam);
   return (
     <div className="joinOuterContainer">
-      <div className="joinInnerContainer">
-        <div className="joinImageContainer">
-          <img
-            className="joinImage"
-            src="https://source.unsplash.com/800x600/?lama"
-          />
-        </div>
-        <div className="joinFormContainer" component={Paper}>
-          <div className="joinFormBox">
-            <div className="joinTitle">
-              <Typography component="h1" variant="h5">
-                LamaChat
-              </Typography>
-            </div>
-            <form className="joinForm" noValidate>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="name"
-                label="Name"
-                name="name"
-                autoComplete="name"
-                autoFocus
-                onChange={(e) => setName(e.target.value)}
-              />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="room"
-                label="room"
-                type="room"
-                // size="large"
-                id="room"
-                autoComplete="current-password"
-                onChange={(e) => setRoom(e.target.value)}
-              />
-              <div className="buttonBox mt-10">
-                <Link
-                  className="joinButtonLink"
-                  onClick={(e) => (!name || !room ? e.preventDefault() : null)}
-                  to={`/chat?name=${name}&room=${room}`
-                  }
-                  // href={`/chat?name=${name}&room=${room}`}
-                >
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    className="joinButton mt-20"
-                  >
-                    Sign In
-                  </Button>
-                </Link>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+      <h3>채팅을 시작하는 중입니다</h3>
+      <Link to ='/chat' state={{name: user, room: room}}>채팅</Link>
     </div>
   );
 };

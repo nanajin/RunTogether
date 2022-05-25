@@ -19,7 +19,7 @@ function Run() {
   const [dist, setDist] = useState(0);
   const [speed, setSpeed] = useState(0);
   const [position, setPosition] = useState({
-    latitude: 35.17688579,//인문대3호관
+    latitude: 35.17688579, 
     longitude: 126.90480417,
   });
   const [posArray, setPosArray] = useState([]);
@@ -81,13 +81,10 @@ function Run() {
       let tr = setInterval(() => {
         setTime((time) => time + 1);
       }, 1000);
-      // let tr = setInterval(() => {
-      //     setTime((time) => time + 10);
-      //   }, 10);
+      
       return () => {
         setPosition({
-          latitude: 35.17834096, //35.1768
-          longitude: 126.90929059, //126.9098
+          
         });
         setTime(0);
         setDist(0);
@@ -101,7 +98,7 @@ function Run() {
 
   const getStart = (e) => {
     setController(true);
-    setPosition({ latitude: 35.17834096, longitude: 126.90929059 }); //35.5, 127.1
+    // setPosition({ latitude: 35.17834096, longitude: 126.90929059 }); //35.5, 127.1
     console.log("before watchposition");
     console.log(position);
     geoRecord.current = navigator.geolocation.watchPosition((success) => {
@@ -117,6 +114,7 @@ function Run() {
     setController(false);
     clearInterval(timeRecord.current);
     navigator.geolocation.clearWatch(geoRecord.current);
+    console.log(`시간: ${time}, 거리: ${dist}, 속도: ${speed}`);
     axios({
       method: 'POST',
       url: '/running/complete',
@@ -151,10 +149,10 @@ function Run() {
             <tr>
               <td>{dist}km</td>
               <td>{speed}m/s</td>
-              <td>{time}초</td>
+              {/* <td>{time}초</td> */}
               <td>
-                <span>{("0" + Math.floor((time / 3600)))}:</span>
-                <span>{("0" + Math.floor((time - (hour * 3600))/60))}:</span>
+                <span>{("0" + hour)}:</span>
+                <span>{("0" + minute)}:</span>
                 <span>{("0" + time - (hour *3600)-(minute*60))}</span>
 
               </td>
