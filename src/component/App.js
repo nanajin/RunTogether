@@ -67,6 +67,7 @@ function App() {
         <Route path='/loading' element={<Loading/>}/>
         <Route path='/chat' element={<Chat/>}/>
         <Route path='/joinroom' element={<JoinRoom/>}/>
+        {/* <Route path='/chargemoney' element={<JoinRoom/>}/> */}
 
       </Routes>  
       </CSSTransition>

@@ -9,16 +9,19 @@ import axios from "axios";
 
 function MyPage(){
   const [user, setUser] = useRecoilState(userState);
-  // useEffect(()=>{
-  //   axios({
-  //     method: 'GET',
-  //     url: `/running/${user}`,
-  //   }).then(res=>{
-  //     console.log(res.data);
-  //   }).catch(e=>{
-  //     alert(error)
-  //   });
-  // },[]);
+  useEffect(()=>{
+    axios({
+      method: 'GET',
+      url: `/running/`,
+      params: {
+        memberName: user,
+      }
+    }).then(res=>{
+      console.log(res.data);
+    }).catch(e=>{
+      alert(e)
+    });
+  },[]);
 
   return(
     <>

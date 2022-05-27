@@ -101,6 +101,13 @@ function ChallengeView(){
   const HandleModal = (active)=>{
     setIsModalOn(active);
   }
+  const handleJoin = ()=>{
+    if(window.confirm('해당 챌린지에 참여하시겠습니까?')){
+      navigate('/record',{state: id});
+    }
+    
+  }
+
   return(
     <>
       <Header/>
@@ -116,8 +123,9 @@ function ChallengeView(){
       <>
         {api === 'challenge'&&
         <div>
-            <button className="challenge_join" onClick={()=>{HandleModal(true)}}>참여하기</button>
-            {isModalOn && <ChargeMoney setIsModalOn={HandleModal}/>}
+          <button className="challenge_join" onClick={handleJoin}>참여하기</button>
+            {/* <button className="challenge_join" onClick={()=>{HandleModal(true)}}>참여하기</button>
+            {isModalOn && <ChargeMoney setIsModalOn={HandleModal}/>} */}
         </div>}
         <div className="manager_admin">
           {user === '관리자' &&

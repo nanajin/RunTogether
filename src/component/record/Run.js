@@ -10,10 +10,24 @@ import { useRecoilState } from "recoil";
 import {userState, loginState} from '../../staticComponent/state';
 import LoginWarning from '../LoginWarning';
 import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
+import ChargeMoney from "../kakao/ChargeMoney";
 
 function Run() {
   const [user, setUser] = useRecoilState(userState);
   const [login, setLogin] = useRecoilState(loginState);
+  const {state} = useLocation(); // 참여한 챌린지 아이디
+  const [challengeTitle, setChallengeTitle] = useState('');
+  console.log(state);
+  useEffect(()=>{
+    if(state){
+      axios.get(`/challenge/${state}`).then(res=>{
+        setChallengeTitle(res.data.data.title);
+      });
+    }
+  });
+
+
   const [controller, setController] = useState(false);
   const [time, setTime] = useState(0);
   const [dist, setDist] = useState(0);
@@ -84,7 +98,7 @@ function Run() {
       
       return () => {
         setPosition({
-          
+          latitude: 35.17834096, longitude: 126.90929059
         });
         setTime(0);
         setDist(0);
@@ -110,6 +124,7 @@ function Run() {
     });
   };
   const getPause = function () {};
+
   const getStop = function () {
     setController(false);
     clearInterval(timeRecord.current);
@@ -125,18 +140,33 @@ function Run() {
       }
     }).then(res=>{
       alert(res.data.message);
-    })
+      if(challengeTitle){
+        if(window.confirm("기부에 참여하시겠습니까?")){
+          HandleModal(true);
+        }
+        else{
+          alert('참여해주셔서 감사합니다.');
+        }
+      }
+    });
+    
   };
 
   let hour = Math.floor((time / 3600));
   let minute = Math.floor((time - (hour * 3600))/60);
+  const [isModalOn, setIsModalOn] = useState(false);
+  const HandleModal = (active)=>{
+    setIsModalOn(active);
+  }
+
   return (
     <>
     {login?
       <>
       <div className={styles.center}>
         <h3>Record Running</h3>
-        <p><span>{user}</span>님의 기록</p>
+        <p><span>{user}</span>님의 러닝</p>
+        {challengeTitle &&<p>챌린지 "<span>{challengeTitle}</span>" 참여 중입니다</p>}
         <table className={styles.runState}>
           <thead>
             <tr>
@@ -175,6 +205,8 @@ function Run() {
             <BsStopCircle size="2.5rem" cursor='pointer' onClick={getStop} />
           </>
         )}
+        {isModalOn && <ChargeMoney setIsModalOn={HandleModal}/>}
+
       </div>
       <Running10m speed10mArray={running10mData.map((item) => item.speed)} />
     </>

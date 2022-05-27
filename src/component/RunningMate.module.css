@@ -13,18 +13,23 @@
 .friend{
   margin-top: 30px;
   margin-bottom: 30px;
-  margin-left: 33%;
+  /* margin-left: 33%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .friend_box{
-  width: 50%;
+  width: 40%;
   height: 100px;
   margin-top: 20px;
   border: 2px solid black;
   border-radius: 1em;
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: space-around;
+
   box-shadow: 5px 5px 5px rgb(206, 206, 242);
 }
 .friend_box >img{
@@ -82,7 +87,8 @@
     width: 100%;
   }
   .friend_box{
-    width: 70%;
+    width: fit-content;
+    display: flex;
 
   }
 }
