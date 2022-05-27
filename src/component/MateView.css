@@ -13,13 +13,20 @@ span{
 }
 .details{
   display: flex;
-  margin-left: 26%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin-left: 26%; */
+}
+.details >p{
+  font-weight: bold;
+  font-size: 25px;
 }
 .mate_records{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 50px 20px;
+  margin: 30px 20px;
 }
 .mate_records > p{
   display: flex;
@@ -27,7 +34,6 @@ span{
   font-weight: bold;
   font-size: 20px;
   padding: 10px;
-
 }
 .map{
   width: 500px;
@@ -39,4 +45,23 @@ span{
 .record_title{
   font-size: 15px;
   color: rgb(131, 124, 124);
+}
+.line{
+  border-bottom: 2px solid rgb(219, 216, 216);
+  width: 50%;
+  margin: auto;
+}
+.none_record_view{
+  margin-bottom: 50px;
+  margin-top: 50px;
+  text-align: center;
+}
+.none_record_view > p{
+  font-family: 'Do hyeon';
+  font-size: 30px;
+}
+.none_record_view > a{
+  color: rgb(11, 159, 11);
+  font-family: 'Do hyeon';
+  font-size: 25px;
 }

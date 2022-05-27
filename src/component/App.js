@@ -32,6 +32,7 @@ import Loading from './Loading';
 import Run from './record/Run';
 import Chat from './chat/Chat';
 import JoinRoom from './chat/JoinRoom';
+import MyRecordView from './MyRecordView';
 
 /* eslint no-restricted-globals: ["off"] */
 function App() {
@@ -67,7 +68,7 @@ function App() {
         <Route path='/loading' element={<Loading/>}/>
         <Route path='/chat' element={<Chat/>}/>
         <Route path='/joinroom' element={<JoinRoom/>}/>
-        {/* <Route path='/chargemoney' element={<JoinRoom/>}/> */}
+        <Route path='/myrecordview' element={<MyRecordView/>}/>
 
       </Routes>  
       </CSSTransition>

@@ -29,24 +29,23 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-
   box-shadow: 5px 5px 5px rgb(206, 206, 242);
 }
 .friend_box >img{
   width: 70px;
   height: 70px;
-  margin-left: 40px;
+  /* margin-left: 40px; */
 }
-.friend_box >p{
-  margin-left: 40px;
-  font-weight: bold;
-  text-decoration: none;
+.friend_box p{
+  font-family: 'Do hyeon';
+  color: rgb(16, 155, 16);
+  font-size: 20px;
 }
 .chat_btn{
   background: none;
   font-size: 40px;
   border: none;
-  margin-left: 70px;
+  /* margin-left: 70px; */
 }
 .chat_btn:hover{
   cursor: pointer;
@@ -81,7 +80,24 @@
   color: rgb(135, 201, 36);
   transition: all 0.3s ease-in-out;
 }
-
+form{
+  text-align: center;
+  margin-top: 30px;
+}
+.search_input{
+  border: none;
+  border-bottom: 2px solid rgb(225, 225, 225);
+  font-size: 20px;
+}
+.search_btn{
+  background: none;
+  padding: 20px;
+  font-size: 20px;
+  border: none;
+}
+.search_btn:hover{
+  cursor: pointer;
+}
 @media screen and (max-width: 780px){
   .follow_box{
     width: 100%;

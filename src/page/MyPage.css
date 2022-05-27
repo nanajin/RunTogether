@@ -11,3 +11,47 @@
   font-size: 20px;
   font-family: 'Do Hyeon', sans-serif;
 }
+.date_box{
+  width: 40%;
+  height: 100px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border: 2px solid black;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 5px 5px 5px rgb(206, 206, 242);
+  font-family: 'Do hyeon';
+  font-size: 20px;
+}
+.date_record{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.date_box span{
+  color: rgb(21, 163, 21);
+}
+.none_record{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.none_record > p{
+  font-family: 'Do hyeon';
+  font-size: 25px;
+  color: blueviolet;
+}
+.none_record > a{
+  color: green;
+  font-weight: bold;
+  font-size: 20px;
+}
+.none_record > a:hover{
+  transition: all 0.3s ease-in;
+  color: blueviolet;
+}

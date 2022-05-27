@@ -18,7 +18,6 @@ function Run() {
   const [login, setLogin] = useRecoilState(loginState);
   const {state} = useLocation(); // 참여한 챌린지 아이디
   const [challengeTitle, setChallengeTitle] = useState('');
-  console.log(state);
   useEffect(()=>{
     if(state){
       axios.get(`/challenge/${state}`).then(res=>{
@@ -27,7 +26,7 @@ function Run() {
     }
   });
 
-
+  const [propDistance, setPropDistance] = useState(0);
   const [controller, setController] = useState(false);
   const [time, setTime] = useState(0);
   const [dist, setDist] = useState(0);
@@ -112,7 +111,7 @@ function Run() {
 
   const getStart = (e) => {
     setController(true);
-    // setPosition({ latitude: 35.17834096, longitude: 126.90929059 }); //35.5, 127.1
+    setPosition({ latitude: 35.17834096, longitude: 126.90929059 }); //35.5, 127.1
     console.log("before watchposition");
     console.log(position);
     geoRecord.current = navigator.geolocation.watchPosition((success) => {
@@ -149,9 +148,8 @@ function Run() {
         }
       }
     });
-    
+    setPropDistance(dist);
   };
-
   let hour = Math.floor((time / 3600));
   let minute = Math.floor((time - (hour * 3600))/60);
   const [isModalOn, setIsModalOn] = useState(false);
@@ -205,7 +203,7 @@ function Run() {
             <BsStopCircle size="2.5rem" cursor='pointer' onClick={getStop} />
           </>
         )}
-        {isModalOn && <ChargeMoney setIsModalOn={HandleModal}/>}
+        {isModalOn && <ChargeMoney setIsModalOn={HandleModal} distance={propDistance}/>}
 
       </div>
       <Running10m speed10mArray={running10mData.map((item) => item.speed)} />
