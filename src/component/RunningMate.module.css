@@ -103,7 +103,7 @@ form{
     width: 100%;
   }
   .friend_box{
-    width: fit-content;
+    width: 80%;
     display: flex;
 
   }

@@ -62,21 +62,21 @@ function Login() {
       <h3 className={styles.login_title}>Login</h3>
 
       <div className={styles.bg}>
-      <div className={styles.container}>
-        <form className={styles.form} onSubmit={onSubmit}>
-            <div className={styles.title}>
+      <div className={styles.login_container}>
+        <form className={styles.login_form} onSubmit={onSubmit}>
+            <div className={styles.welcome_title}>
                 <p>Welcome to Run-Together</p>
             </div>
             <h2>Email</h2>
-            <input className={styles.box} type="email" name='email' placeholder='Enter your email' onChange={onChange}/>
+            <input className={styles.login_box} type="email" name='email' placeholder='Enter your email' onChange={onChange}/>
             <h2>Password</h2>
-            <input className={styles.box} type="password" name='pw' placeholder='Enter your password' onChange={onChange}/>
+            <input className={styles.login_box} type="password" name='pw' placeholder='Enter your password' onChange={onChange}/>
             <div className='margin'>
-                <button type='submit' className={styles.btn}>Login</button>
+                <button type='submit' className={styles.login_btn}>Login</button>
             </div>
             <div>
                 <Link to='/signup'>
-                <button className={styles.btn}>Sign Up</button>
+                <button className={styles.login_btn}>Sign Up</button>
                 </Link>
             </div>
         </form>

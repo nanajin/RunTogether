@@ -55,3 +55,12 @@
   transition: all 0.3s ease-in;
   color: blueviolet;
 }
+.mypage_icon{
+  text-align: center;
+  font-size: 50px;
+  margin-top: 50px;
+}
+.color{
+  color: rgb(32, 159, 32);
+  font-size: 30px;
+}

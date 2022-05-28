@@ -2,6 +2,7 @@
   background-color: rgb(255, 243, 226);
   width: 60%;
   margin: 20px auto;
+  border-radius: 1em;
 }
 .board_container > h1{
   padding: 10px;
@@ -52,7 +53,7 @@ input:focus{
   transition: all 0.3s ease-in-out;
 }
 .board_file{
-  margin-left: 45%;
+  margin-left: 20%;
   margin-bottom: 50px;
 }
 @media screen and (max-width: 780px){

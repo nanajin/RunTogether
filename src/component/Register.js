@@ -73,19 +73,16 @@ function Register() {
   return (
       <>
       <h3 className={styles.register_title}>Sign Up</h3>
-      <div className={styles.bg}>
-          <div className={styles.container}>
+      <div className={styles.register_bg}>
+          <div className={styles.register_container}>
             <h2>Sign Up</h2>
-            <form className={styles.form} >
-                <input className={styles.box} type='text' placeholder='Name' name='name' value={user.name} onChange={onChange}/>
-                {/* <button onClick={checkName}>이름 확인</button> */}
-                <input className={styles.box} type='email' placeholder='Email' name='email' value={user.email} onChange={onChange}/>
-                {/* <button onClick={checkEmail}>이메일 확인</button> */}
-                <input className={styles.box} type='password' placeholder='Password' name='pw' value={user.pw} onChange={onChange}/>
-                <input className={styles.box} type='password' placeholder='Check PW' name='password2' value={user.password2} onChange={onChange}/>
-                <div className={styles.radio}><input checked type='radio' name='gender' value='M' onChange={onChange}/><label>남성</label></div>
-                <div className={styles.radio}><input type='radio' name='gender' value='F' onChange={onChange}/><label>여성</label></div>
-                {/* <button onClick={onSubmit} className={styles.btn} >Register</button> */}
+            <form className={styles.register_form} >
+                <input className={styles.register_box} type='text' placeholder='Name' name='name' value={user.name} onChange={onChange}/>
+                <input className={styles.register_box} type='email' placeholder='Email' name='email' value={user.email} onChange={onChange}/>
+                <input className={styles.register_box} type='password' placeholder='Password' name='pw' value={user.pw} onChange={onChange}/>
+                <input className={styles.register_box} type='password' placeholder='Check PW' name='password2' value={user.password2} onChange={onChange}/>
+                <div className={styles.register_radio}><input checked type='radio' name='gender' value='M' onChange={onChange}/><label>남성</label></div>
+                <div className={styles.register_radio}><input type='radio' name='gender' value='F' onChange={onChange}/><label>여성</label></div>
             </form>
             <button onClick={checkName} className={styles.name_btn}>이름 중복 확인</button>
             <button onClick={checkEmail} className={styles.email_btn}>이메일 중복 확인</button>

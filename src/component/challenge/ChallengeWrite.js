@@ -78,7 +78,7 @@ function ChallengeWrite(){
         <form >
           <input className="board_title" type="text" placeholder="제목" name="title" value={title} onChange={onChange}></input>
           <br></br>
-          <textarea className="board_contents" placeholder="내용을 입력하세요." name="contents" value={contents} onChange={onChange}></textarea>
+          <textarea className="board_contents" placeholder="제안하고 싶은 챌린지 설명과 기간, 목표 금액 등을 포함해서 작성해주세요." name="contents" value={contents} onChange={onChange}></textarea>
           <input type="file" name="file" className="board_file" onChange={handleImage}></input>
         </form>
         

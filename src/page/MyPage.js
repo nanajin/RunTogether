@@ -7,6 +7,7 @@ import { useRecoilState } from "recoil";
 import LoginWarning from "../component/LoginWarning";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import {BiRun, BiStopwatch, BiUser, BiTime }from 'react-icons/bi';
 
 function MyPage(){
   const [user, setUser] = useRecoilState(userState);
@@ -49,14 +50,18 @@ function MyPage(){
     {user ?
     <div className="mypage">
       <h3>MyPage</h3>
-      <p>프로필</p>
-      <p>이름</p>
+      {/* <p>프로필</p> */}
+      <div className="mypage_icon"><BiUser/></div>
+      <p className="color">이름</p>
       <p>{user}</p>
-      <p>누적 런닝 시간</p>
+      <div className="mypage_icon"><BiTime/></div>
+      <p className="color">누적 런닝 시간</p>
       <p>{hour}시 {min}분 {sec}초</p>
-      <p>총 런닝 횟수</p>
+      <div className="mypage_icon"><BiRun/></div>
+      <p className="color">총 런닝 횟수</p>
       <p>{state.dateList.length}회</p>
-      <p><span>{user}</span>님의 런닝 기록</p>
+      <div className="mypage_icon"><BiStopwatch/></div>
+      <p className="color">런닝 기록</p>
       {state.dateList.length > 0 ?
       <div className="date_record">
         {state.dateList.map((el,key)=>{
