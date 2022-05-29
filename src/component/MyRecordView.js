@@ -6,6 +6,7 @@ import axios from "axios";
 import {userState} from '../staticComponent/state';
 import { useRecoilState } from "recoil";
 import { useLocation } from "react-router-dom";
+import Map from '../component/record/Map'
 
 function MyRecordView(){
   const [user, setuser] = useRecoilState(userState);
@@ -20,6 +21,7 @@ function MyRecordView(){
     time: '',
     startTime: '',
     endTime: '',
+    posArray: '',
   });
   useEffect(()=>{
     axios({
@@ -40,9 +42,20 @@ function MyRecordView(){
         time: data.time,
         startTime: data.startTime,
         endTime: data.endTime,
+        posArray: JSON.parse(data.polyline),
       })
     })
     },[]);
+// console.log(`포지션: ${record.posArray[0].latitude}`);
+
+    // const posArray = [{latitude:35.123456, longitude:126.564},
+    //   {latitude:35.223456, longitude:126.664},
+    //   {latitude:35.323456, longitude:126.764},
+    //   {latitude:35.423456, longitude:126.864}];
+
+      // JSON.stringify(posArray)
+
+      // JSON.parse( response
 
   return(
     <>
@@ -52,7 +65,10 @@ function MyRecordView(){
       {state.recordList.map((el,key)=>{
         let hour = Math.floor((el.time / 3600));
         let min = Math.floor((el.time - (hour * 3600))/60);
-        let sec = el.time - (hour *3600)-(min*60);
+        let sec = el.time - (hour *3600)-(min*60);  
+        const posArray = JSON.parse(el.polyline);
+        // console.log(typeof(el.polyline));
+        // console.log(posArray[0].latitude );
         return(
           <>
         <div className="details">
@@ -73,11 +89,17 @@ function MyRecordView(){
             <p>{el.endTime.slice(11,19)}</p>
           </div>
         </div>
+      
+        <div className="view_map">
+          <Map latitude={posArray[0].latitude} 
+            longitude={posArray[0].longitude} 
+            record={true} positionArray={posArray} 
+            />
+        </div>
         <div className="line"></div>
         </>
         )
       })}
-      {/* <div className="map"> 지도 </div> */}
     </div>
     <Footer/>
     </>

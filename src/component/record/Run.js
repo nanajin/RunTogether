@@ -13,6 +13,8 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import ChargeMoney from "../kakao/ChargeMoney";
 
+const getPositionPerSec = 5;
+
 function Run() {
   const [user, setUser] = useRecoilState(userState);
   const [login, setLogin] = useRecoilState(loginState);
@@ -52,6 +54,10 @@ function Run() {
   }, []);
   useEffect(() => {
     if (controller) {
+      if(time % getPositionPerSec === 0){
+        getCurrentPosition()
+        console.log(`getPositionPer${getPositionPerSec}Sec`)
+      }
       if (dist !== 0) {
         setSpeed(Math.round(((dist * 1000) / time) * 100) / 100);
       }
@@ -114,13 +120,13 @@ function Run() {
     setPosition({ latitude: 35.17834096, longitude: 126.90929059 }); //35.5, 127.1
     console.log("before watchposition");
     console.log(position);
-    geoRecord.current = navigator.geolocation.watchPosition((success) => {
+    /* geoRecord.current = navigator.geolocation.watchPosition((success) => {
       console.log("watchposition");
       // console.log(new Date());
       const { latitude, longitude } = success.coords;
       setPosition({ latitude, longitude });
       console.log(position);
-    });
+    }); */
   };
   const getPause = function () {};
 
@@ -136,6 +142,7 @@ function Run() {
         time: time,
         distance: dist,
         speed: speed,
+        polyline: JSON.stringify(posArray),
       }
     }).then(res=>{
       alert(res.data.message);

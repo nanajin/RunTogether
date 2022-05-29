@@ -6,6 +6,7 @@ import axios from "axios";
 import {userState} from '../staticComponent/state';
 import { useRecoilState } from "recoil";
 import { Link, useLocation } from "react-router-dom";
+import Map from "./record/Map";
 
 function MateView(){
   const location = useLocation();
@@ -16,6 +17,7 @@ function MateView(){
     time: '',
     startTime: '',
     endTime: '',
+    posArray: '',
   });
   useEffect(()=>{
     axios({
@@ -32,12 +34,19 @@ function MateView(){
         time: data.time,
         startTime: data.startTime,
         endTime: data.endTime,
+        posArray: JSON.parse(data.polyline),
       })
     })
     },[]);
+    // const posArray = [{latitude:35.123456, longitude:126.564},
+    //   {latitude:35.223456, longitude:126.664},
+    //   {latitude:35.323456, longitude:126.764},
+    //   {latitude:35.423456, longitude:126.864}];
+
     let hour = Math.floor((record.time / 3600));
     let min = Math.floor((record.time - (hour * 3600))/60);
     let sec = record.time - (hour *3600)-(min*60);
+
   return(
     <>
     <Header/>
@@ -61,6 +70,12 @@ function MateView(){
             <p className="record_title">런닝 종료 시간</p>
             <p>{record.endTime.slice(11,19)}</p>
           </div>
+        </div>
+        <div className="view_map">
+          <Map latitude={record.posArray[0].latitude}/*state.recordList.posArray[0].latitude*/  
+            longitude={record.posArray[0].longitude} 
+            record={true} positionArray={record.posArray} //state.recordList.pasArray
+            />
         </div>
       </div>:
       <div className="none_record_view">

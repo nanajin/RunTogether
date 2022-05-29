@@ -34,7 +34,7 @@ function MyPage(){
   },[]);
   let timeArr = 0;
   let t = 0;
-  if(state.dateList.length>0){
+  if(state.dateList > 0){
     timeArr = state.dateList.map((el=>{
       return el.time;
     }));
