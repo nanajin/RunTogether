@@ -93,7 +93,7 @@ function MyRecordView(){
         <div className="view_map">
           <Map latitude={posArray[0].latitude} 
             longitude={posArray[0].longitude} 
-            record={true} positionArray={posArray} 
+            record={true} positionArray={posArray}
             />
         </div>
         <div className="line"></div>

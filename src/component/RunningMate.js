@@ -117,7 +117,7 @@ function RunningMate(){
                     <Link to ='/mateview' state={{memberName: el.name}}>
                       <p>기록 더보기</p>
                     </Link>
-                    <Link to={`/chat`} state={{room: el.name}}>
+                    <Link to={`/chat`} state={{name: el.name}}>
                       <button className={styles.chat_btn}>
                         <BsFillChatDotsFill/>
                       </button>

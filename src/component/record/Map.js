@@ -7,10 +7,11 @@ function Map(props) {
       }) */
 
   useEffect(function () {
-    const lat = props.latitude || 35.123456;
-    const lon = props.longitude || 126.564;
+    const lat = props.latitude ;
+    const lon = props.longitude ;
     const isRecord = props.record;
-    const positionArray = props.positionArray || [];
+     const positionArray = props.positionArray || [];
+    
 
     const container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
     const options = {

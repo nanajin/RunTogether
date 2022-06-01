@@ -34,12 +34,19 @@ function MyPage(){
   },[]);
   let timeArr = 0;
   let t = 0;
-  if(state.dateList > 0){
+  if(state.dateList.length > 0){
     timeArr = state.dateList.map((el=>{
+      // console.log(el.time);
       return el.time;
+      
     }));
     timeArr.forEach(e => { t += e })
   }
+  // console.log(`dateList: ${state.dateList}`);
+
+  // console.log(`timeArr: ${timeArr}`);
+  // console.log(`t: ${t}`);
+
     let hour = Math.floor((t / 3600));
     let min = Math.floor((t - (hour * 3600))/60);
     let sec = t - (hour *3600)-(min*60);

@@ -26,7 +26,8 @@ const Chat = () => {
   const [name, setName] = useRecoilState(userState);
 
   const location = useLocation();
-  const room = location.state.room;
+  const mateName = location.state.name;
+  const room = 'chat';
   const ENDPOINT = "http://localhost:5000";
   // console.log(name, room); // lama peru
 
@@ -89,7 +90,7 @@ const Chat = () => {
         <h3>Chat</h3>
         <div className="chatScreen">
           <Paper elevation={5} className="chatScreenPaper">
-            <RoomInfo room={room} />
+            <RoomInfo room={mateName} />
             <Messages messages={messages} name={name} />
             <Input
               message={message}

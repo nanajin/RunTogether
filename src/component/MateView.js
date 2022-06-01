@@ -72,9 +72,9 @@ function MateView(){
           </div>
         </div>
         <div className="view_map">
-          <Map latitude={record.posArray[0].latitude}/*state.recordList.posArray[0].latitude*/  
+          <Map latitude={record.posArray[0].latitude}  
             longitude={record.posArray[0].longitude} 
-            record={true} positionArray={record.posArray} //state.recordList.pasArray
+            record={true} positionArray={record.posArray} 
             />
         </div>
       </div>:
