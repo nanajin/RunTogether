@@ -17,3 +17,9 @@
 .end{
   margin-bottom: 50px;
 }
+
+@media screen and (max-width: 780px){
+  .about, .contact{
+    font-size: 40px;
+  }
+}

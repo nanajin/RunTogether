@@ -66,6 +66,8 @@ function Register() {
             }).then(res=>{
                 alert('회원가입에 성공하셨습니다! 다시 로그인해주세요.');
                 navigate('/login');
+            }).catch(e=>{
+              alert(e);
             })            
         }
     }

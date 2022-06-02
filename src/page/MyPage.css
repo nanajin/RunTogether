@@ -64,3 +64,11 @@
   color: rgb(32, 159, 32);
   font-size: 30px;
 }
+@media screen and (max-width: 780px){
+  .mypage > h3{
+    font-size: 40px;
+  }
+  .date_box{
+    width: 65%;
+  }
+}

@@ -55,8 +55,8 @@ function Run() {
   const [dist, setDist] = useState(0);
   const [speed, setSpeed] = useState(0);
   const [position, setPosition] = useState({
-    latitude: 0, 
-    longitude: 0,
+    latitude: 35.17837541970289, 
+    longitude: 126.9094573165221,
   });
   const [posArray, setPosArray] = useState([]);
   const [running10mData, setRunning10mData] = useState([]);
@@ -64,11 +64,12 @@ function Run() {
   const geoRecord = useRef(null);
 
   const getCurrentPosition = async (e) => {
-    // const {
-    //   coords: { latitude, longitude },
-    // } = await getPosition();
-    setPosition({ latitude:35.17837541970289, longitude:126.9094573165221 });
-    //console.log("current Position : ", latitude, longitude);
+    const {
+      coords: { latitude, longitude },
+    } = await getPosition();
+    // setPosition({ latitude:35.17837541970289, longitude:126.9094573165221 });
+    console.log("current Position : ", latitude, longitude);
+    setPosition(latitude,longitude)
   };
   useEffect(() => {
     getCurrentPosition();
@@ -76,20 +77,20 @@ function Run() {
 
   useEffect(() => {
     if (controller) {
-      // if(time % getPositionPerSec === 0){
-      //   getCurrentPosition()
-      //   console.log(`getPositionPer${getPositionPerSec}Sec`)
-      // }
+      if(time % getPositionPerSec === 0){
+        getCurrentPosition()
+        console.log(`getPositionPer${getPositionPerSec}Sec`)
+      }
       if (dist !== 0) {
         setSpeed(Math.round(((dist * 1000) / time) * 100) / 100);
       }
-      if(time % 5 === 0){
-        setPosition({latitude:joojakArray[i].latitude, longitude:joojakArray[i].longitude})
-        i += 1
-        if (i >13){
-          i = 13;
-        }
-      }
+      // if(time % 5 === 0){
+      //   setPosition({latitude:joojakArray[i].latitude, longitude:joojakArray[i].longitude})
+      //   i += 1
+      //   if (i >13){
+      //     i = 13;
+      //   }
+      // }
       if (time % 10 === 0) {
         if (running10mData.length === 0) {
           setRunning10mData([{ dist: dist, speed: speed }]);
@@ -167,20 +168,20 @@ function Run() {
     //setPosition({ latitude: 35.17834096, longitude: 126.90929059 }); //35.5, 127.1
     console.log("before watchposition");
     console.log(position);
-    /* geoRecord.current = navigator.geolocation.watchPosition((success) => {
+    geoRecord.current = navigator.geolocation.watchPosition((success) => {
       console.log("watchposition");
-      // console.log(new Date());
+      console.log(new Date());
       const { latitude, longitude } = success.coords;
       setPosition({ latitude, longitude });
       console.log(position);
-    }); */
+    });
   };
   const getPause = function () {};
 
   const getStop = function () {
     setController(false);
     clearInterval(timeRecord.current);
-    // navigator.geolocation.clearWatch(geoRecord.current);
+    navigator.geolocation.clearWatch(geoRecord.current);
     console.log(`시간: ${time}, 거리: ${dist}, 속도: ${speed}`);
     axios({
       method: 'POST',
@@ -238,10 +239,12 @@ function Run() {
   const HandleModal = (active)=>{
     setIsModalOn(active);
   }
-
+  // position.latitude !== 0
   return (
     <>
-    {login && position.latitude !== 0?
+    {login ?
+
+      position.latitude === 0? <>Loading...</> : 
       <>
       <div className={styles.center}>
         <h3>Record Running</h3>
@@ -290,7 +293,7 @@ function Run() {
       </div>
       <Running10m speed10mArray={running10mData.map((item) => item.speed)} />
     </>
-    : !login? <LoginWarning/> : <>Loading...</>}
+    : <LoginWarning/>}
     </>
   );
 }

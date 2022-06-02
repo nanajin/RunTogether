@@ -67,7 +67,7 @@ function Map(props) {
   return (
     <div
       id="map"
-      style={{ width: "300px", height: "500px", margin: "auto" }}
+      style={{ width: "300px", height: "500px", margin: "auto", border: "1px solid red" }}
     ></div>
   );
 }

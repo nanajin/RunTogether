@@ -61,12 +61,18 @@ input:focus{
     width: 80%;
   }
   .board_container > h1{
-    font-size: 30px;
+    font-size: 25px;
+    margin: auto;
   }
   .board_file{
     margin-left: 33%;
   }
   .post_btn{
-    margin-left: 45%;
+    /* margin-left: 45%; */
+    /* margin: auto; */
+  }
+  .board_title, .board_contents{
+    margin: auto;
+    margin-top: 15px;
   }
 }

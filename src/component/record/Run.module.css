@@ -46,18 +46,18 @@
     text-align: center;
 }
 .linechart{
-    
   display: flex;
   justify-content: center;
   align-items: center;
+  /* width: 400px;
+  height: 500px; */
   margin-bottom: 30px;
 }
 .running10m > h3{
   font-size: 30px;
 }
 @media screen and (max-width: 780px){
-  /* .linechart{
-    margin: initial;
-    width: 300px;
-  } */
+  .center > h3, .running10m > h3{
+    font-size: 40px;
+  }
 }

@@ -7,6 +7,7 @@ import {userState} from '../staticComponent/state';
 import { useRecoilState } from "recoil";
 import { useLocation } from "react-router-dom";
 import Map from '../component/record/Map'
+import LoginWarning from "./LoginWarning";
 
 function MyRecordView(){
   const [user, setuser] = useRecoilState(userState);
@@ -46,7 +47,8 @@ function MyRecordView(){
       })
     })
     },[]);
-// console.log(`포지션: ${record.posArray[0].latitude}`);
+
+    // console.log(`포지션Array: ${record.posArray[0].longitude}`);
 
     // const posArray = [{latitude:35.123456, longitude:126.564},
     //   {latitude:35.223456, longitude:126.664},
@@ -68,7 +70,7 @@ function MyRecordView(){
         let sec = el.time - (hour *3600)-(min*60);  
         const posArray = JSON.parse(el.polyline);
         // console.log(typeof(el.polyline));
-        // console.log(posArray[0].latitude );
+        // console.log(`포지션: ${posArray}` );
         return(
           <>
         <div className="details">
@@ -89,12 +91,25 @@ function MyRecordView(){
             <p>{el.endTime.slice(11,19)}</p>
           </div>
         </div>
-      
+          <p>반복하나요?</p>
         <div className="view_map">
           <Map latitude={posArray[0].latitude} 
             longitude={posArray[0].longitude} 
             record={true} positionArray={posArray}
             />
+            {/* {posArray.map((el,key)=>{
+              console.log(`lat: ${el.latitude}`);
+              return(
+              <Map latitude={el.latitude} 
+              longitude={el.longitude} 
+              record={true} positionArray={posArray}
+              />)
+              
+            })} */}
+            {/* <Map latitude={record.posArray[0].latitude} 
+            longitude={record.posArray[0].longitude} 
+            record={true} positionArray={posArray}
+            /> */}
         </div>
         <div className="line"></div>
         </>

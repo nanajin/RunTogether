@@ -68,3 +68,17 @@ span{
 .view_map{
   margin-bottom: 50px;
 }
+
+@media screen and (max-width: 780px){
+  .mateview > h3{
+    font-size: 30px;
+  }
+  .mate_records{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  .mate_records > p{
+    text-align: center;
+  }
+}

@@ -23,21 +23,27 @@
   cursor: pointer;
 }
 
-.header_menulist {
+.header_menulist, .header_user {
     list-style: none;
     display: flex;
-    margin-left: 100px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    /* margin-left: 100px; */
     margin-top: 30px;
     font-family: 'Do Hyeon', sans-serif;
 }
 
-.header_user {
+/* .header_user {
     list-style: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
     margin-left: 40px;
     margin-top: 30px;
     font-family: 'Do Hyeon', sans-serif;
-  }
+  } */
 
 .nav_item{
   padding: 0 2rem;
@@ -90,10 +96,7 @@
       transition: all 0.5s ease-out;
     }
     .main_logo{
-      font-size: 2.5em;
-      /* margin-left: 25%; */
-      /* background: none; */
-      /* margin-top: 20px; */
+      font-size: 2em;
     }
     .list_icon, .x_icon{
       display: flex;
@@ -102,7 +105,9 @@
       border-style: none;
       cursor: pointer;
       padding: 0;
-      margin-left: 1rem;
+      /* margin-left: 1rem; */
+      justify-content: center;
+      align-items: center;
     }
     .x_icon{
       font-size: 28px;
@@ -118,15 +123,22 @@
     }
     .header_menulist.active, .header_user.active{
       display: block;
-      margin-left: 1%;
-      margin-right: 10%;
+      /* border: 1px solid red; */
+      /* margin: auto; */
+      /* margin-left: 50%; */
+      /* margin-right: 235px; 웹 */
+      margin-left: 70px; /*모바일*/
       justify-content: space-between;
       transition: all 0.3s ease-in-out;
+    }
+    .header_user.active{
+      /* margin-right: 242px; 웹 */
+      margin-left: 65px; /*모바일에서*/
     }
     .nav_item{
       padding: 10px 10px;
       border-bottom: 2px solid rgb(35, 172, 20);
       text-align: center;
-      color: white;
+      /* border: 1px solid red; */
     }
   }

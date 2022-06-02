@@ -45,7 +45,7 @@ function Login() {
             navigate('/loading');
           }
         }).catch(e=>{
-          <ErrorPage/>
+          alert(e);
         })
         // setUser(localStorage.getItem("nickname"));
     }

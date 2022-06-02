@@ -29,7 +29,7 @@ function Main(){
         <img src="image/run_back.png" className={styles.runImage}></img>
         {login? 
           <>
-          {isMobile && <p className={styles.welcome}>{user}님 환영합니다</p>}
+          {isMobile && <p className={styles.welcome}><span>{user}</span>님 환영합니다</p>}
           <Link to="/record">
             <button className={styles.startbtn}>Get Started</button>  {/*로그인 전엔 /login으로 이동, 후엔 /record로 이동*/}
           </Link>
@@ -40,11 +40,7 @@ function Main(){
       </div>
       <Fade bottom>
         <Cards/>
-      {/* <div className={styles.tab}>
-        <Tab/>
-      </div> */}
       </Fade>
-      
       <Footer/>
       </div>
 

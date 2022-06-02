@@ -28,8 +28,9 @@ a:hover{
     list-style: none;
     display: flex;
     align-items: center;
-    margin-left: 100px;
-    margin-top: 20px;
+    justify-items: center;
+    /* margin-left: 100px; */
+    /* margin-top: 20px; */
     justify-content: space-between;
     padding: 0 1rem;
 
