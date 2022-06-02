@@ -9,6 +9,7 @@ import { useRecoilState } from "recoil";
 import {loginState, userState} from "../../staticComponent/state";
 import LoginWarning from "../LoginWarning";
 import ErrorPage from "../../page/ErrorPage";
+import { useMediaQuery } from "react-responsive";
 
 function ChallengeView(){
   const [login, setLogin] = useRecoilState(loginState);
@@ -18,6 +19,10 @@ function ChallengeView(){
   
   const id = location.state.id;
   const api = location.state.api;
+
+  const isMobile = useMediaQuery({
+    query: "(max-width: 780px)"
+  });
 
   const [view, setView] = useState({
     title: '',
@@ -56,15 +61,17 @@ function ChallengeView(){
   let url = `/challengeregister/${id}`;
 
   const onRemove=()=>{
-    axios({
-      url: `/${api}/admin/delete/${id}`,
-      method:"DELETE",
-    }).then(res=>{
-      alert("삭제되었습니다.");
-      navigate("/challenge");
-    }).catch(e=>{
-      alert('문제가 발생했습니다. 다시 시도해주세요')
-    })
+    if(window.confirm('정말 삭제하시겠습니까?')){
+      axios({
+        url: `/${api}/admin/delete/${id}`,
+        method:"DELETE",
+      }).then(res=>{
+        alert("삭제되었습니다.");
+        navigate("/challenge");
+      }).catch(e=>{
+        alert('문제가 발생했습니다. 다시 시도해주세요')
+      })
+    } 
   }
 
   const [img, setImg] = useState('');
@@ -80,7 +87,7 @@ function ChallengeView(){
         filename: res.data.data.imageFileName,
       });
     }).catch(e=>{
-      <ErrorPage/>
+      alert(e);
     })
     axios({
       url: `/${api}/image/${id}`,
@@ -104,8 +111,7 @@ function ChallengeView(){
   const handleJoin = ()=>{
     if(window.confirm('해당 챌린지에 참여하시겠습니까?')){
       navigate('/record',{state: id});
-    }
-    
+    } 
   }
 
   return(

@@ -69,7 +69,11 @@ function Run() {
     } = await getPosition();
     // setPosition({ latitude:35.17837541970289, longitude:126.9094573165221 });
     console.log("current Position : ", latitude, longitude);
-    setPosition(latitude,longitude)
+    // setPosition(latitude,longitude)
+    setPosition({
+      latitude: latitude,
+      longitude: longitude,
+    })
   };
   useEffect(() => {
     getCurrentPosition();
@@ -172,6 +176,10 @@ function Run() {
       console.log("watchposition");
       console.log(new Date());
       const { latitude, longitude } = success.coords;
+      // setPosition({
+      //   latitude: success.coords.latitude,
+      //   longitude: success.coords.longitude,
+      // })
       setPosition({ latitude, longitude });
       console.log(position);
     });
