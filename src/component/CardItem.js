@@ -12,7 +12,6 @@ function CardItem(props) {
       method: 'GET',
       responseType: 'blob',
     }).then(res=>{
-      console.log(res);
       const myFile = new File([res.data], 'imgName');
       const reader = new FileReader();
       reader.onload= ev=>{
@@ -54,7 +53,6 @@ function CardItem(props) {
                 className='cards__item__img'
                 alt='Image'
                 src={props.src}
-                // width="100" height="100"
               />
             </figure>
             <div className='cards__item__info'>

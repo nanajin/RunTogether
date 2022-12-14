@@ -1,6 +1,6 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ErrorPage from "../../page/ErrorPage";
 import Footer from "../../staticComponent/Footer";
 import Header from "../../staticComponent/Header";

@@ -1,5 +1,4 @@
 .roomInfo {
-  /* flex: 1; */
   height: 70px;
   display: flex;
   align-items: center;
@@ -8,12 +7,10 @@
 }
 
 .leftInfo {
-  /* flex: 0.5; */
   display: flex;
   align-items: center;
   margin-left: 5%;
   color: white;
-  /* width: 80%; */
 }
 
 .rightInfo {
@@ -22,7 +19,6 @@
   justify-content: flex-end;
   margin-right: 5%;
   color: white;
-  /* width: 20%; */
 }
 
 .infoButton {
@@ -33,7 +29,4 @@
 }
 .infoButton:hover{
   cursor: pointer;
-}
-@media screen and (max-width: 780px){
-  /*  */
 }

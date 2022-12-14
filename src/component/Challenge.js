@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../staticComponent/Footer";
 import Header from "../staticComponent/Header";
-import Sliders from "./Slider";
 import styles from './Challenge.module.css';
 import {Link} from 'react-router-dom';
 import CardItem from "./CardItem";
 import './Cards.css';
 import axios from "axios";
 import Fade from 'react-reveal/Fade';
-import LoginWarning from "./LoginWarning";
 import { useRecoilState } from "recoil";
 import {loginState, userState} from '../staticComponent/state';
 
@@ -48,14 +46,10 @@ function Challenge(){
           {user === '관리자'?
             <Link to ="/challengemanagerpage" className={styles.board_entry}>관리자 게시판</Link>: null}
         </div>
-        {/* {login && user !== '관리자' && 
-        <p>{user}님이 참여하고 있는 챌린지</p>} */}
-
         <p> 진행중인 챌린지</p>
         <div className={styles.challenge_cards}>
 
         {state.boardList.map((el,key)=>{
-          // const view_url = "/challengeview/manager/" + el.id;
            
           return(
             <>
@@ -74,13 +68,7 @@ function Challenge(){
           )
         })}
         </div>
-        
-
-        {/* <div className={styles.challengeContent}>
-          <Sliders/>
-        </div> */}
       </div> 
-      {/* <LoginWarning/> */}
       <Footer/>
     </>
   )

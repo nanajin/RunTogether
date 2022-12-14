@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useReducer } from "react";
-import { Link, useLocation } from "react-router-dom";
-import queryString from "query-string";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import io from "socket.io-client";
 import "./Chat.css";
 

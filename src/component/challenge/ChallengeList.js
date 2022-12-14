@@ -4,10 +4,9 @@ import Header from "../../staticComponent/Header";
 import Footer from "../../staticComponent/Footer";
 import axios from "axios";
 import {BsPencilFill} from 'react-icons/bs';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {useRecoilState} from 'recoil';
 import {loginState, userState} from "../../staticComponent/state";
-import LoginWarning from "../LoginWarning";
 import ErrorPage from "../../page/ErrorPage";
 
 function ChallengeList(props){
@@ -17,8 +16,6 @@ function ChallengeList(props){
     boardList: [],
   })
   
-  const navigate = useNavigate();
-
   useEffect(()=>{
     axios({
       method: "GET",
@@ -88,8 +85,6 @@ function ChallengeList(props){
           <br></br>
           <Link to='/'>홈으로 이동</Link>
         </div>}
-          
-      
     </div>
     <Footer/>
     </>

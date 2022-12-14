@@ -1,5 +1,4 @@
 .messageBox {
-  /* flex: 3; */
   background: linen;
   border-radius: 10px;
   padding: 5px 20px;
@@ -23,11 +22,9 @@
 }
 
 .sentMessage {
-  /* flex: 1; */
   padding: 0 10px;
   display: flex;
   align-items: center;
-  /* letter-spacing: px; */
 }
 
 .start {

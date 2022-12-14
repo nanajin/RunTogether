@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ErrorPage from "../../page/ErrorPage";
 import Footer from "../../staticComponent/Footer";
 import Header from "../../staticComponent/Header";
@@ -20,7 +20,6 @@ function ChallengeRegister(){
 
   const filename = location.state.filename;
   const onChange = (e)=>{
-    // e.preventDefault();
     setData({
       ...data,
       [e.target.name]: e.target.value,

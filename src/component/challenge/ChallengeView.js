@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "../../staticComponent/Footer";
 import Header from "../../staticComponent/Header";
-import ChargeMoney from "../kakao/ChargeMoney";
 import "./ChallengeView.css";
 import { useRecoilState } from "recoil";
 import {loginState, userState} from "../../staticComponent/state";
@@ -25,22 +24,6 @@ function ChallengeView(){
     filename: '',
   });
   
-  // useEffect(()=>{
-  //     axios({
-  //       method: "GET",
-  //       url: `/${api}/${id}`,
-  //     }).then(res=>{
-  //       setView({
-  //         ...view,
-  //         title: res.data.data.title,
-  //         contents: res.data.data.contents,
-  //         filename: res.data.data.imageFileName,
-  //       });
-  //     }).catch(e=>{
-  //       <ErrorPage/>
-  //     })
-  // },[]);
-
   const onApprove=()=>{
     axios({
       method: 'POST',
@@ -87,7 +70,6 @@ function ChallengeView(){
       method: 'GET',
       responseType: 'blob',
     }).then(res=>{
-      console.log(res);
       const myFile = new File([res.data], 'imgName');
       const reader = new FileReader();
       reader.onload= ev=>{
@@ -104,8 +86,7 @@ function ChallengeView(){
   const handleJoin = ()=>{
     if(window.confirm('해당 챌린지에 참여하시겠습니까?')){
       navigate('/record',{state: id});
-    }
-    
+    } 
   }
 
   return(
@@ -124,8 +105,6 @@ function ChallengeView(){
         {api === 'challenge'&&
         <div>
           <button className="challenge_join" onClick={handleJoin}>참여하기</button>
-            {/* <button className="challenge_join" onClick={()=>{HandleModal(true)}}>참여하기</button>
-            {isModalOn && <ChargeMoney setIsModalOn={HandleModal}/>} */}
         </div>}
         <div className="manager_admin">
           {user === '관리자' &&

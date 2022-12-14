@@ -67,10 +67,6 @@ input:focus{
   .board_file{
     margin-left: 33%;
   }
-  .post_btn{
-    /* margin-left: 45%; */
-    /* margin: auto; */
-  }
   .board_title, .board_contents{
     margin: auto;
     margin-top: 15px;

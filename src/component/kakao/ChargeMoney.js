@@ -1,7 +1,6 @@
-import { useState,useRef, useEffect } from "react";
+import { useState } from "react";
 import styles from "../LoginModal.module.css"
-import {Link, useNavigate} from 'react-router-dom';
-import axios from "axios";
+import { useNavigate} from 'react-router-dom';
 import { BsXLg } from 'react-icons/bs';
 import PayReady from "./PayReady";
 import { useRecoilState } from "recoil";
@@ -10,7 +9,6 @@ import { userState } from "../../staticComponent/state";
 //모달 페이지
 function ChargeMoney(props){
   const [user, setUser] = useRecoilState(userState);
-  console.log(props.distance);
   const distance = props.distance*1000;
   const [money, setMoney] = useState(distance);  //1km에 1000원씩
   const navigate = useNavigate();
@@ -19,10 +17,6 @@ function ChargeMoney(props){
     props.setIsModalOn(false);
   };
 
-  // const handleInputMoney =(e)=>{
-  //   setMoney(e.target.value);
-  // }
-  
   return(
     <>
     <div className={styles.chargemoney}>
