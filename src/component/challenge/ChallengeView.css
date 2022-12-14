@@ -79,22 +79,9 @@
     margin-left: 10%;
   }
   .view_img{
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    margin: auto;
-    margin-top: 50px;
+    margin-left: 10%;
   }
-  .manager_admin{
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-  }
-  .challenge_join{
-    display: block;
-    margin: auto;
-    margin-bottom: 50px;
+  .challenge_remove{
+    margin-left: 20%;
   }
 }

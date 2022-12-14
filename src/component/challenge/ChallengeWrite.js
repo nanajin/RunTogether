@@ -49,7 +49,7 @@ function ChallengeWrite(){
       alert("글 게시 성공!");
       navigate("/challenge");
     }).catch(e=>{
-      alert(e);
+      <ErrorPage/>
     })
   };
   
