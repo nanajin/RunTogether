@@ -52,8 +52,8 @@ Javascript 기반 React 웹 프로젝트 'Run Together'입니다!
 > - 각 메뉴에 따른 카드형 메뉴
 <br/>
 <p align="center">
-  <img width="20%" height="40%" src=""/>
-  <img width="20%" height="40%" src="" />
+  <img width="50%" height="50%" src="https://user-images.githubusercontent.com/98149590/225905946-309b9042-af7b-480b-9af6-d7aff570e947.png"/>
+  <img width="40%" height="40%" src="https://user-images.githubusercontent.com/98149590/225906014-cc0829ad-ae9d-46aa-ae35-32fbe655037a.png" />
 </p>
 
 - **로그인, 회원가입 페이지**
@@ -62,19 +62,17 @@ Javascript 기반 React 웹 프로젝트 'Run Together'입니다!
 > - 관리자 계정 따로 존재
 <br/>
 <p align="center">
-  <img width="20%" height="40%" src="" />
-  <img width="20%" height="40%" src="" />
+  <img width="50%" height="50%" src="https://user-images.githubusercontent.com/98149590/225906172-4c89d8f8-494a-4acf-b121-3d79ac156c04.png" />
 </p>
 
 - **챌린지 메인 페이지**
-> - 메인 화면은 관리자가 승인해준 챌린지만 나타남
+> - 메인 화면은 관리자가 승인해준 챌린지만 나타남(2번째 사진은 관리자에게 허용된 페이지)
 > - 챌린지 제안 게시판 버튼을 클릭하면 해당 페이지로 연결
 > - 하고 싶은 챌린지를 선택해 참여하기를 누르면 런닝 기록 페이지로 연결
 <br/>
 <p align="center">
-  <img width="20%" height="40%" src=""/>
-  <img width="20%" height="40%" src=""/>
-  <img width="20%" height="40%" src=""/>
+  <img width="40%" height="40%" src="https://user-images.githubusercontent.com/98149590/225906289-9282c085-6ba9-4824-9c7c-9c42ba16772b.png"/>
+  <img width="40%" height="40%" src="https://user-images.githubusercontent.com/98149590/225906610-91b5a11e-47fa-4098-854b-64374f0bab56.png"/>
 </p>
 
 - **챌린지 게시판 페이지**
@@ -82,7 +80,7 @@ Javascript 기반 React 웹 프로젝트 'Run Together'입니다!
 > - 글 작성 시에는 챌린지 관련 이미지와 기간, 기부 목표 금액 등 작성
 <br/>
 <p align="center">
-  <img width="20%" height="40%" src=""/>
+  <img width="50%" height="40%" src="https://user-images.githubusercontent.com/98149590/225906380-a79ff37e-5f54-4d3c-9729-2c4d94309109.png"/>
 </p>
 
 - **채팅 페이지**
@@ -91,8 +89,8 @@ Javascript 기반 React 웹 프로젝트 'Run Together'입니다!
 > - 말풍선 버튼 클릭 시 해당 사용자와의 채팅 가능
 <br/>
 <p align="center">
-  <img width="20%" height="40%" src=""/>
-  <img width="20%" height="40%" src=""/>
+  <img width="40%" height="40%" src="https://user-images.githubusercontent.com/98149590/225906854-61fd845a-3115-4aca-88fc-a5b8cafa75f2.png"/>
+  <img width="40%" height="40%" src="https://user-images.githubusercontent.com/98149590/225906874-565dd311-5e27-4750-9420-9de6ad87635e.png"/>
 </p>
 
 - **런닝 기록 페이지**
@@ -102,8 +100,8 @@ Javascript 기반 React 웹 프로젝트 'Run Together'입니다!
 > - 운동한 시간과 속도로 분석 그래프 도출
 <br/>
 <p align="center">
-  <img width="20%" height="40%" src=""/>
-  <img width="20%" height="40%" src=""/>
+  <img width="40%" height="40%" src="https://user-images.githubusercontent.com/98149590/225906946-081883bb-f903-4ecf-94d2-971f7635fc36.png"/>
+  <img width="50%" height="50%" src=""/>
 </p>
 
 - **기부 페이지**
@@ -112,8 +110,8 @@ Javascript 기반 React 웹 프로젝트 'Run Together'입니다!
 >   - 기부는 1km당 1,000원으로 설정
 <br/>
 <p align="center">
-  <img width="20%" height="40%" src=""/>
-  <img width="20%" height="40%" src=""/>
+  <img width="20%" height="40%" src="https://user-images.githubusercontent.com/98149590/225907006-c39c897b-ae76-48ac-8f39-74c5166a0714.png"/>
+  <img width="20%" height="40%" src="https://user-images.githubusercontent.com/98149590/225907020-3781da65-c9c5-41a7-9e95-b560caee963f.png"/>
 </p>
 
 - **마이페이지**
