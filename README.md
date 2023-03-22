@@ -101,7 +101,7 @@ Javascript 기반 React 웹 프로젝트 'Run Together'입니다!
 <br/>
 <p align="center">
   <img width="40%" height="40%" src="https://user-images.githubusercontent.com/98149590/225906946-081883bb-f903-4ecf-94d2-971f7635fc36.png"/>
-  <img width="50%" height="50%" src=""/>
+  <img width="50%" height="50%" src="https://user-images.githubusercontent.com/98149590/226842427-b31239b3-129a-4200-888b-78ffdb397b65.png"/>
 </p>
 
 - **기부 페이지**
@@ -120,9 +120,8 @@ Javascript 기반 React 웹 프로젝트 'Run Together'입니다!
 >   - 상세보기를 누를 시 운동한 시간, 지도 등 보기 가능
 <br/>
 <p align="center">
-  <img width="20%" height="40%" src=""/>
-  <img width="20%" height="40%" src=""/>
-  <img width="20%" height="40%" src=""/>
+  <img width="40%" height="40%" src="https://user-images.githubusercontent.com/98149590/226841899-0d9e3a0d-0e2e-4876-847e-dc97e22e4aa0.png"/>
+  <img width="40%" height="40%" src="https://user-images.githubusercontent.com/98149590/226841968-1ef82cf2-b904-4fa9-8fe2-9edeca36e994.png"/>
 </p>
 
 [**맨 위로 올라가기**](#목차)
